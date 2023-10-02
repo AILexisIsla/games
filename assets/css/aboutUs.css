@@ -1,0 +1,20 @@
+.aboutUs1{
+    padding-top: 20vh;
+    padding-bottom: 15vh;
+    background-color: var(--cultured-2);
+    text-align: center;
+}
+
+.aboutUs1 h1 {
+    font-family: var(--ff-oxanium);
+    font-size: 3rem;
+    font-weight: var(--fw-800);
+}
+
+.aboutUs1::after {
+    content: url(../images/title-underline.png);
+    position: absolute;
+    top: 39%;
+    left: 50%;
+    transform: translateX(-50%);
+}
