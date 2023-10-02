@@ -51,3 +51,28 @@ window.addEventListener("scroll", function () {
     backTopBtn.classList.remove("active");
   }
 });
+
+
+/**
+ * sliders
+ */
+
+const carousel = document.querySelector('.has-scrollbar');
+const slides = document.querySelectorAll('.scrollbar-item');
+let currentIndex = 0;
+const intervalTime = 3000; // Intervalo en milisegundos (3 segundos en este caso)
+
+function nextSlide() {
+    currentIndex++;
+    if (currentIndex === slides.length) {
+        currentIndex = 0;
+    }
+    updateCarousel();
+}
+
+function updateCarousel() {
+    const translateX = -currentIndex * 310; // Ancho de cada tarjeta más el margen
+    carousel.style.transform = `translateX(${translateX}px)`;
+}
+
+setInterval(nextSlide, intervalTime);
