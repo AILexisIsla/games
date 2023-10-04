@@ -1730,3 +1730,55 @@ font-family: sans-serif;
 font-weight: 300;
 color: var(--light);
 }
+
+
+/*  Video Text 
+
+.video-text {
+  position: relative;
+}
+
+.video-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-text {
+  
+  font-size: 220px;
+  font-family: 400;
+  mix-blend-mode: multiply;
+}
+
+*/
+
+.text-video, 
+.text-video video,
+.text-video h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.text-video {
+  overflow: hidden;
+}
+
+.text-video video {
+  object-fit: cover;
+}
+
+.text-video {
+  font-size: 50vh;
+  text-align: center;
+  background: #ffff;
+  color #000 ;
+  font-weight: 900;
+  mix-blend-mode: screen;
+}
