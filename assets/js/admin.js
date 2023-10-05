@@ -4,7 +4,7 @@ import {
     validarURL,
     validarGeneral,
   } from './validaciones.js';
-  
+  console.log('hola mundo');
   import { Producto } from './productclass.js';
   
   //traer los elementos que necesito del html
@@ -21,7 +21,7 @@ import {
   let campoDestacado = document.getElementById('destacado');
   
   let formProducto = document.getElementById('formProducto');
-  let btnNuevo = document.getElementById('btnNuevo');
+  let nuevoJuego = document.getElementById('nuevoJuego');
   let btnDatosPrueba = document.getElementById('btnDatosPrueba');
   
   let productoExistente = false; //variable bandera: si el productoExistente es false quiero crearlo,
@@ -33,6 +33,7 @@ import {
   
   //asociar un evento a cada elemento obtenido
 
+console.log(campoURL);
 
   function generarCodigo(length) {
     let caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -67,12 +68,12 @@ import {
   
   campoDescripcion.addEventListener('blur', () => {
     console.log('desde descripcion');
-    campoRequerido(campoProducto);
+    campoRequerido(campoDescripcion);
   });
   
   
   formProducto.addEventListener('submit', guardarProducto);
-  btnNuevo.addEventListener('click', limpiarFormulario);
+  nuevoJuego.addEventListener('click', limpiarFormulario);
   btnDatosPrueba.addEventListener('click', cargarDatosPrueba)
   
   //llamo a carga inicial: so tengo productos en localStorage que lo muestre en la tabla de productos
@@ -148,8 +149,8 @@ import {
     campoCategoria.className = 'form-control';
     campoPrecio.className = 'form-control';
     campoDescripcion.className = 'form-control';
-    campoPublicado.className = 'form-checkbox-input';
-    campoDestacado.className = 'form-checkbox-input';
+    campoPublicado.className = 'form-check-input';
+    campoDestacado.className = 'form-check-input';
     //resetear la varibale bandera o booleana para el caso de modificarProducto
     productoExistente = false;
   }
@@ -209,20 +210,17 @@ import {
     </div>
   </li>`;
 
-  if (publicar){
-    let blackStar = document.querySelector('.efectofoto')
-  }else{
-    editarCheckbox (producto.destacado);
-  }
+//   if (publicar){
+//     let blackStar = document.querySelector('.efectofoto')
+//   }else{
+//     editarCheckbox (producto.destacado);
+//   }
   
 
- function editarCheckbox (destacar){
-    let star = document.getElementById('')
-  }
+//  function editarCheckbox (destacar){
+//     let star = document.getElementById('')
+//   }
  }
-
-
-
 
   function cargaInicial() {
     if (listaProductos.length > 0) {

@@ -14,7 +14,7 @@ export const campoRequerido = (input) => {
     }
   };
   
-  const validarNumeros = (input) => {
+  export const validarNumeros = (input) => {
     //vamos a usar o a crear una expresión regular
     let patron = /^[0-9]{1,3}$/;
     //el método test me sirve para comparar un string con el patron y duevuelve true o false si hay match o no
@@ -29,7 +29,7 @@ export const campoRequerido = (input) => {
     }
   };
   
-  const validarURL = (input) => {
+  export const validarURL = (input) => {
     let patron = /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/;
     if (patron.test(input.value)) {
       //cumpla con la expresión regular
@@ -41,7 +41,7 @@ export const campoRequerido = (input) => {
     }
   };
   
-  const validarGeneral = (
+  export  const validarGeneral = (
     campoURL,
     campoCodigo,
     campoNombre,
@@ -73,9 +73,4 @@ export const campoRequerido = (input) => {
   
   //pueden usar export general como el siguiente
   //o anteponer la palabra export en cada definicion de función a exportar
-  export {
-      validarNumeros,
-      validarURL,
-      validarGeneral,
-    }
   

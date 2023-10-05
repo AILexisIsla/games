@@ -461,6 +461,7 @@
                     <button
                       type="button"
                       class="col-6 btn btn skewBg"
+                      id="nuevoJuego"
                       data-bs-toggle="modal"
                       data-bs-target="#NuevoJuego"
                     >
@@ -552,7 +553,7 @@
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    value=""
+                    value="true"
                     id="publicado"
                   />
                   <label for="publicado" class="form-check-label">Publicar</label>
@@ -561,7 +562,7 @@
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    value=""
+                    value="true"
                     id="destacar"
                   />
                   <label for="destacar" class="form-check-label">Destacar</label>
@@ -777,8 +778,8 @@
     <!-- 
     - custom js link
   -->
-    <script src="./assets/js/bootstrap.min.js" defer></script>
-    <script src="./assets/js/admin.js" defer></script>
+    <script src="./assets/js/bootstrap.min.js" ></script>
+    <script type="module" src="./assets/js/admin.js"></script>
 
     <!-- 
     - ionicon link
