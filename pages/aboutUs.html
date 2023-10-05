@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="author"
+      content="Julieta Nahir Ferreyra, Carlos Eduardo Arias, Alexis Ulises Isla, Lain Robles, Juan Pablo Rearte, Gustavo Exequiel Aybar"
+    />
+    <meta name="description" content="" />
+    <meta name="keywords" content="vanilla JS, bootstrap, css" />
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/aboutUs.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <title>theRollingGames - Create Manage Alexis isla</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../1icon.png" type="image/svg+xml" />
+
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--- preload images-->
+  </head>
+
+  <body id="top">
+    <!-- 
+    - #HEADER
+  -->
+
+    <header class="header">
+      <div class="header-top">
+        <div class="container">
+          <div class="countdown-text">
+            Exclusivo Rolling days ! Ofertas
+            <span class="span skewBg">10</span> Dias
+          </div>
+
+          <div class="social-wrapper">
+            <p class="social-title">síguenos en :</p>
+
+            <ul class="social-list">
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-bottom skewBg" data-header>
+        <div class="container">
+          <a href="#" class="logo">Rolling Games</a>
+
+          <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+              <li class="navbar-item">
+                <a href="#home" class="navbar-link skewBg" data-nav-link
+                  >Inicio</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="#live" class="navbar-link skewBg" data-nav-link
+                  >Destacado</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="#features" class="navbar-link skewBg" data-nav-link
+                  >Features</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="#shop" class="navbar-link skewBg" data-nav-link
+                  >Shop</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="#blog" class="navbar-link skewBg" data-nav-link
+                  >Registro</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="#" class="navbar-link skewBg" data-nav-link>Login</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header-actions">
+            <button class="cart-btn" aria-label="cart">
+              <ion-icon name="cart"></ion-icon>
+
+              <span class="cart-badge">0</span>
+            </button>
+
+            <button
+              class="search-btn"
+              aria-label="open search"
+              data-search-toggler
+            >
+              <ion-icon name="search-outline"></ion-icon>
+            </button>
+
+            <button
+              class="nav-toggle-btn"
+              aria-label="toggle menu"
+              data-nav-toggler
+            >
+              <ion-icon name="menu-outline" class="menu"></ion-icon>
+              <ion-icon name="close-outline" class="close"></ion-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 
+    - #SEARCH BOX
+  -->
+
+    <div class="search-container" data-search-box>
+      <div class="input-wrapper">
+        <input
+          type="search"
+          name="search"
+          aria-label="search"
+          placeholder="Search here..."
+          class="search-field"
+        />
+
+        <button
+          class="search-submit"
+          aria-label="submit search"
+          data-search-toggler
+        >
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+
+        <button
+          class="search-close"
+          aria-label="close search"
+          data-search-toggler
+        ></button>
+      </div>
+    </div>
+
+    <main>
+      <article>
+        <div class="container AboutBox">
+          <div class="row">
+            <div class="col-12 us my-5 singleBox">
+              <h1 class="section-title my-3">Nosotros</h1>
+              <div class="py-5">
+                <p>
+                  En el vasto universo de los videojuegos, un grupo de
+                  apasionados se unieron, fusionando sus talentos y experiencias
+                  en un equipo incomparable. Somos cuatro almas inquietas, tres
+                  caballeros y una dama, que han convertido su amor compartido
+                  por los juegos en una misión: llevar la alegría del juego a
+                  cada rincón del mundo. Conocidos en los campos de batalla
+                  virtuales y los mundos digitales, somos jugadores
+                  profesionales que hemos convertido nuestra pasión en un
+                  compromiso. A través de innumerables aventuras, hemos forjado
+                  amistades y rivalidades, hemos explorado reinos desconocidos y
+                  enfrentado desafíos imposibles. Y ahora, estamos aquí para
+                  compartir esa pasión contigo.
+                </p>
+
+                <p>
+                  No se trata solo de vender juegos, sino de compartir
+                  experiencias. Cada título que ofrecemos es una puerta a un
+                  mundo nuevo, una historia emocionante o un desafío épico.
+                  Seleccionamos cuidadosamente cada juego, como un coleccionista
+                  escoge joyas raras, para asegurarnos de que tu aventura sea
+                  inolvidable. Nuestra diversidad de géneros y estilos nos hace
+                  únicos. Desde estrategas maestros hasta tiradores expertos,
+                  desde exploradores de mundos abiertos hasta amantes de
+                  historias conmovedoras, todos estamos aquí para satisfacer tus
+                  deseos de juego.
+                </p>
+
+                <p>
+                  Nos enorgullece ser tu guía en este viaje. Ya sea que busques
+                  la emoción de la competencia en línea o la tranquilidad de una
+                  experiencia de un jugador, estamos aquí para que cada clic sea
+                  emocionante. Tu diversión es nuestra recompensa, y tu
+                  satisfacción es nuestra motivación. Así que únete a nosotros
+                  en este viaje. Descubre nuevos mundos, crea recuerdos
+                  inolvidables y comparte risas y triunfos. Porque, después de
+                  todo, los juegos no son solo una forma de pasar el tiempo, son
+                  una forma de vida. ¡Bienvenido a nuestro mundo!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gtco-testimonials h-100">
+            <h2 class="section-title">Miembros</h2>
+            <div class="owl-carousel owl-carousel1 owl-theme">
+              <div>
+                <div class="card text-center">
+                  <img
+                    class="card-img-top"
+                    src="../assets/images/alexisI.jpeg"
+                    alt="Foto del Director de Adquisiciones de Juegos"
+                  />
+                  <div class="card-body">
+                    <h5>
+                      Alexis Isla<br />
+                      <span> Director de Adquisiciones de Juegos </span>
+                    </h5>
+                    <p class="card-text">
+                      Este experimentado líder es el guardián de nuestra
+                      biblioteca de juegos. Con un profundo conocimiento de la
+                      industria, identifica y adquiere los títulos más
+                      emocionantes para nuestra plataforma, asegurando que
+                      siempre tengas acceso a las últimas y mejores experiencias
+                      de juego.
+                    </p>
+                    <div>
+                      <a href="https://github.com/AILexisIsla" target="_blank"
+                        ><i
+                          class="fa-brands fa-github fa-beat-fade fa-2xl"
+                          style="color: #e9a401"
+                        ></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="card text-center">
+                  <img
+                    class="card-img-top"
+                    src="../assets/images/gustavoA.jpg"
+                    alt="Foto del Gerente de Comunidad y Participación"
+                  />
+                  <div class="card-body">
+                    <h5>
+                      Gustavo Aybar<br />
+                      <span> Gerente de Comunidad y Participación </span>
+                    </h5>
+                    <p class="card-text">
+                      Este experto en redes sociales y relaciones públicas es el
+                      corazón de nuestra comunidad de jugadores. Organiza
+                      eventos en línea, fomenta la participación y mantiene una
+                      comunicación constante con los miembros para asegurarse de
+                      que tengas una experiencia de juego enriquecedora y
+                      social.
+                    </p>
+                    <div>
+                      <a href="https://github.com/GustavoEAybar" target="_blank"
+                        ><i
+                          class="fa-brands fa-github fa-beat-fade fa-2xl"
+                          style="color: #e9a401"
+                        ></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="card text-center">
+                  <img
+                    class="card-img-top"
+                    src="../assets/images/julietaF.jpg"
+                    alt="Foto de l Directora de Tecnología y Seguridad"
+                  />
+                  <div class="card-body">
+                    <h5>
+                      Julieta Ferreyra<br />
+                      <span> Directora de Tecnología y Seguridad </span>
+                    </h5>
+                    <p class="card-text">
+                      Nuestro líder tecnológico supervisa la infraestructura
+                      detrás de la plataforma. Garantiza que cada transacción
+                      sea segura y que la experiencia de usuario sea fluida.
+                      Este profesional trabaja incansablemente para mantenerte
+                      protegido en el mundo digital de los videojuegos.
+                    </p>
+                    <div>
+                      <a href="https://github.com/LokTedd4000" target="_blank"
+                        ><i
+                          class="fa-brands fa-github fa-beat-fade fa-2xl"
+                          style="color: #e9a401"
+                        ></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="card text-center">
+                  <img
+                    class="card-img-top"
+                    src="../assets/images/eduardoA.jpg"
+                    alt="Foto del Estratega de Precios y Promociones"
+                  />
+                  <div class="card-body">
+                    <h5>
+                      Eduardo Arias<br />
+                      <span> Estratega de Precios y Promociones</span>
+                    </h5>
+                    <p class="card-text">
+                      Este analista de datos altamente cualificado supervisa las
+                      estrategias de precios y promociones. Utiliza análisis
+                      detallados y tendencias del mercado para ofrecerte ofertas
+                      atractivas sin sacrificar la calidad, garantizando así que
+                      obtengas el máximo valor por tu inversión.
+                    </p>
+                    <div>
+                      <a href="https://github.com/cea1986" target="_blank"
+                        ><i
+                          class="fa-brands fa-github fa-beat-fade fa-2xl"
+                          style="color: #e9a401"
+                        ></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card text-center">
+                <img
+                  class="card-img-top"
+                  src="../assets/images/lainR.jpeg"
+                  alt="Foto del Gestor de Contenidos y Comunicaciones"
+                />
+                <div class="card-body">
+                  <h5>
+                    Laín Robles<br />
+                    <span> Gestor de Contenidos y Comunicaciones</span>
+                  </h5>
+                  <p class="card-text">
+                    Este profesional polifacético es el encargado de crear y
+                    mantener el contenido de nuestra plataforma. Desde
+                    descripciones de juegos hasta comunicaciones con los
+                    usuarios, este experto en redacción y diseño garantiza que
+                    tengas acceso a información precisa y atractiva sobre tus
+                    juegos favoritos, así como a actualizaciones regulares sobre
+                    las novedades.
+                  </p>
+                  <div>
+                    <a href="https://github.com/lainrobles" target="_blank"
+                      ><i
+                        class="fa-brands fa-github fa-beat-fade fa-2xl"
+                        style="color: #e9a401"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="newsletter" aria-label="newsletter">
+          <div class="container">
+            <div class="newsletter-card">
+              <h2 class="h2">Our <span class="span">Newsletter</span></h2>
+
+              <form action="" class="newsletter-form">
+                <div class="input-wrapper skewBg">
+                  <input
+                    type="email"
+                    name="email_address"
+                    aria-label="email"
+                    placeholder="Enter your email..."
+                    required
+                    class="email-field"
+                  />
+
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+
+                <button type="submit" class="btn newsletter-btn skewBg">
+                  <span class="span">Suscríbete</span>
+
+                  <ion-icon name="paper-plane" aria-hidden="true"></ion-icon>
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </main>
+
+    <!-- 
+    - #FOOTER
+  -->
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-brand">
+            <a href="#" class="logo">Rolling Games</a>
+
+            <p class="footer-text">
+              Rolling Games marketplace fue fundada en 2023.
+            </p>
+
+            <ul class="contact-list">
+              <li class="contact-item">
+                <div class="contact-icon">
+                  <ion-icon name="location"></ion-icon>
+                </div>
+
+                <address class="item-text">Dirección : Rio Negro</address>
+              </li>
+
+              <li class="contact-item">
+                <div class="contact-icon">
+                  <ion-icon name="headset"></ion-icon>
+                </div>
+
+                <a href="tel:+241245654235" class="item-text"
+                  >Phone : +54 2984 654 235</a
+                >
+              </li>
+
+              <li class="contact-item">
+                <div class="contact-icon">
+                  <ion-icon name="mail-open"></ion-icon>
+                </div>
+
+                <a href="mailto:info@exemple.com" class="item-text"
+                  >Email : alexis.u.isla@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Productos</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Graphics (26)</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Backgrounds (11)</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Fonts (9)</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Music (3)</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Photography (3)</a>
+            </li>
+          </ul>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Necesitas Ayuda?</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms & Conditions</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Privacy Policy</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Refund Policy</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Affiliate</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Use Cases</a>
+            </li>
+          </ul>
+
+          <div class="footer-wrapper">
+            <div class="social-wrapper">
+              <p class="footer-list-title">síguenos en</p>
+
+              <ul class="social-list">
+                <li>
+                  <a
+                    href="#"
+                    class="social-link"
+                    style="background-color: #3b5998"
+                  >
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="#"
+                    class="social-link"
+                    style="background-color: #55acee"
+                  >
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="#"
+                    class="social-link"
+                    style="background-color: #d71e18"
+                  >
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="#"
+                    class="social-link"
+                    style="background-color: #1565c0"
+                  >
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-newsletter">
+              <p class="footer-list-title">Newsletter Sign Up</p>
+
+              <form action="" class="footer-newsletter">
+                <input
+                  type="email"
+                  name="email_address"
+                  aria-label="email"
+                  placeholder="Enter your email"
+                  required
+                  class="email-field"
+                />
+
+                <button type="submit" class="footer-btn" aria-label="submit">
+                  <ion-icon name="rocket"></ion-icon>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p class="copyright">
+            &copy; 2023 Alexis Isla. All Right Reserved by
+            <a href="#" class="copyright-link">Alexis Isla</a>
+          </p>
+
+          <img
+            src="../assets/images/footer-bottom-img.png"
+            width="340"
+            height="21"
+            loading="lazy"
+            alt=""
+            class="footer-bottom-img"
+          />
+        </div>
+      </div>
+    </footer>
+
+    <!-- 
+    - #BACK TO TOP
+  -->
+
+    <a
+      href="#top"
+      class="back-top-btn"
+      aria-label="back to top"
+      data-back-top-btn
+    >
+      <ion-icon name="caret-up"></ion-icon>
+    </a>
+
+    <!-- 
+    - custom js link
+  -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="../assets/js/aboutUs.js"></script>
+    <script
+      src="https://kit.fontawesome.com/f240086186.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- 
+    - ionicon link
+  -->
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
