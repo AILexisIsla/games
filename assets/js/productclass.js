@@ -1,50 +1,74 @@
 export class Producto {
     constructor(
+      parametroUrl,
       parametroCodigo,
-      parametroProducto,
+      parametroNombre,
+      parametroCategoria,
+      parametroPrecio,
       parametroDescripcion,
-      parametroCantidad,
-      parametroUrl
+      parametroPublicado,
+      parametroDestacado,
     ) {
-      this.codigo = parametroCodigo;
-      this.producto = parametroProducto;
-      this.descripcion = parametroDescripcion;
-      this.cantidad = parametroCantidad;
       this.url = parametroUrl;
+      this.codigo = parametroCodigo;
+      this.nombre = parametroNombre;
+      this.categoria = parametroCategoria;
+      this.precio = parametroPrecio;
+      this.descripcion = parametroDescripcion;
+      this.publicado = parametroPublicado;
+      this.destacado = parametroDestacado;
     }
   
     //getters y setters
   
+    get mostrarUrl() {
+      return this.url;
+    }
     get mostrarCodigo() {
       return this.codigo;
     }
-    get mostrarProducto() {
-      return this.producto;
+    get mostrarNombre() {
+      return this.nombre;
+    }
+    get mostrarCategoria() {
+      return this.categoria;
+    }
+    get mostrarPrecio() {
+      return this.precio;
     }
     get mostrarDescripcion() {
       return this.descripcion;
     }
-    get mostrarCantidad() {
-      return this.cantidad;
+    get mostrarPublicado() {
+      return this.publicado;
     }
-    get mostrarUrl() {
-      return this.url;
+    get mostrarDestacado() {
+      return this.destacado;
     }
   
+    set modificarUrl(nuevaUrl) {
+      this.url = nuevaUrl;
+    }
     set modificarCodigo(nuevoCodigo) {
       this.codigo = nuevoCodigo;
     }
-    set modificarProducto(nuevoProducto) {
-      this.producto = nuevoProducto;
+    set modificarNombre(nuevoNombre) {
+      this.nombre = nuevoNombre;
+    }
+    set modificarCategoria(nuevaCategoria) {
+      this.categoria = nuevaCategoria;
+    }
+    set modificarPrecio(nuevoPrecio) {
+      this.precio = nuevoPrecio;
     }
     set modificarDescripcion(nuevoDescripcion) {
       this.descripcion = nuevoDescripcion;
     }
-    set modificarCantidad(nuevoCantidad) {
-      this.cantidad = nuevoCantidad;
+    set modificarPublicado(nuevoPublicado) {
+      this.publicado = nuevoPublicado;
     }
-    set modificarUrl(nuevoUrl) {
-      this.url = nuevoUrl;
+    set modificarDestacado(nuevoDestacado) {
+      this.destacado = nuevoDestacado;
     }
   }
   
