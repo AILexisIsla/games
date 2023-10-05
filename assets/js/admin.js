@@ -8,12 +8,16 @@ import {
   import { Producto } from './productclass.js';
   
   //traer los elementos que necesito del html
-  let campoCodigo = document.getElementById('codigo');
+  // let campoCodigo = document.getElementById('codigo');
   //console.log(campoCodigo);
-  let campoProducto = document.getElementById('producto');
-  let campoDescripcion = document.getElementById('descripcion');
-  let campoCantidad = document.getElementById('cantidad');
   let campoURL = document.getElementById('URL');
+  let campoNombre = document.getElementById('nombre');
+  let campoCategoria = document.getElementById('categoria');
+  let campoPrecio = document.getElementById('precio');
+  let campoDescripcion = document.getElementById('descripcion');
+  let campoPublicado = document.getElementById('publicado');
+  let campoDestacado = document.getElementById('destacado');
+  
   let formProducto = document.getElementById('formProducto');
   let btnNuevo = document.getElementById('btnNuevo');
   let btnDatosPrueba = document.getElementById('btnDatosPrueba');
@@ -27,30 +31,31 @@ import {
   
   //asociar un evento a cada elemento obtenido
   
-  campoCodigo.addEventListener('blur', () => {
+  campoURL.addEventListener('onchange', () => {
+    console.log('desde url');
+    validarURL(campoURL);
+  });
+
+  campoCodigo.addEventListener('onchange', () => {
     console.log('desde codigo');
     campoRequerido(campoCodigo);
   });
   
-  campoProducto.addEventListener('blur', () => {
+  campoProducto.addEventListener('onchange', () => {
     console.log('desde producto');
     campoRequerido(campoProducto);
   });
   
-  campoDescripcion.addEventListener('blur', () => {
+  campoDescripcion.addEventListener('onchenge', () => {
     console.log('desde descripcion');
     campoRequerido(campoProducto);
   });
   
-  campoCantidad.addEventListener('blur', () => {
+  campoCantidad.addEventListener('onchange', () => {
     console.log('desde cantidad');
     validarNumeros(campoCantidad);
   });
   
-  campoURL.addEventListener('blur', () => {
-    console.log('desde url');
-    validarURL(campoURL);
-  });
   
   formProducto.addEventListener('submit', guardarProducto);
   btnNuevo.addEventListener('click', limpiarFormulario);
