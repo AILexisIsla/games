@@ -42,20 +42,22 @@ export const campoRequerido = (input) => {
   };
   
   const validarGeneral = (
+    campoURL,
     campoCodigo,
-    campoProducto,
+    campoNombre,
+    campoCategoria,
+    campoPrecio,
     campoDescripcion,
-    campoCantidad,
-    campoURL
   ) => {
     let alerta = document.querySelector('#mjeAlerta');
     //comprobar que pasen cada una de las validaciones y si no pasan mostrar el alert
     if (
+      validarURL(campoURL) &&
       campoRequerido(campoCodigo) &&
-      campoRequerido(campoProducto) &&
-      campoRequerido(campoDescripcion) &&
-      validarNumeros(campoCantidad) &&
-      validarURL(campoURL)
+      campoRequerido(campoNombre) &&
+      validarNumeros(campoCategoria) &&
+      validarNumeros(campoPrecio) &&
+      campoRequerido(campoDescripcion)
     ) {
       console.log(
         'validación correcta todos los datos están listos para ser enviados'

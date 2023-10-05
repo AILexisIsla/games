@@ -10,6 +10,8 @@ import {
   //traer los elementos que necesito del html
   // let campoCodigo = document.getElementById('codigo');
   //console.log(campoCodigo);
+
+  let campoCodigo = generarCodigo(6);
   let campoURL = document.getElementById('URL');
   let campoNombre = document.getElementById('nombre');
   let campoCategoria = document.getElementById('categoria');
@@ -30,30 +32,42 @@ import {
     JSON.parse(localStorage.getItem('arrayProductosKey')) || [];
   
   //asociar un evento a cada elemento obtenido
+
+
+  function generarCodigo(length) {
+    let caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let codigo = "";
+    for (let i = 0; i < length; i++) {
+      let index = Math.floor(Math.random() * caracteres.length);
+      codigo += caracteres.charAt(index);
+    }
+    return codigo;
+  }
   
-  campoURL.addEventListener('onchange', () => {
+  
+  campoURL.addEventListener('blur', () => {
     console.log('desde url');
     validarURL(campoURL);
   });
 
-  campoCodigo.addEventListener('onchange', () => {
+  campoNombre.addEventListener('blur', () => {
     console.log('desde codigo');
-    campoRequerido(campoCodigo);
+    campoRequerido(campoNombre);
   });
   
-  campoProducto.addEventListener('onchange', () => {
+  campoCategoria.addEventListener('blur', () => {
     console.log('desde producto');
-    campoRequerido(campoProducto);
+    campoRequerido(campoCategoria);
   });
   
-  campoDescripcion.addEventListener('onchenge', () => {
+  campoPrecio.addEventListener('blur', () => {
+    console.log('desde cantidad');
+    validarNumeros(campoPrecio);
+  });
+  
+  campoDescripcion.addEventListener('blur', () => {
     console.log('desde descripcion');
     campoRequerido(campoProducto);
-  });
-  
-  campoCantidad.addEventListener('onchange', () => {
-    console.log('desde cantidad');
-    validarNumeros(campoCantidad);
   });
   
   
@@ -73,11 +87,12 @@ import {
   
     if (
       validarGeneral(
+        campoURL,
         campoCodigo,
-        campoProducto,
+        campoNombre,
+        campoCategoria,
+        campoPrecio,
         campoDescripcion,
-        campoCantidad,
-        campoURL
       )
     ) {
       console.log('los datos correctos listos para enviar');
@@ -97,11 +112,14 @@ import {
     //hacer que el campoCodigo este disable
     //crear un objeto producto
     let productoNuevo = new Producto(
+      campoURL.value,
       campoCodigo.value,
-      campoProducto.value,
+      campoNombre.value,
+      campoCategoria.value,
+      campoPrecio.value,
       campoDescripcion.value,
-      campoCantidad.value,
-      campoURL.value
+      campoPublicado.value,
+      campoDestacado.value
     );
   
     console.log(productoNuevo);
@@ -125,11 +143,13 @@ import {
     //limpiamos los values del formulario
     formProducto.reset();
     //resetear las clases de los input
-    campoCodigo.className = 'form-control';
-    campoProducto.className = 'form-control';
-    campoDescripcion.className = 'form-control';
-    campoCantidad.className = 'form-control';
     campoURL.className = 'form-control';
+    campoNombre.className = 'form-control';
+    campoCategoria.className = 'form-control';
+    campoPrecio.className = 'form-control';
+    campoDescripcion.className = 'form-control';
+    campoPublicado.className = 'form-checkbox-input';
+    campoDestacado.className = 'form-checkbox-input';
     //resetear la varibale bandera o booleana para el caso de modificarProducto
     productoExistente = false;
   }
@@ -139,21 +159,71 @@ import {
   }
   
   function crearFila(producto) {
-    let tablaProducto = document.querySelector('#tablaProducto');
+    let tablaProducto = document.getElementById('catalogo');
     //usamos el operador de asignación por adición para concatenar con lo que ya tengo de contenido
-    tablaProducto.innerHTML += `<tr>
-    <td>${producto.codigo}</td>
-    <td>${producto.producto}</td>
-    <td>${producto.descripcion}</td>
-    <td>${producto.cantidad}</td>
-    <td>${producto.url}</td>
-    <td>
-    <button class='btn btn-warning mb-3' onclick='prepararEdicionProducto("${producto.codigo}")'>Editar</button>
-    <button class='btn btn-danger mb-3' onclick='borrarProducto("${producto.codigo}")'>Eliminar</button>
-    </td>
-  </tr>`;
+    
+    tablaProducto.innerHTML += `<li class="col-sm-12 col-md-4 col-lg-3">
+    <div class="shop-card">
+      <figure
+        class="card-banner img-holder efectofoto"
+        style="--width: 300; --height: 260"
+      >
+        <img
+          src="${producto.url}"
+          width="300"
+          height="260"
+          loading="lazy"
+          alt="Virtual Reality Smiled"
+          class="img-cover"
+        />
+      </figure>
+
+      <div class="card-content">
+        <a href="#" class="card-badge skewBg">${producto.categoria}</a>
+
+        <h3 class="h3">
+          <a href="#" class="card-title">${producto.nombre}</a>
+        </h3>
+        
+        <div class="card-body text-white">
+          <p>Codigo: ${producto.codigo}</p>
+          <p>Descripcion: ${producto.descripcion}</p>
+        </div>
+
+        <div class="card-wrapper">
+          <p class="card-price">ARS$ ${producto.precio}</p>
+        </div>
+        <div class="d-flex justify-content-between">
+        <button class="card-btn" data-bs-toggle="modal"
+        data-bs-target="#NuevoJuego"onclick="prepararEdicionProducto(${producto.codigo})">
+          <img src="./assets/images/Edit_Admin.png" alt="edit">
+        </button>
+        <button class="card-btn"onclick="eliminarJuego(${producto.codigo})">
+          <img src="./assets/images/Delet_Admin.png" alt="delet">
+        </button>
+        <button class="card-btn " onclick="destacarJuego(${producto.codigo})">
+          <img src="./assets/images/Black_Star_Admin.png" alt="highlight">
+        </button>
+        </div>
+      </div>
+    </div>
+  </li>`;
+
+  if (publicar){
+    let blackStar = document.querySelector('.efectofoto')
+  }else{
+    editarCheckbox (producto.destacado);
   }
   
+
+ function editarCheckbox (destacar){
+    let star = document.getElementById('')
+  }
+ }
+
+
+
+
   function cargaInicial() {
     if (listaProductos.length > 0) {
       //crear filas
@@ -180,11 +250,13 @@ import {
     console.log(productoBuscado);
   
     //mostrar el producto en el formulario. No se debe de poder editar le código
-    campoCodigo.value = productoBuscado.codigo;
-    campoProducto.value = productoBuscado.producto;
-    campoDescripcion.value = productoBuscado.descripcion;
-    campoCantidad.value = productoBuscado.cantidad;
     campoURL.value = productoBuscado.url;
+    campoNombre.value = productoBuscado.nombre;
+    campoCategoria.value = productoBuscado.categoria;
+    campoPrecio.value = productoBuscado.precio;
+    campoDescripcion.value = productoBuscado.descripcion;
+    campoPublicado.value = productoBuscado.publicado;
+    campoDestacado.value = productoBuscado.destacado;
   
     //modifico la variable bandera productoExistente
     productoExistente = true;

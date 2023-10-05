@@ -266,9 +266,9 @@
                 <button class="skewBg p-3 m-1">Y</button>
                 <button class="skewBg p-3 m-1">Z</button>
               </div>
-              <section class="m-5 pt-5">
-                <ul class="has-scrollbar">
-                  <li class="scrollbar-item">
+              <section class="container">
+                <ul class="row" id="catalogo">
+                  <li class="col-sm-12 col-md-4 col-lg-3">
                     <div class="shop-card">
                       <figure
                         class="card-banner img-holder"
@@ -300,20 +300,21 @@
                           <p class="card-price">ARS$ 12.958,00</p>
                         </div>
                         <div class="d-flex justify-content-between">
-                          <button class="card-btn">
+                          <button class="card-btn" data-bs-toggle="modal"
+                          data-bs-target="#NuevoJuego"onclick="prepararEdicionProducto(a25fc88)">
                             <img src="./assets/images/Edit_Admin.png" alt="edit">
                           </button>
-                          <button class="card-btn">
+                          <button class="card-btn"onclick="eliminarJuego(a25fc88)">
                             <img src="./assets/images/Delet_Admin.png" alt="delet">
                           </button>
-                          <button class="card-btn " onclick="destacado(codigo)">
-                            <img src="./assets/images/Star_Admin.png" alt="highlight">
+                          <button class="card-btn " onclick="destacarJuego(a25fc88)">
+                            <img src="./assets/images/Black_Star_Admin.png" alt="highlight">
                           </button>
                         </div>
                       </div>
                     </div>
                   </li>
-                  <li class="scrollbar-item">
+                 <li class="col-sm-12 col-md-4 col-lg-3">
                     <div class="shop-card">
                       <figure
                         class="card-banner img-holder"
@@ -359,7 +360,7 @@
                       </div>
                     </div>
                   </li>
-                  <li class="scrollbar-item">
+                 <li class="col-sm-12 col-md-4 col-lg-3">
                     <div class="shop-card">
                       <figure
                         class="card-banner img-holder"
@@ -405,10 +406,10 @@
                       </div>
                     </div>
                   </li>
-                  <li class="scrollbar-item">
+                 <li class="col-sm-12 col-md-4 col-lg-3">
                     <div class="shop-card">
                       <figure
-                        class="card-banner img-holder"
+                        class="card-banner img-holder  efectofoto"
                         style="--width: 300; --height: 260"
                       >
                       <img
@@ -418,24 +419,19 @@
                       loading="lazy"
                       alt="GeForce RTX 2070"
                       class="img-cover"
-                    />
+                      />
                       </figure>
-
                       <div class="card-content">
                         <a href="#" class="card-badge skewBg">AVENTURA</a>
-
                         <h3 class="h3">
                           <a href="#" class="card-title">Baldur's Gate 3</a>
                         </h3>
-                        
                         <div class="card-body text-white">
                           <p>Codigo: a25fc88</p>
                           <p>Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, sequi!...</p>
                         </div>
-                        
                         <div class="card-wrapper">
                           <p class="card-price">ARS$ 9.999,00</p>
-
                         </div>
                         <div class="d-flex justify-content-between">
                           <button class="card-btn">
@@ -484,32 +480,19 @@
     </main>
 
     <!-- #MODAL-NUEVO-->
-
-   <!--  <div
-      class="modal fade"
-      id="NuevoJuego"
-      aria-hidden="true"
-      aria-labelledby="NuevoJuegoLabel"
-      tabindex="-1"
-    >
-      <div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="NuevoJuego" tabindex="-1" aria-labelledby="NuevoJuegoLabel" aria-hidden="true">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title" id="NuevoJuegoLabel">
-              Agregar nuevo juego
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <h1 class="modal-title fs-5" id="NuevoJuegoLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form id="formProducto">
               <div class="mb-3">
                 <label for="URL" class="form-label">URL - Imagen</label>
                 <input
+                  
                   type="text"
                   class="form-control"
                   id="URL"
@@ -519,24 +502,9 @@
                 />
               </div>
               <div class="mb-3">
-                <label for="codigo" class="form-label">Código</label>
-                <input
-                  onchange="valiadarGeneral()"
-                  type="text"
-                  class="form-control"
-                  id="codigo"
-                  placeholder="123"
-                  maxlength="3"
-                  required
-                />
-                <div class="invalid-feedback">
-                  Debe ingresar un código alfanumerico
-                </div>
-              </div>
-              <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input
-                  onchange="valiadarGeneral()"
+                  
                   type="text"
                   class="form-control"
                   id="nombre"
@@ -548,7 +516,7 @@
               <div class="mb-3">
                 <label for="categoria" class="form-label">Categoria</label>
                 <textarea
-                  onchange="valiadarGeneral()"
+                  
                   class="form-control"
                   id="categoria"
                   rows="3"
@@ -559,211 +527,55 @@
               <div class="mb-3">
                 <label for="precio" class="form-label">Precio</label>
                 <input
-                  onchange="valiadarGeneral()"
-                  type="text"
+                  
+                  type="number"
                   class="form-control"
                   id="precio"
-                  placeholder="2"
-                  maxlength="3"
+                  placeholder="200.000"
+                  maxlength="6"
                   required
                 />
               </div>
               <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripcion</label>
                 <textarea
-                  onchange="valiadarGeneral()"
+                  
                   class="form-control"
                   id="descripcion"
                   rows="3"
-                  maxlength="50"
+                  maxlength="500"
                   required
                 ></textarea>
               </div>
-              <div class="mb-3">
-                <label for="publicado" class="form-label">Publicar</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="publicado"
-                  placeholder="https://127.0.0.1:8000/image.jpg"
-                  maxlength="200"
-                  required
-                />
+              <div class="d-flex justify-content-around m-3">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="publicado"
+                  />
+                  <label for="publicado" class="form-check-label">Publicar</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="destacar"
+                  />
+                  <label for="destacar" class="form-check-label">Destacar</label>
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="destacar" class="form-label">Destacar</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="destacar"
-                  placeholder="https://127.0.0.1:8000/image.jpg"
-                  maxlength="200"
-                  required
-                />
-              </div>
-              <button type="submit" class="btn btn-primary">Guardar</button>
-            </form>
-            <div
-              class="alert alert-danger my-3 d-none"
-              role="alert"
-              id="mjeAlerta"
-            >
-              Debe completar todos los campos requeridos
             </div>
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          </form>
           </div>
-          <div class="modal-footer">
-            <button
-              type="submit"
-              form="formProducto"
-              class="btn bg text-bg-light"
-              data-bs-target="#Confirmacion"
-              data-bs-toggle="modal"
-            >
-              Guardar
-            </button>
-          </div>
+        <div class="modal-footer">
         </div>
       </div>
     </div>
-    <div
-      class="modal fade"
-      id="Confirmacion"
-      aria-hidden="true"
-      aria-labelledby="ConfirmacionLaberl"
-      tabindex="-1"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1
-              class="modal-title bg-danger h-100 w-100 m-0 text-center"
-              id="ConfirmacionLaberl"
-            >
-              Alerta
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            Esta seguro que desea guardar los datos? este contenido podra
-            editarce posteriormente.
-          </div>
-          <div class="modal-footer">
-            <button
-              class="btn bg text-bg-light"
-              data-bs-target="#NuevoJuego"
-              data-bs-toggle="modal"
-            >
-              volver
-            </button>
-            <button class="btn bg text-bg-light">Confirmar</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <div class="modal fade" id="NuevoJuego" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="NuevoJuego" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="NuevoJuego">Nuevo Juego</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body m-2">
-            <form id="formProducto">
-                <div class="mb-3">
-                  <label for="URL" class="form-label">URL - Imagen</label>
-                  <input
-                    onchange="valiadarGeneral()"
-                    type="text"
-                    class="form-control"
-                    id="URL"
-                    placeholder="https://127.0.0.1:8000/image.jpg"
-                    maxlength="200"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="nombre" class="form-label">Nombre</label>
-                  <input
-                    onchange="valiadarGeneral()"
-                    type="text"
-                    class="form-control"
-                    id="nombre"
-                    placeholder="Ej: Iron Man"
-                    maxlength="30"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="categoria" class="form-label">Categoria</label>
-                  <textarea
-                    onchange="valiadarGeneral()"
-                    class="form-control"
-                    id="categoria"
-                    rows="3"
-                    maxlength="50"
-                    required
-                  ></textarea>
-                </div>
-                <div class="mb-3">
-                  <label for="precio" class="form-label">Precio</label>
-                  <input
-                    onchange="valiadarGeneral()"
-                    type="number"
-                    class="form-control"
-                    id="precio"
-                    placeholder="200.000"
-                    maxlength="6"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="descripcion" class="form-label">Descripcion</label>
-                  <textarea
-                    onchange="valiadarGeneral()"
-                    class="form-control"
-                    id="descripcion"
-                    rows="3"
-                    maxlength="500"
-                    required
-                  ></textarea>
-                </div>
-                <div class="d-flex justify-content-around m-3">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="publicado"
-                    />
-                    <label for="publicado" class="form-check-label">Publicar</label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="destacar"
-                    />
-                    <label for="destacar" class="form-check-label">Destacar</label>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="submit" from="" class="btn btn-primary">Guardar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+  </div>
     <!-- 
     - #FOOTER
   -->
