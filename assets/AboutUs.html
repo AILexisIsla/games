@@ -7,8 +7,13 @@
     <meta name="author" content="Julieta Nahir Ferreyra, Carlos Eduardo Arias, Alexis Ulises Isla, Lain Robles, Juan Pablo Rearte, Gustavo Exequiel Aybar">
     <meta name="description" content="">
     <meta name="keywords" content="vanilla JS, bootstrap, css">
+
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    
     <title>theRollingGames - Create Manage Alexis isla</title>
+
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>
     
   </head>
 
@@ -187,8 +192,8 @@
         <div class="container AboutBox">
           <div class="row">
             <div class="col-12 us my-5 singleBox">
-              <h1>Nosotros</h1>
-              <div>
+              <h1 class="section-title my-3">Nosotros</h1>
+              <div class="py-5">
                 <p>
                   En el vasto universo de los videojuegos, un grupo de apasionados se unieron, fusionando sus talentos y experiencias en un equipo incomparable. Somos cuatro almas inquietas, tres caballeros y una dama, que han convertido su amor compartido por los juegos en una misión: llevar la alegría del juego a cada rincón del mundo.
                   Conocidos en los campos de batalla virtuales y los mundos digitales, somos jugadores profesionales que hemos convertido nuestra pasión en un compromiso. A través de innumerables aventuras, hemos forjado amistades y rivalidades, hemos explorado reinos desconocidos y enfrentado desafíos imposibles. Y ahora, estamos aquí para compartir esa pasión contigo. </p>
@@ -199,31 +204,78 @@
                 </p>
               </div>
             </div>
-            <div class="col-3 marioBros">
-              
-            </div>
-            <div class="col-3">
-              2
-            </div>
-            <div class="col-3">
-              3
-            </div>
-            <div class="col-3">
-              4
-            </div>
+            
 
+              <div class="col-3" id="marioBros"></div>
+              <div class="col-3">
+                2
+              </div>
+              <div class="col-3">
+                3
+              </div>
+              <div class="col-3">
+                4
+              </div>
           </div>
-          <div class="row">
-            <div class="col">
-              1 of 3
-            </div>
-            <div class="col">
-              2 of 3
-            </div>
-            <div class="col">
-              3 of 3
+
+
+          <div class="gtco-testimonials">
+            <h2>Miembros</h2>
+            <div class="owl-carousel owl-carousel1 owl-theme">
+              <div>
+                <div class="card text-center"><img class="card-img-top" src="./images/alexisI.jpeg" alt="Foto del Director de Adquisiciones de Juegos">
+                  <div class="card-body">
+                    <h5>Alexis Isla<br />
+                      <span> Director de Adquisiciones de Juegos </span>
+                    </h5>
+                    <p class="card-text">Este experimentado líder es el guardián de nuestra biblioteca de juegos. Con un profundo conocimiento de la industria, identifica y adquiere los títulos más emocionantes para nuestra plataforma, asegurando que siempre tengas acceso a las últimas y mejores experiencias de juego.</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="card text-center"><img class="card-img-top" src="./images/gustavoA.jpg" alt="Foto del Gerente de Comunidad y Participación">
+                  <div class="card-body">
+                    <h5>Gustavo Aybar<br />
+                      <span> Gerente de Comunidad y Participación </span>
+                    </h5>
+                    <p class="card-text">Este experto en redes sociales y relaciones públicas es el corazón de nuestra comunidad de jugadores. Organiza eventos en línea, fomenta la participación y mantiene una comunicación constante con los miembros para asegurarse de que tengas una experiencia de juego enriquecedora y social.</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="card text-center"><img class="card-img-top" src="./images/julietaF.jpg" alt="Foto de l Directora de Tecnología y Seguridad">
+                  <div class="card-body">
+                    <h5>Julieta Ferreyra<br />
+                      <span> Directora de Tecnología y Seguridad </span>
+                    </h5>
+                    <p class="card-text">Nuestro líder tecnológico supervisa la infraestructura detrás de la plataforma. Garantiza que cada transacción sea segura y que la experiencia de usuario sea fluida. Este profesional trabaja incansablemente para mantenerte protegido en el mundo digital de los videojuegos.</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="card text-center"><img class="card-img-top" src="./images/eduardoA.jpg" alt="Foto del Estratega de Precios y Promociones">
+                  <div class="card-body">
+                    <h5>Eduardo Arias<br />
+                      <span > Estratega de Precios y Promociones</span>
+                    </h5>
+                    <p class="card-text">Este analista de datos altamente cualificado supervisa las estrategias de precios y promociones. Utiliza análisis detallados y tendencias del mercado para ofrecerte ofertas atractivas sin sacrificar la calidad, garantizando así que obtengas el máximo valor por tu inversión.</p>
+                  </div>
+                </div>
+              </div>
+                <div class="card text-center"><img class="card-img-top" src="./images/lainR.jpeg" alt="Foto del Gestor de Contenidos y Comunicaciones">
+                  <div class="card-body">
+                    <h5>Laín Ruiz<br />
+                      <span > Gestor de Contenidos y Comunicaciones</span>
+                    </h5>
+                    <p class="card-text">Este profesional polifacético es el encargado de crear y mantener el contenido de nuestra plataforma. Desde descripciones de juegos hasta comunicaciones con los usuarios, este experto en redacción y diseño garantiza que tengas acceso a información precisa y atractiva sobre tus juegos favoritos, así como a actualizaciones regulares sobre las novedades.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+
+
         </div>
         
 
@@ -461,11 +513,14 @@
     <!-- 
     - custom js link
   -->
-    <script src="../assets/js/script.js" defer></script>
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js'></script>
+    <script  src="./js/aboutUs.js"></script>
 
     <!-- 
     - ionicon link
   -->
+    
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
