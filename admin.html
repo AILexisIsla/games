@@ -1,24 +1,1031 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="author" content="Julieta Nahir Ferreyra, Carlos Eduardo Arias, Alexis Ulises Isla, Lain Robles, Juan Pablo Rearte, Gustavo Exequiel Aybar">
-    <meta name="description" content="">
-    <meta name="keywords" content="vanilla JS, bootstrap, css">
+    <meta
+      name="author"
+      content="Julieta Nahir Ferreyra, Carlos Eduardo Arias, Alexis Ulises Isla, Lain Robles, Juan Pablo Rearte, Gustavo Exequiel Aybar"
+    />
+    <meta name="description" content="pagina web con un catalogo de juegos" />
+    <meta name="keywords" content="vanilla JS, bootstrap, css" />
 
-    <link rel="icon" href="images/icon.png" type="image/png">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>TheRollingGames</title>
-</head>
-<body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/admin.js"></script>
-</body>
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>theRollingGames</title>
+  </head>
+
+  <body id="top">
+    <header class="header">
+      <div class="header-top">
+        <div class="container">
+          <div class="countdown-text">
+            Exclusivo Rolling days ! Ofertas
+            <span class="span skewBg">10</span> Dias
+          </div>
+
+          <div class="social-wrapper">
+            <p class="social-title">síguenos en :</p>
+
+            <ul class="social-list">
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-bottom skewBg" data-header>
+        <div class="container">
+          <a href="#" class="logo">Rolling Games</a>
+          <a href="#" class="logo" id="logoAdmin"> ⭐ </a>
+
+          <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+              <li class="navbar-item">
+                <a href="admin.html" class="navbar-link skewBg" data-nav-link
+                  >Administracion</a
+                >
+              </li>
+              <li class="navbar-item">
+                <a href="index.html" class="navbar-link skewBg" data-nav-link
+                  >Inicio</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="index.html" class="navbar-link skewBg" data-nav-link
+                  >Destacado</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="index.html" class="navbar-link skewBg" data-nav-link
+                  >Features</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="index.html" class="navbar-link skewBg" data-nav-link
+                  >Shop</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="index.html" class="navbar-link skewBg" data-nav-link
+                  >Login</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- #CATALOGO -->
+      <article>
+        <section
+          class="section shop"
+          id="shop"
+          aria-label="shop"
+          style="background-image: url('./assets/images/shop-bg.jpg')"
+        >
+          <div class="container">
+            <section class="section brand mt-5" aria-label="brand">
+              <h2 class="h2 section-title d-flex justify-content-center">
+                <span class="span">Catalogo</span>
+              </h2>
+              <div class="container mt-5">
+                <ul class="has-scrollbar">
+                  <li class="brand-item">
+                    <img
+                      src="./assets/images/brand-1.png"
+                      width="90"
+                      height="90"
+                      loading="lazy"
+                      alt="brand logo"
+                    />
+                  </li>
+
+                  <li class="brand-item">
+                    <img
+                      src="./assets/images/brand-2.png"
+                      width="90"
+                      height="90"
+                      loading="lazy"
+                      alt="brand logo"
+                    />
+                  </li>
+
+                  <li class="brand-item">
+                    <img
+                      src="./assets/images/brand-3.png"
+                      width="90"
+                      height="90"
+                      loading="lazy"
+                      alt="brand logo"
+                    />
+                  </li>
+
+                  <li class="brand-item">
+                    <img
+                      src="./assets/images/brand-4.png"
+                      width="90"
+                      height="90"
+                      loading="lazy"
+                      alt="brand logo"
+                    />
+                  </li>
+
+                  <li class="brand-item">
+                    <img
+                      src="./assets/images/brand-5.png"
+                      width="90"
+                      height="90"
+                      loading="lazy"
+                      alt="brand logo"
+                    />
+                  </li>
+
+                  <li class="brand-item">
+                    <img
+                      src="./assets/images/brand-6.png"
+                      width="90"
+                      height="90"
+                      loading="lazy"
+                      alt="brand logo"
+                    />
+                  </li>
+                </ul>
+              </div>
+              <div class="section-text d-flex justify-content-center">
+                <button class="skewBg p-3 m-1">A</button>
+                <button class="skewBg p-3 m-1">B</button>
+                <button class="skewBg p-3 m-1">C</button>
+                <button class="skewBg p-3 m-1">D</button>
+                <button class="skewBg p-3 m-1">E</button>
+                <button class="skewBg p-3 m-1">F</button>
+                <button class="skewBg p-3 m-1">G</button>
+                <button class="skewBg p-3 m-1">H</button>
+                <button class="skewBg p-3 m-1">I</button>
+                <button class="skewBg p-3 m-1">J</button>
+                <button class="skewBg p-3 m-1">K</button>
+                <button class="skewBg p-3 m-1">L</button>
+                <button class="skewBg p-3 m-1">M</button>
+                <button class="skewBg p-3 m-1">N</button>
+                <button class="skewBg p-3 m-1">O</button>
+                <button class="skewBg p-3 m-1">P</button>
+                <button class="skewBg p-3 m-1">Q</button>
+                <button class="skewBg p-3 m-1">R</button>
+                <button class="skewBg p-3 m-1">S</button>
+                <button class="skewBg p-3 m-1">T</button>
+                <button class="skewBg p-3 m-1">U</button>
+                <button class="skewBg p-3 m-1">V</button>
+                <button class="skewBg p-3 m-1">W</button>
+                <button class="skewBg p-3 m-1">X</button>
+                <button class="skewBg p-3 m-1">Y</button>
+                <button class="skewBg p-3 m-1">Z</button>
+              </div>
+              <section class="container d-flex justify-content-center">
+                <button class="skewBg p-5" id="Catalogo">↓</button>
+              </section>
+              <section class="m-5 pt-5">
+                <ul class="has-scrollbar">
+                  <li class="scrollbar-item">
+                    <div class="shop-card">
+                      <figure
+                        class="card-banner img-holder"
+                        style="--width: 300; --height: 260"
+                      >
+                        <img
+                          src="./assets/images/shop-img-1.jpg"
+                          width="300"
+                          height="260"
+                          loading="lazy"
+                          alt="Women Black T-Shirt"
+                          class="img-cover"
+                        />
+                      </figure>
+
+                      <div class="card-content">
+                        <a href="#" class="skewBg p-3">VENTURA</a>
+
+                        <h3 class="h3">
+                          <a href="#" class="card-title">Grounded</a>
+                        </h3>
+
+                        <div class="card-wrapper">
+                          <p class="card-price">ARS$ 5.359,33</p>
+
+                          <button class="card-btn">
+                            <ion-icon name="basket"></ion-icon>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="scrollbar-item">
+                    <div class="shop-card">
+                      <figure
+                        class="card-banner img-holder"
+                        style="--width: 300; --height: 260"
+                      >
+                        <img
+                          src="./assets/images/shop-img-2.jpg"
+                          width="300"
+                          height="260"
+                          loading="lazy"
+                          alt="Gears 5 Xbox Controller"
+                          class="img-cover"
+                        />
+                      </figure>
+
+                      <div class="card-content">
+                        <a href="#" class="skewBg p-3">VENTURA</a>
+
+                        <h3 class="h3">
+                          <a href="#" class="card-title">Lies of P</a>
+                        </h3>
+
+                        <div class="card-wrapper">
+                          <p class="card-price">ARS$ 11.999,00</p>
+
+                          <button class="card-btn">
+                            <ion-icon name="basket"></ion-icon>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="scrollbar-item">
+                    <div class="shop-card">
+                      <figure
+                        class="card-banner img-holder"
+                        style="--width: 300; --height: 260"
+                      >
+                        <img
+                          src="./assets/images/shop-img-3.jpg"
+                          width="300"
+                          height="260"
+                          loading="lazy"
+                          alt="GeForce RTX 2070"
+                          class="img-cover"
+                        />
+                      </figure>
+
+                      <div class="card-content">
+                        <a href="#" class="card-badge skewBg">AVENTURA</a>
+
+                        <h3 class="h3">
+                          <a href="#" class="card-title">Baldur's Gate 3</a>
+                        </h3>
+
+                        <div class="card-wrapper">
+                          <p class="card-price">ARS$ 9.999,00</p>
+
+                          <button class="card-btn">
+                            <ion-icon name="basket"></ion-icon>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="scrollbar-item">
+                    <div class="shop-card">
+                      <figure
+                        class="card-banner img-holder"
+                        style="--width: 300; --height: 260"
+                      >
+                        <img
+                          src="./assets/images/shop-img-4.jpg"
+                          width="300"
+                          height="260"
+                          loading="lazy"
+                          alt="Virtual Reality Smiled"
+                          class="img-cover"
+                        />
+                      </figure>
+
+                      <div class="card-content">
+                        <a href="#" class="card-badge skewBg">AVENTURA</a>
+
+                        <h3 class="h3">
+                          <a href="#" class="card-title">Resident Evil 4</a>
+                        </h3>
+
+                        <div class="card-wrapper">
+                          <p class="card-price">ARS$ 12.958,00</p>
+
+                          <button class="card-btn">
+                            <ion-icon name="basket"></ion-icon>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </section>
+            </section>
+          </div>
+        </section>
+        <!-- #DESTACADOS -->
+        <section
+          class="section featured-game"
+          id="features"
+          aria-label="featured game"
+        >
+          <div class="container">
+            <h2 class="h2 section-title">
+              <span class="span">DESTACADOS</span>
+            </h2>
+            <ul class="has-scrollbar">
+              <li class="scrollbar-item">
+                <div class="featured-game-card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="--width: 450; --height: 600"
+                  >
+                    <img
+                      src="./assets/images/featured-game-1.jpg"
+                      width="450"
+                      height="600"
+                      loading="lazy"
+                      alt="Just for Gamers"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div class="card-content">
+                    <h3 class="h3">
+                      <a href="#" class="card-title" tabindex="-1">
+                        Mass Effect™: <span class="span">Andromeda</span>
+                      </a>
+                    </h3>
+
+                    <span class="card-meta">
+                      <ion-icon name="notifications"></ion-icon>
+
+                      <span class="span">Playstation 5, Xbox, PC</span>
+                    </span>
+                  </div>
+
+                  <div class="card-content-overlay">
+                    <img
+                      src="./assets/images/featured-game-icon.png"
+                      width="36"
+                      height="61"
+                      loading="lazy"
+                      alt=""
+                      class="card-icon"
+                    />
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">
+                        Just for <span class="span">Rolling Gamers</span>
+                      </a>
+                    </h3>
+
+                    <span class="card-meta">
+                      <ion-icon name="notifications"></ion-icon>
+
+                      <span class="span">Playstation 5, Xbox, PC</span>
+                    </span>
+                  </div>
+                </div>
+              </li>
+
+              <li class="scrollbar-item">
+                <div class="featured-game-card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="--width: 450; --height: 600"
+                  >
+                    <img
+                      src="./assets/images/featured-game-2.jpg"
+                      width="450"
+                      height="600"
+                      loading="lazy"
+                      alt="Need for Speed"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div class="card-content">
+                    <h3 class="h3">
+                      <a href="#" class="card-title" tabindex="-1">
+                        Need for Speed™ <span class="span">Payback</span>
+                      </a>
+                    </h3>
+
+                    <span class="card-meta">
+                      <ion-icon name="notifications"></ion-icon>
+
+                      <span class="span">Playstation 5, Xbox, PC</span>
+                    </span>
+                  </div>
+
+                  <div class="card-content-overlay">
+                    <img
+                      src="./assets/images/featured-game-icon.png"
+                      width="36"
+                      height="61"
+                      loading="lazy"
+                      alt=""
+                      class="card-icon"
+                    />
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">
+                        Just for <span class="span">Rolling Gamers</span>
+                      </a>
+                    </h3>
+
+                    <span class="card-meta">
+                      <ion-icon name="notifications"></ion-icon>
+
+                      <span class="span">Playstation 5, Xbox, PC</span>
+                    </span>
+                  </div>
+                </div>
+              </li>
+
+              <li class="scrollbar-item">
+                <div class="featured-game-card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="--width: 450; --height: 600"
+                  >
+                    <img
+                      src="./assets/images/featured-game-3.jpg"
+                      width="450"
+                      height="600"
+                      loading="lazy"
+                      alt="Egypt Hunting Gamers"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div class="card-content">
+                    <h3 class="h3">
+                      <a href="#" class="card-title" tabindex="-1">
+                        Assassin's Creed <span class="span">Origins</span>
+                      </a>
+                    </h3>
+
+                    <span class="card-meta">
+                      <ion-icon name="notifications"></ion-icon>
+
+                      <span class="span">Playstation 5, Xbox, PC</span>
+                    </span>
+                  </div>
+
+                  <div class="card-content-overlay">
+                    <img
+                      src="./assets/images/featured-game-icon.png"
+                      width="36"
+                      height="61"
+                      loading="lazy"
+                      alt=""
+                      class="card-icon"
+                    />
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">
+                        Just for <span class="span">Rolling Gamers</span>
+                      </a>
+                    </h3>
+
+                    <span class="card-meta">
+                      <ion-icon name="notifications"></ion-icon>
+
+                      <span class="span">Playstation 5, Xbox, PC</span>
+                    </span>
+                  </div>
+                </div>
+              </li>
+
+              <li class="scrollbar-item">
+                <div class="featured-game-card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="--width: 450; --height: 600"
+                  >
+                    <img
+                      src="./assets/images/featured-game-4.jpg"
+                      width="450"
+                      height="600"
+                      loading="lazy"
+                      alt="Just for Gamers"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div class="card-content">
+                    <h3 class="h3">
+                      <a href="#" class="card-title" tabindex="-1">
+                        Tom Clancy's Ghost Recon
+                        <span class="span">Wildlands</span>
+                      </a>
+                    </h3>
+
+                    <span class="card-meta">
+                      <ion-icon name="notifications"></ion-icon>
+
+                      <span class="span">Playstation 5, Xbox, PC</span>
+                    </span>
+                  </div>
+
+                  <div class="card-content-overlay">
+                    <img
+                      src="./assets/images/featured-game-icon.png"
+                      width="36"
+                      height="61"
+                      loading="lazy"
+                      alt=""
+                      class="card-icon"
+                    />
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">
+                        Just for <span class="span">Rolling Gamers</span>
+                      </a>
+                    </h3>
+
+                    <span class="card-meta">
+                      <ion-icon name="notifications"></ion-icon>
+
+                      <span class="span">Playstation 5, Xbox, PC</span>
+                    </span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- #TABLA PRODUCTOS -->
+        <section>
+          <hr />
+          <div class="container-fluid">
+            <div class="row">
+              <button
+                class="col-6 btn btn skewBg"
+                data-bs-target="#NuevoJuego"
+                data-bs-toggle="modal"
+              >
+                Cargar nuevo juego
+              </button>
+              <button class="col-6 btn btn skewBg" id="btnDatosPrueba">
+                Cargar datos de prueba
+              </button>
+            </div>
+          </div>
+          <hr />
+          <h2 class="display-3 text-center skewBg">Lista de juegos</h2>
+          <div class="table-responsive">
+            <table class="table my-5">
+              <thead>
+                <tr>
+                  <th scope="col">Codigo</th>
+                  <th scope="col">Nombre de juego</th>
+                  <th scope="col">Categoria</th>
+                  <th scope="col">Descripcion</th>
+                  <th scope="col">Publicado</th>
+                  <th scope="col">Acciones</th>
+                  <th scope="col">Destacar</th>
+                </tr>
+              </thead>
+              <tbody id="tablaProducto"></tbody>
+            </table>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <!-- #MODAL-NUEVO-->
+
+    <div
+      class="modal fade"
+      id="NuevoJuego"
+      aria-hidden="true"
+      aria-labelledby="NuevoJuegoLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title" id="NuevoJuegoLabel">
+              Agregar nuevo juego
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="formProducto">
+              <div class="mb-3">
+                <label for="URL" class="form-label">URL - Imagen</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="URL"
+                  placeholder="https://127.0.0.1:8000/image.jpg"
+                  maxlength="200"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="codigo" class="form-label">Código</label>
+                <input
+                  onchange="valiadarGeneral()"
+                  type="text"
+                  class="form-control"
+                  id="codigo"
+                  placeholder="123"
+                  maxlength="3"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Debe ingresar un código alfanumerico
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input
+                  onchange="valiadarGeneral()"
+                  type="text"
+                  class="form-control"
+                  id="nombre"
+                  placeholder="Ej: Iron Man"
+                  maxlength="30"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="categoria" class="form-label">Categoria</label>
+                <textarea
+                  onchange="valiadarGeneral()"
+                  class="form-control"
+                  id="categoria"
+                  rows="3"
+                  maxlength="50"
+                  required
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="precio" class="form-label">Precio</label>
+                <input
+                onchange="valiadarGeneral()"
+                type="text"
+                class="form-control"
+                id="precio"
+                placeholder="2"
+                maxlength="3"
+                required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <textarea
+                  onchange="valiadarGeneral()"
+                  class="form-control"
+                  id="descripcion"
+                  rows="3"
+                  maxlength="50"
+                  required
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="publicado" class="form-label">Publicar</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="publicado"
+                  placeholder="https://127.0.0.1:8000/image.jpg"
+                  maxlength="200"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="destacar" class="form-label">Destacar</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="destacar"
+                  placeholder="https://127.0.0.1:8000/image.jpg"
+                  maxlength="200"
+                  required
+                />
+              </div>
+              <!-- <button type="submit" class="btn btn-primary">Guardar</button> -->
+            </form>
+            <div
+              class="alert alert-danger my-3 d-none"
+              role="alert"
+              id="mjeAlerta"
+            >
+              Debe completar todos los campos requeridos
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="submit"
+              form="formProducto"
+              class="btn bg text-bg-light"
+              data-bs-target="#Confirmacion"
+              data-bs-toggle="modal"
+              
+            >
+              Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="Confirmacion"
+      aria-hidden="true"
+      aria-labelledby="ConfirmacionLaberl"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title bg-danger h-100 w-100 m-0 text-center " id="ConfirmacionLaberl">Alerta</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Esta seguro que desea guardar los datos? este contenido podra
+            editarce posteriormente.
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn bg text-bg-light"
+              data-bs-target="#NuevoJuego"
+              data-bs-toggle="modal"
+            >
+              volver
+            </button>
+            <button class="btn bg text-bg-light">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
+    - #FOOTER
+  -->
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-brand">
+            <a href="#" class="logo">Rolling Games</a>
+
+            <p class="footer-text">
+              Rolling Games marketplace fue fundada en 2023.
+            </p>
+
+            <ul class="contact-list">
+              <li class="contact-item">
+                <div class="contact-icon">
+                  <ion-icon name="location"></ion-icon>
+                </div>
+
+                <address class="item-text">Dirección : Rio Negro</address>
+              </li>
+
+              <li class="contact-item">
+                <div class="contact-icon">
+                  <ion-icon name="headset"></ion-icon>
+                </div>
+
+                <a href="tel:+241245654235" class="item-text"
+                  >Phone : +54 2984 654 235</a
+                >
+              </li>
+
+              <li class="contact-item">
+                <div class="contact-icon">
+                  <ion-icon name="mail-open"></ion-icon>
+                </div>
+
+                <a href="mailto:info@exemple.com" class="item-text"
+                  >Email : alexis.u.isla@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Productos</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Graphics (26)</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Backgrounds (11)</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Fonts (9)</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Music (3)</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Photography (3)</a>
+            </li>
+          </ul>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Necesitas Ayuda?</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms & Conditions</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Privacy Policy</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Refund Policy</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Affiliate</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Use Cases</a>
+            </li>
+          </ul>
+
+          <div class="footer-wrapper">
+            <div class="social-wrapper">
+              <p class="footer-list-title">síguenos en</p>
+
+              <ul class="social-list">
+                <li>
+                  <a
+                    href="#"
+                    class="social-link"
+                    style="background-color: #3b5998"
+                  >
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="#"
+                    class="social-link"
+                    style="background-color: #55acee"
+                  >
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="#"
+                    class="social-link"
+                    style="background-color: #d71e18"
+                  >
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="#"
+                    class="social-link"
+                    style="background-color: #1565c0"
+                  >
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-newsletter">
+              <p class="footer-list-title">Newsletter Sign Up</p>
+
+              <form action="" class="footer-newsletter">
+                <input
+                  type="email"
+                  name="email_address"
+                  aria-label="email"
+                  placeholder="Enter your email"
+                  required
+                  class="email-field"
+                />
+
+                <button type="submit" class="footer-btn" aria-label="submit">
+                  <ion-icon name="rocket"></ion-icon>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p class="copyright">
+            &copy; 2023 Alexis Isla. All Right Reserved by
+            <a href="#" class="copyright-link">Alexis Isla</a>
+          </p>
+
+          <img
+            src="./assets/images/footer-bottom-img.png"
+            width="340"
+            height="21"
+            loading="lazy"
+            alt=""
+            class="footer-bottom-img"
+          />
+        </div>
+      </div>
+    </footer>
+
+    <!-- 
+    - #BACK TO TOP
+  -->
+
+    <a
+      href="#top"
+      class="back-top-btn"
+      aria-label="back to top"
+      data-back-top-btn
+    >
+      <ion-icon name="caret-up"></ion-icon>
+    </a>
+
+    <!-- 
+    - custom js link
+  -->
+    <script src="./assets/js/bootstrap.min.js" defer></script>
+    <script src="./assets/js/admin.js" defer></script>
+
+    <!-- 
+    - ionicon link
+  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>

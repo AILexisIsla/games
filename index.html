@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta name="author" content="Julieta Nahir Ferreyra, Carlos Eduardo Arias, Alexis Ulises Isla, Lain Robles, Juan Pablo Rearte, Gustavo Exequiel Aybar">
-    <meta name="description" content="">
+    <meta name="description" content="pagina web con un catalogo de juegos">
     <meta name="keywords" content="vanilla JS, bootstrap, css">
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
     <title>theRollingGames - Create Manage Alexis isla</title>
     
   </head>
@@ -84,9 +86,20 @@
       <div class="header-bottom skewBg" data-header>
         <div class="container">
           <a href="#" class="logo">Rolling Games</a>
+          <a href="#" class="logo  d-none" id="logoAdmin"> ⭐ </a>
 
           <nav class="navbar" data-navbar>
             <ul class="navbar-list">
+              <li class="navbar-item">
+                <a href="./pages/contacts.html" class="navbar-link skewBg" data-nav-link
+                  >Contacto</a
+                >
+              </li>
+              <li class="navbar-item">
+                <a href="admin.html" class="navbar-link skewBg d-none" data-nav-link
+                  >Administracion</a
+                >
+              </li>
               <li class="navbar-item">
                 <a href="#home" class="navbar-link skewBg" data-nav-link
                   >Inicio</a
@@ -1334,7 +1347,7 @@
     <!-- 
     - custom js link
   -->
-    <script src="./assets/js/script.js" defer></script>
+    <script src="./assets/js/bootstrap.min.js" defer></script>
 
     <!-- 
     - ionicon link
