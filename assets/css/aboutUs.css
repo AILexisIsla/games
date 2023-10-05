@@ -38,38 +38,6 @@
   }
 }
 
-/* #marioBros {
-  height: 29px;
-  width: 29px;
-  background: url(../images/marioBros.png) 0px 0px;
-} */
-
-/* @-webkit-keyframes play {
-    from { background-position:    0px; }
-      to { background-position: -500px; }
- }
- 
- @-moz-keyframes play {
-    from { background-position:    0px; }
-      to { background-position: -500px; }
- }
- 
- @-ms-keyframes play {
-    from { background-position:    0px; }
-      to { background-position: -500px; }
- }
- 
- @-o-keyframes play {
-    from { background-position:    0px; }
-      to { background-position: -500px; }
- }
- 
- @keyframes play {
-    from { background-position:    0px; }
-      to { background-position: -500px; }
- }
- 
-  */
 
 /*Carrousel*/
 
@@ -181,3 +149,6 @@
 .owl-carousel button.owl-dot {
   outline: 0;
 }
+
+
+hsl(42, 99%, 46%)
