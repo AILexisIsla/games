@@ -1,24 +1,17 @@
 //validaciones
 
 export const campoRequerido = (input) => {
-    console.log('desde campo requerido');
-    console.log(input.value);
     if (input.value.trim()?.length > 0) {
-      console.log('aqui esta todo bien');
       input.className = 'form-control is-valid';
       return true;
     } else {
-      console.log('aqui muestro el error');
       input.className = 'form-control is-invalid';
       return false;
     }
   };
   
   export const validarNumeros = (input) => {
-    //vamos a usar o a crear una expresión regular
-    let patron = /^[0-9]{1,3}$/;
-    //el método test me sirve para comparar un string con el patron y duevuelve true o false si hay match o no
-    //regex.test('stirng a validar')
+    let patron = /^[0-9]{1,999999}$/;
     if (patron.test(input.value)) {
       //cumpla con la expresión regular
       input.className = 'form-control is-valid';
@@ -30,7 +23,7 @@ export const campoRequerido = (input) => {
   };
   
   export const validarURL = (input) => {
-    let patron = /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/;
+    let patron = /^https?:\/\/[/#?]?.*$/;
     if (patron.test(input.value)) {
       //cumpla con la expresión regular
       input.className = 'form-control is-valid';
@@ -43,34 +36,15 @@ export const campoRequerido = (input) => {
   
   export  const validarGeneral = (
     campoURL,
-    campoCodigo,
     campoNombre,
     campoCategoria,
     campoPrecio,
     campoDescripcion,
   ) => {
-    let alerta = document.querySelector('#mjeAlerta');
-    //comprobar que pasen cada una de las validaciones y si no pasan mostrar el alert
-    if (
-      validarURL(campoURL) &&
-      campoRequerido(campoCodigo) &&
-      campoRequerido(campoNombre) &&
-      validarNumeros(campoCategoria) &&
-      validarNumeros(campoPrecio) &&
-      campoRequerido(campoDescripcion)
-    ) {
-      console.log(
-        'validación correcta todos los datos están listos para ser enviados'
-      );
-      alerta.className = 'alert alert-danger my-3 d-none';
-      return true;
-    } else {
-      console.log('validación incorrecta, datos erroneos');
-      alerta.className = 'alert alert-danger my-3';
-      return false;
-    }
+    
+      validarURL(campoURL);
+      campoRequerido(campoNombre);
+      campoRequerido(campoCategoria);
+      validarNumeros(campoPrecio);
+      campoRequerido(campoDescripcion);
   };
-  
-  //pueden usar export general como el siguiente
-  //o anteponer la palabra export en cada definicion de función a exportar
-  

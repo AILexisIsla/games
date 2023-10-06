@@ -128,7 +128,7 @@
     <main>
       <section
           class="section hero"
-          id="home"
+          id="portaAdmin"
           aria-label="home"
           style="background-image: url('./assets/images/shop-img-4port.jpg')"
         >
@@ -137,7 +137,7 @@
               <p class="hero-subtitle"> CAPCOM Co.</p>
 
               <h1 class="h1 hero-title">
-                RESIDENT <span class="span">EVIL</span> IV
+                RESIDENT EVIL IV
               </h1>
 
               <p class="hero-text">
@@ -145,9 +145,7 @@
               </p>
               <p class="hero-text">AVENTURA</p>
               <p class="hero-text">ARS$  12.958,00</p>
-              <p class="hero-text">a25fc88</p>
             </div>
-
             <figure
               class="hero-banner img-holder"
               style="--width: 900; --height: 700"
@@ -162,6 +160,8 @@
             </figure>
           </div>
         </section>
+
+
         <!-- #CATALOGO -->
       <article>
         <section
@@ -170,12 +170,14 @@
           aria-label="shop"
           style="background-image: url('./assets/images/shop-bg.jpg')"
         >
+        <div class="mb-5">
+          <h2 class="h2 section-title d-flex justify-content-center">
+            <span class="span">Catalogo</span>
+          </h2>
+        </div>
           <div class="container">
             <section class="section brand" aria-label="brand">
-              <h2 class="h2 section-title d-flex justify-content-center">
-                <span class="span">Catalogo</span>
-              </h2>
-              <div class="container mt-5">
+              <!-- <div class="container mt-5">
                 <ul class="has-scrollbar">
                   <li class="brand-item">
                     <img
@@ -265,7 +267,7 @@
                 <button class="skewBg p-3 m-1">X</button>
                 <button class="skewBg p-3 m-1">Y</button>
                 <button class="skewBg p-3 m-1">Z</button>
-              </div>
+              </div> -->
               <section class="container">
                 <ul class="row" id="catalogo">
                   <li class="col-sm-12 col-md-4 col-lg-3">
@@ -307,8 +309,8 @@
                           <button class="card-btn"onclick="eliminarJuego(a25fc88)">
                             <img src="./assets/images/Delet_Admin.png" alt="delet">
                           </button>
-                          <button class="card-btn " onclick="destacarJuego(a25fc88)">
-                            <img src="./assets/images/Black_Star_Admin.png" alt="highlight">
+                          <button class="card-btn " onclick="destacarJuego(a25fc88)" id="star">
+                            <img src="./assets/images/Star_Admin.png" alt="highlight">
                           </button>
                         </div>
                       </div>
@@ -449,11 +451,11 @@
                   </li>
                 </ul>
               </section>
-              <section class="container d-flex justify-content-center">
+              <!-- <section class="container d-flex justify-content-center">
                 <button class="skewBg p-5" id="Catalogo" onclick="verMasCatalogo()">
                   Ver mas...
                 </button>
-              </section>
+              </section> -->
               <section>
                 <hr />
                 <div class="container-fluid mb-5">
@@ -493,7 +495,6 @@
               <div class="mb-3">
                 <label for="URL" class="form-label">URL - Imagen</label>
                 <input
-                  
                   type="text"
                   class="form-control"
                   id="URL"
@@ -505,7 +506,6 @@
               <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input
-                  
                   type="text"
                   class="form-control"
                   id="nombre"
@@ -517,10 +517,10 @@
               <div class="mb-3">
                 <label for="categoria" class="form-label">Categoria</label>
                 <textarea
-                  
+                  type="text"
                   class="form-control"
                   id="categoria"
-                  rows="3"
+                  placeholder="Accion"
                   maxlength="50"
                   required
                 ></textarea>
@@ -528,11 +528,10 @@
               <div class="mb-3">
                 <label for="precio" class="form-label">Precio</label>
                 <input
-                  
                   type="number"
                   class="form-control"
                   id="precio"
-                  placeholder="200.000"
+                  placeholder="200000"
                   maxlength="6"
                   required
                 />
@@ -540,7 +539,6 @@
               <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripcion</label>
                 <textarea
-                  
                   class="form-control"
                   id="descripcion"
                   rows="3"
@@ -553,7 +551,7 @@
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    value="true"
+                    value=""
                     id="publicado"
                   />
                   <label for="publicado" class="form-check-label">Publicar</label>
@@ -562,21 +560,20 @@
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    value="true"
+                    value=""
                     id="destacar"
                   />
                   <label for="destacar" class="form-check-label">Destacar</label>
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            <button type="submit" class="btn btn skewBg">Guardar cambios</button>
           </form>
           </div>
         <div class="modal-footer">
         </div>
       </div>
     </div>
-  </div>
     <!-- 
     - #FOOTER
   -->
