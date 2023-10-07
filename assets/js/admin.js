@@ -6,21 +6,20 @@ import {
 } from "./validaciones.js";
 
 import { Producto } from "./productclass.js";
-
-let campoCodigo = generarCodigo(6);
+let campoCodigo;
 let campoURL = document.getElementById("URL");
 let campoNombre = document.getElementById("nombre");
 let campoCategoria = document.getElementById("categoria");
 let campoPrecio = document.getElementById("precio");
 let campoDescripcion = document.getElementById("descripcion");
-let campoPublicado = document.getElementById("publicado");
-let campoDestacado = document.getElementById("destacado");
+let campoPublicado = document.getElementById("publicar");
+let campoDestacado = document.getElementById("destacar");
 
 let formProducto = document.getElementById("formProducto");
 let nuevoJuego = document.getElementById("nuevoJuego");
 let btnDatosPrueba = document.getElementById("btnDatosPrueba");
 
-let productoExistente = false; 
+let juegoExistente = false;
 let listaProductos =
   JSON.parse(localStorage.getItem("arrayProductosKey")) || [];
 
@@ -59,42 +58,35 @@ formProducto.addEventListener("submit", guardarProducto);
 nuevoJuego.addEventListener("click", limpiarFormulario);
 btnDatosPrueba.addEventListener("click", cargarDatosPrueba);
 
-//llamo a carga inicial: so tengo productos en localStorage que lo muestre en la tabla de productos
 cargaInicial();
 
-//aquí empieza la lógica del CRUD
-
 function guardarProducto(e) {
-  //para prevevier la actualización de la página
   e.preventDefault();
-  //verificar que todos los datos sean correctos
-  if (
-    validarGeneral(
-      campoURL,
-      campoNombre,
-      campoCategoria,
-      campoPrecio,
-      campoDescripcion
-    )
-  ) {
-    if (!productoExistente) {
-      //crear producto
-      crearProducto();
-    } else {
-      //modificar producto
-      modificarProducto();
-    }
+  listaProductos.map((item) => {
+    item.nombre == campoNombre.value
+      ? (juegoExistente = true)
+      : (juegoExistente = false);
+  });
+
+  validarGeneral(
+    campoURL,
+    campoNombre,
+    campoCategoria,
+    campoPrecio,
+    campoDescripcion
+  );
+  if (!juegoExistente) {
+    crearProducto();
+  } else {
+    modificarJuego();
   }
 }
 
 function crearProducto() {
-  //invocar una función codigoUnico() ---> retornar un código único
-  // const codUnico = codigoUnico()
-  //hacer que el campoCodigo este disable
-  //crear un objeto producto
+  campoCodigo = generarCodigo(6);
   let productoNuevo = new Producto(
     campoURL.value,
-    campoCodigo.value,
+    campoCodigo,
     campoNombre.value,
     campoCategoria.value,
     campoPrecio.value,
@@ -102,19 +94,17 @@ function crearProducto() {
     campoPublicado.value,
     campoDestacado.value
   );
-
   listaProductos.push(productoNuevo);
-  //limpiar el formulario
+
   limpiarFormulario();
-  //guardar el array de productos dentro dee localStorage
+
   guadarLocalStorage();
-  //mostrar el cartel al usuario
+
   Swal.fire(
     "Producto creado!",
     "El producto fue creado correctamente!",
     "success"
   );
-  //cargar el producto en la tabla
   crearFila(productoNuevo);
 }
 
@@ -127,10 +117,10 @@ function limpiarFormulario() {
   campoCategoria.className = "form-control";
   campoPrecio.className = "form-control";
   campoDescripcion.className = "form-control";
-  // campoPublicado.className = "form-check-input";
-  // campoDestacado.className = "form-check-input";
+  campoPublicado.className = "form-check-input";
+  campoDestacado.className = "form-check-input";
   //resetear la varibale bandera o booleana para el caso de modificarProducto
-  productoExistente = false;
+  juegoExistente = false;
 }
 
 function guadarLocalStorage() {
@@ -142,10 +132,11 @@ function crearFila(producto) {
   //usamos el operador de asignación por adición para concatenar con lo que ya tengo de contenido
 
   tablaProducto.innerHTML += `<li class="col-sm-12 col-md-4 col-lg-3">
-    <div class="shop-card">
+    <div class="shop-card h-100">
       <figure
-        class="card-banner img-holder efectofoto"
+        class="card-banner img-holder"
         style="--width: 300; --height: 260"
+        id="noPublicado"
       >
         <img
           src="${producto.url}"
@@ -157,7 +148,7 @@ function crearFila(producto) {
         />
       </figure>
 
-      <div class="card-content">
+      <div class="card-content h-100">
         <a href="#" class="card-badge skewBg">${producto.categoria}</a>
 
         <h3 class="h3">
@@ -172,30 +163,34 @@ function crearFila(producto) {
         <div class="card-wrapper">
           <p class="card-price">ARS$ ${producto.precio}</p>
         </div>
-        <div class="d-flex justify-content-between">
-        <button class="card-btn" data-bs-toggle="modal"
-        data-bs-target="#NuevoJuego"onclick="prepararEdicionProducto(${producto.codigo})">
-          <img src="./assets/images/Edit_Admin.png" alt="edit">
-        </button>
-        <button class="card-btn"onclick="eliminarJuego(${producto.codigo})">
-          <img src="./assets/images/Delet_Admin.png" alt="delet">
-        </button>
-        <button class="card-btn " onclick="destacarJuego(${producto.codigo}) id="${producto.codigo}">
-          <img src="./assets/images/Black_Star_Admin.png" alt="highlight">
-        </button>
+        <div class="d-flex justify-content-between flex-wrap">
+          <button class="card-btn" data-bs-toggle="modal"
+          data-bs-target="#NuevoJuego"onclick="prepararEdicionProducto('${producto.codigo}')">
+            <img src="./assets/images/Edit_Admin.png" alt="edit">
+          </button>
+          
+          <button class="card-btn"onclick="borrarJuego('${producto.codigo}')">
+            <img src="./assets/images/Delet_Admin.png" alt="delet">
+          </button>
+          
+          <button class="card-btn " onclick="destacarJuego('${producto.codigo}') id="${producto.codigo}">
+            <img src="./assets/images/Black_Star_Admin.png" alt="highlight">
+          </button>
         </div>
       </div>
     </div>
   </li>`;
-
-  if (producto.publicado) {
-    let color = document.querySelector(".efectofoto");
-    color.className = "card-banner img-holder";
-  }
-  if (producto.destacado) {
-    editarCheckbox(producto.codigo);
-  }
+  // if (!producto.publicado) {
+  //    let color = document.querySelector("#noPublicado");
+  //    color.className = "card-banner img-holder efectofoto";
+  // }else{
+  //   let color = document.querySelector("#noPublicado");
+  //    color.className = "card-banner img-holder";
+  // };
 }
+// if (producto.destacado) {
+//   editarCheckbox(producto.codigo);
+// }
 
 function editarCheckbox(destacar) {
   listaProductos.map((item) => {
@@ -205,7 +200,8 @@ function editarCheckbox(destacar) {
 
       item.destacado = true;
 
-      starOn.innerHTML = '<img src="./assets/images/Star_Admin.png" alt="highlight">';
+      starOn.innerHTML =
+        '<img src="./assets/images/Star_Admin.png" alt="highlight">';
 
       portada.styleName = `background-image: url('${producto.url}')`;
       portada.innerHTML += `<div class="container">
@@ -234,10 +230,11 @@ function editarCheckbox(destacar) {
           />
         </figure>
       </div>`;
-    }else if(item.destacado){
+    } else if (item.destacado) {
       item.destacado = false;
       let starOff = document.querySelector(`#${item.codigo}`);
-      starOff.innerHTML = '<img src="./assets/images/Black_Star_Admin.png" alt="highlight">';
+      starOff.innerHTML =
+        '<img src="./assets/images/Black_Star_Admin.png" alt="highlight">';
     }
   });
 }
@@ -274,10 +271,10 @@ window.prepararEdicionProducto = function (codigo) {
   campoDestacado.value = productoBuscado.destacado;
 
   //modifico la variable bandera productoExistente
-  productoExistente = true;
+  juegoExistente = true;
 };
 
-function modificarProducto() {
+function modificarJuego() {
   Swal.fire({
     title: "Seguro que desea modificar este producto?",
     text: "Podrá volver a editar este producto si lo desea",
@@ -289,24 +286,25 @@ function modificarProducto() {
     cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.isConfirmed) {
-  
       //encontrar la posición del elemento que quiero modificar dentro de mi array de productos
       let indiceProducto = listaProductos.findIndex(
         (itemProducto) => itemProducto.codigo === campoCodigo.value
       );
-  
 
       //modificar los valores del elemento couyo indice encontramos
-      listaProductos[indiceProducto].producto = campoProducto.value;
+      listaProductos[indiceProducto].url = campoProducto.value;
+      listaProductos[indiceProducto].nombre = campoDescripcion.value;
+      listaProductos[indiceProducto].categoria = campoCantidad.value;
+      listaProductos[indiceProducto].precio = campoURL.value;
       listaProductos[indiceProducto].descripcion = campoDescripcion.value;
-      listaProductos[indiceProducto].cantidad = campoCantidad.value;
-      listaProductos[indiceProducto].url = campoURL.value;
+      listaProductos[indiceProducto].publicado = campoPublicado.value;
+      listaProductos[indiceProducto].destacado = campoDestacado.value;
 
       //actualizar el localStorage
       guadarLocalStorage();
 
       //actualizar la tabla
-      borrarTabla();
+      borrarJuego();
       cargaInicial();
 
       //mostrar cartel al usuario
@@ -322,21 +320,21 @@ function modificarProducto() {
   });
 }
 
-function borrarTabla() {
-  let tablaProducto = document.querySelector("#tablaProducto");
-  tablaProducto.innerHTML = "";
+function borrarCatalogo() {
+  let catalogoJuegos = document.querySelector("#catalogo");
+  catalogoJuegos.innerHTML = "";
 }
 
-window.borrarProducto = function (codigo) {
+window.borrarJuego = function (codigo) {
   Swal.fire({
-    title: "Seguro que desea eliminar este producto?",
-    text: "La acción no prodrá revertirse!",
-    icon: "warning",
+    title: 'Seguro que desea eliminar este producto?',
+    text: 'La acción no prodrá revertirse!',
+    icon: 'warning',
     showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Confirmar",
-    cancelButtonText: "Cancelar",
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Confirmar',
+    cancelButtonText: 'Cancelar',
   }).then((result) => {
     if (result.isConfirmed) {
       //opción 1: encontar la posición o el indice del elemento del array y borrarlo
@@ -346,21 +344,21 @@ window.borrarProducto = function (codigo) {
 
       let nuevaListaProductos = listaProductos.filter(
         (itemProducto) => itemProducto.codigo !== codigo
-      );
-  
+        );
+      console.log(nuevaListaProductos);
       //actualizar el array original y guardar en localStorage
       listaProductos = nuevaListaProductos;
       guadarLocalStorage();
 
       //actualizar la tabla
-      borrarTabla();
+      borrarJuego();
       cargaInicial();
 
       //mostrar cartel al usuario
       Swal.fire(
-        "Producto eliminado!",
-        "El producto fue eliminado correctamente!",
-        "success"
+        'Producto eliminado!',
+        'El producto fue eliminado correctamente!',
+        'success'
       );
     }
   });
@@ -370,93 +368,97 @@ function cargarDatosPrueba() {
   const datos = [
     {
       url: "https://cdn.akamai.steamstatic.com/steam/apps/271590/hero_capsule.jpg?t=1695060909",
-      codigo: generarCodigo(6),
+      codigo: "Fhgyvn",
       nombre: "Grand theft auto 5",
-      categoria: "Mundo abierto",
+      categoria: "Mundo-abierto",
       precio: "59000",
-      descripcion: "Grand Theft Auto V para PC ofrece a los jugadores la opción de explorar el galardonado mundo de Los Santos y el condado de Blaine con una resolución de 4K y disfrutar del juego a 60 fotogramas por segundo.",
+      descripcion:
+        "Grand Theft Auto V para PC ofrece a los jugadores la opción de explorar el galardonado mundo de Los Santos y el condado de Blaine con una resolución de 4K y disfrutar del juego a 60 fotogramas por segundo.",
       publicado: "true",
       destacado: "true",
     },
     {
       url: "https://cdn.akamai.steamstatic.com/steam/apps/1091500/hero_capsule.jpg?t=1695308476",
-      codigo: generarCodigo(6),
+      codigo: "i8f0Yj",
       nombre: "Cyberpunk 2077",
       categoria: "Rol",
       precio: "75500",
-      descripcion: "Cyberpunk 2077 es un RPG de aventura y acción de mundo abierto ambientado en el futuro sombrío de Night City, una peligrosa megalópolis obsesionada con el poder, el glamur y las incesantes modificaciones corporales.",
+      descripcion:
+        "Cyberpunk 2077 es un RPG de aventura y acción de mundo abierto ambientado en el futuro sombrío de Night City, una peligrosa megalópolis obsesionada con el poder, el glamur y las incesantes modificaciones corporales.",
       publicado: "true",
       destacado: "false",
     },
     {
       url: "https://cdn.akamai.steamstatic.com/steam/apps/1938090/hero_capsule.jpg?t=1696521698",
-      codigo: generarCodigo(6),
+      codigo: " LhyFyM",
       nombre: "Call of duty",
       categoria: "FPS",
       precio: "200000",
-      descripcion: "Te damos la bienvenida a Call of Duty® HQ, el hogar de Call of Duty®: Modern Warfare® III, Call of Duty®: Modern Warfare® II y Warzone™.",
+      descripcion:
+        "Te damos la bienvenida a Call of Duty® HQ, el hogar de Call of Duty®: Modern Warfare® III, Call of Duty®: Modern Warfare® II y Warzone™.",
       publicado: "true",
       destacado: "false",
     },
     {
       url: "https://cdn.akamai.steamstatic.com/steam/apps/2195250/hero_capsule.jpg?t=1696300539",
-      codigo: generarCodigo(6),
+      codigo: "LhyFyM",
       nombre: "FC24",
       categoria: "Deportes",
       precio: "150500",
-      descripcion: "EA SPORTS FC™ 24 te da la bienvenida a The World's Game: la experiencia futbolística más fiel hasta la fecha con HyperMotionV, PlayStyles optimizado por Opta y el motor mejorado de Frostbite™.",
+      descripcion:
+        "EA SPORTS FC™ 24 te da la bienvenida a The World's Game: la experiencia futbolística más fiel hasta la fecha con HyperMotionV, PlayStyles optimizado por Opta y el motor mejorado de Frostbite™.",
       publicado: "true",
       destacado: "false",
     },
     {
       url: "https://cdn.akamai.steamstatic.com/steam/apps/1245620/hero_capsule.jpg?t=1683618443",
-      codigo: generarCodigo(6),
+      codigo: "jc2qG8",
       nombre: "Elden ring",
-      categoria: "",
+      categoria: "Dark-Soul",
       precio: "35500",
-      descripcion: "",
+      descripcion:
+        "EL NUEVO JUEGO DE ROL Y ACCIÓN DE AMBIENTACIÓN FANTÁSTICA. Álzate, Sinluz, y que la gracia te guíe para abrazar el poder del Círculo de Elden y encumbrarte como señor del Círculo en las Tierras Intermedias.",
       publicado: "true",
       destacado: "false",
     },
     {
       url: "https://cdn.akamai.steamstatic.com/steam/apps/2440510/hero_capsule_alt_assets_1_latam.jpg?t=1696480140",
-      codigo: generarCodigo(6),
+      codigo: "O5a0iG",
       nombre: "Forza motorsport",
       categoria: "Carreras",
       precio: "25500",
-      descripcion: "Supera a tus rivales en la nueva carrera. Haz carreras con tus amigos en eventos multijugador arbitrados y compite con más de 500 coches en pistas de fama mundial con una IA de última generación, una física avanzada y estrategias que dependen de los neumáticos y el combustible.",
-      publicado: "true",
+      descripcion:
+        "Supera a tus rivales en la nueva carrera. Haz carreras con tus amigos en eventos multijugador arbitrados y compite con más de 500 coches en pistas de fama mundial con una IA de última generación, una física avanzada y estrategias que dependen de los neumáticos y el combustible.",
+      publicado: "false",
       destacado: "false",
     },
     {
       url: "https://cdn.akamai.steamstatic.com/steam/apps/570/hero_capsule.jpg?t=1682639497",
-      codigo: generarCodigo(6),
+      codigo: "5U0r5N",
       nombre: "Dota 2",
       categoria: "Estrategia",
       precio: "13500",
-      descripcion: "Cada día, millones de jugadores de todo el mundo entran en batalla como uno de los más de cien héroes de Dota. Y no importa si es su décima hora de juego o la milésima, siempre hay algo nuevo que descubrir.",
-      publicado: "true",
+      descripcion:
+        "Cada día, millones de jugadores de todo el mundo entran en batalla como uno de los más de cien héroes de Dota. Y no importa si es su décima hora de juego o la milésima, siempre hay algo nuevo que descubrir.",
+      publicado: "false",
       destacado: "false",
     },
     {
       url: "https://cdn.akamai.steamstatic.com/steam/apps/252490/hero_capsule.jpg?t=1693652810",
-      codigo: generarCodigo(6),
+      codigo: "OZlwWF",
       nombre: "Rust",
       categoria: "Supervivencia",
       precio: "50500",
-      descripcion: "El único objetivo en Rust es sobrevivir. Todo quiere que mueras: la vida salvaje de la isla y otros habitantes, el medio ambiente y otros supervivientes. Haz lo que sea necesario para durar una noche más.",
-      publicado: "true",
+      descripcion:
+        "El único objetivo en Rust es sobrevivir. Todo quiere que mueras: la vida salvaje de la isla y otros habitantes, el medio ambiente y otros supervivientes. Haz lo que sea necesario para durar una noche más.",
+      publicado: "false",
       destacado: "false",
     },
-    
   ];
 
   if (!localStorage.getItem("arrayProductosKey")) {
-    // quiero agregar los datos de productos
-
     localStorage.setItem("arrayProductosKey", JSON.stringify(datos));
     listaProductos = datos;
-    //mostar en la tabla
     listaProductos.forEach((itemProducto) => {
       crearFila(itemProducto);
     });
