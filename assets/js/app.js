@@ -1,30 +1,30 @@
-let listaProductos = JSON.parse(localStorage.getItem('arrayProductosKey')) || [];
+let listaJuegos = JSON.parse(localStorage.getItem('arrayProductosKey')) || [];
 
-listaProductos.map((item)=> crearColumna(item))
+listaJuegos.map((item)=> crearColumna(item))
 
-function crearColumna(producto){
-  if (producto.destacado){
+function crearColumna(juego){
+  if (juego.destacado){
     let portada = document.getElementById('portadaAdmin');
-    portada.styleName = `background-image: url('${producto.url}')`;
+    portada.styleName = `background-image: url('${juego.url}')`;
     portada.innerHTML += `<div class="container">
     <div class="hero-content">
-      <p class="hero-subtitle">${producto.categoria}</p>
+      <p class="hero-subtitle">${juego.categoria}</p>
 
       <h1 class="h1 hero-title">
-        ${producto.nombre}
+        ${juego.nombre}
       </h1>
 
       <p class="hero-text">
-        ${producto.descripcion}
+        ${juego.descripcion}
       </p>
-      <p class="hero-text">ARS$${producto.precio}</p>
+      <p class="hero-text">ARS$${juego.precio}</p>
     </div>
     <figure
       class="hero-banner img-holder"
       style="--width: 900; --height: 700"
     >
       <img
-        src="${producto.url}"
+        src="${juego.url}"
         width="700"
         height="700"
         alt="hero banner"

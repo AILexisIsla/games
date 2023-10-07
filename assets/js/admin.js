@@ -5,8 +5,8 @@ import {
   validarGeneral,
 } from "./validaciones.js";
 
-import { Producto } from "./productclass.js";
-let campoCodigo;
+import { Juego } from "./productclass.js";
+let campoCodigo = document.getElementById("codigo");
 let campoURL = document.getElementById("URL");
 let campoNombre = document.getElementById("nombre");
 let campoCategoria = document.getElementById("categoria");
@@ -15,12 +15,12 @@ let campoDescripcion = document.getElementById("descripcion");
 let campoPublicado = document.getElementById("publicar");
 let campoDestacado = document.getElementById("destacar");
 
-let formProducto = document.getElementById("formProducto");
+let formJuego = document.getElementById("formJuego");
 let nuevoJuego = document.getElementById("nuevoJuego");
 let btnDatosPrueba = document.getElementById("btnDatosPrueba");
 
 let juegoExistente = false;
-let listaProductos =
+let catalogoJuegos =
   JSON.parse(localStorage.getItem("arrayProductosKey")) || [];
 
 function generarCodigo(length) {
@@ -54,7 +54,7 @@ campoDescripcion.addEventListener("blur", () => {
   campoRequerido(campoDescripcion);
 });
 
-formProducto.addEventListener("submit", guardarProducto);
+formJuego.addEventListener("submit", guardarProducto);
 nuevoJuego.addEventListener("click", limpiarFormulario);
 btnDatosPrueba.addEventListener("click", cargarDatosPrueba);
 
@@ -62,10 +62,12 @@ cargaInicial();
 
 function guardarProducto(e) {
   e.preventDefault();
-  listaProductos.map((item) => {
-    item.nombre == campoNombre.value
-      ? (juegoExistente = true)
-      : (juegoExistente = false);
+  catalogoJuegos.map((juego) => {
+    if (campoCodigo !== "") {
+      juego.codigo == campoCodigo.value
+        ? (juegoExistente = true)
+        : (juegoExistente = false);
+    }
   });
 
   validarGeneral(
@@ -84,7 +86,7 @@ function guardarProducto(e) {
 
 function crearProducto() {
   campoCodigo = generarCodigo(6);
-  let productoNuevo = new Producto(
+  let productoNuevo = new Juego(
     campoURL.value,
     campoCodigo,
     campoNombre.value,
@@ -94,7 +96,7 @@ function crearProducto() {
     campoPublicado.value,
     campoDestacado.value
   );
-  listaProductos.push(productoNuevo);
+  catalogoJuegos.push(productoNuevo);
 
   limpiarFormulario();
 
@@ -106,12 +108,12 @@ function crearProducto() {
     "success"
   );
   crearFila(productoNuevo);
+  cargaInicial();
 }
 
 function limpiarFormulario() {
-  //limpiamos los values del formulario
-  formProducto.reset();
-  //resetear las clases de los input
+  formJuego.reset();
+
   campoURL.className = "form-control";
   campoNombre.className = "form-control";
   campoCategoria.className = "form-control";
@@ -119,27 +121,26 @@ function limpiarFormulario() {
   campoDescripcion.className = "form-control";
   campoPublicado.className = "form-check-input";
   campoDestacado.className = "form-check-input";
-  //resetear la varibale bandera o booleana para el caso de modificarProducto
+
   juegoExistente = false;
 }
 
 function guadarLocalStorage() {
-  localStorage.setItem("arrayProductosKey", JSON.stringify(listaProductos));
+  localStorage.setItem("arrayProductosKey", JSON.stringify(catalogoJuegos));
 }
 
-function crearFila(producto) {
-  let tablaProducto = document.getElementById("catalogo");
-  //usamos el operador de asignación por adición para concatenar con lo que ya tengo de contenido
+function crearFila(juego) {
+  let catalogo = document.getElementById("catalogo");
 
-  tablaProducto.innerHTML += `<li class="col-sm-12 col-md-4 col-lg-3">
+  catalogo.innerHTML += `<li class="col-sm-12 col-md-4 col-lg-3">
     <div class="shop-card h-100">
       <figure
         class="card-banner img-holder"
         style="--width: 300; --height: 260"
-        id="noPublicado"
+        id="${juego.codigo}noPublicado"
       >
         <img
-          src="${producto.url}"
+          src="${juego.Url}"
           width="300"
           height="260"
           loading="lazy"
@@ -149,135 +150,66 @@ function crearFila(producto) {
       </figure>
 
       <div class="card-content h-100">
-        <a href="#" class="card-badge skewBg">${producto.categoria}</a>
+        <a href="#" class="card-badge skewBg">${juego.categoria}</a>
 
         <h3 class="h3">
-          <a href="#" class="card-title">${producto.nombre}</a>
+          <a href="#" class="card-title">${juego.nombre}</a>
         </h3>
         
-        <div class="card-body text-white">
-          <p>Codigo: ${producto.codigo}</p>
-          <p>Descripcion: ${producto.descripcion}</p>
+        <div class="card-body text-white d-block w-25px">
+          <p>Codigo: ${juego.codigo}</p>
+          <p>Descripcion: ${juego.descripcion}</p>
+          <div class="card-wrapper">
+          <p class="card-price">ARS$ ${juego.precio}</p>
+          </div>
+          <div class="d-flex justify-content-between flex-wrap">
+            <button class="card-btn" data-bs-toggle="modal"
+            data-bs-target="#NuevoJuego"onclick="prepararEdicionJuego('${juego.codigo}')">
+              <img src="./assets/images/Edit_Admin.png" alt="edit">
+            </button>
+            
+            <button class="card-btn" onclick="borrarJuego('${juego.codigo}')">
+              <img src="./assets/images/Delet_Admin.png" alt="delet">
+            </button>
+            
+            <button class="card-btn" onclick="destacable('${juego.codigo}')">
+            <figure class="w-100 h-auto" id="${juego.codigo}">
+              <img src="./assets/images/Black_Star_Admin.png" alt="highlight w-100 h-auto">
+            </figure>
+            </button>
+          </div>
         </div>
 
-        <div class="card-wrapper">
-          <p class="card-price">ARS$ ${producto.precio}</p>
         </div>
-        <div class="d-flex justify-content-between flex-wrap">
-          <button class="card-btn" data-bs-toggle="modal"
-          data-bs-target="#NuevoJuego"onclick="prepararEdicionProducto('${producto.codigo}')">
-            <img src="./assets/images/Edit_Admin.png" alt="edit">
-          </button>
-          
-          <button class="card-btn"onclick="borrarJuego('${producto.codigo}')">
-            <img src="./assets/images/Delet_Admin.png" alt="delet">
-          </button>
-          
-          <button class="card-btn " onclick="destacarJuego('${producto.codigo}') id="${producto.codigo}">
-            <img src="./assets/images/Black_Star_Admin.png" alt="highlight">
-          </button>
-        </div>
-      </div>
     </div>
   </li>`;
-  // if (!producto.publicado) {
-  //    let color = document.querySelector("#noPublicado");
-  //    color.className = "card-banner img-holder efectofoto";
-  // }else{
-  //   let color = document.querySelector("#noPublicado");
-  //    color.className = "card-banner img-holder";
-  // };
-}
-// if (producto.destacado) {
-//   editarCheckbox(producto.codigo);
-// }
-
-function editarCheckbox(destacar) {
-  listaProductos.map((item) => {
-    if (item.codigo === destacar) {
-      let starOn = document.querySelector(`#${destacar}`);
-      let portada = document.getElementById("portadaAdmin");
-
-      item.destacado = true;
-
-      starOn.innerHTML =
-        '<img src="./assets/images/Star_Admin.png" alt="highlight">';
-
-      portada.styleName = `background-image: url('${producto.url}')`;
-      portada.innerHTML += `<div class="container">
-        <div class="hero-content">
-          <p class="hero-subtitle">${producto.categoria}</p>
-    
-          <h1 class="h1 hero-title">
-            ${producto.nombre}
-          </h1>
-    
-          <p class="hero-text">
-            ${producto.descripcion}
-          </p>
-          <p class="hero-text">ARS$${producto.precio}</p>
-        </div>
-        <figure
-          class="hero-banner img-holder"
-          style="--width: 900; --height: 700"
-        >
-          <img
-            src="${producto.url}"
-            width="700"
-            height="700"
-            alt="hero banner"
-            class="w-100"
-          />
-        </figure>
-      </div>`;
-    } else if (item.destacado) {
-      item.destacado = false;
-      let starOff = document.querySelector(`#${item.codigo}`);
-      starOff.innerHTML =
-        '<img src="./assets/images/Black_Star_Admin.png" alt="highlight">';
-    }
-  });
 }
 
 function cargaInicial() {
-  if (listaProductos.length > 0) {
-    //crear filas
-    listaProductos.map((itemProducto) => crearFila(itemProducto));
-    //listaProductos.forEach((itemProducto) => crearFila(itemProducto));
+  if (catalogoJuegos.length > 0) {
+    catalogoJuegos.map((itemProducto) => crearFila(itemProducto));
   }
 }
 
-/* 
-  al intentar acceder a una función que se invoca desde el html no la encuetra
-  para solucionarlo agrego la función como un método del objeto globa window
-  function prepararEdicionProducto(){
-  
-  }
-   */
+window.prepararEdicionJuego = function (codigo) {
+  let juegoBuscado = catalogoJuegos.find((juego) => juego.codigo === codigo);
 
-window.prepararEdicionProducto = function (codigo) {
-  //buscar el prodcuto en el array de productos
-  let productoBuscado = listaProductos.find(
-    (itemProducto) => itemProducto.codigo === codigo
-  );
+  campoCodigo.value = juegoBuscado.codigo;
+  campoURL.value = juegoBuscado.Url;
+  campoNombre.value = juegoBuscado.nombre;
+  campoCategoria.value = juegoBuscado.categoria;
+  campoPrecio.value = juegoBuscado.precio;
+  campoDescripcion.value = juegoBuscado.descripcion;
+  campoPublicado.value = juegoBuscado.publicado;
+  campoDestacado.value = juegoBuscado.destacado;
 
-  //mostrar el producto en el formulario. No se debe de poder editar le código
-  campoURL.value = productoBuscado.url;
-  campoNombre.value = productoBuscado.nombre;
-  campoCategoria.value = productoBuscado.categoria;
-  campoPrecio.value = productoBuscado.precio;
-  campoDescripcion.value = productoBuscado.descripcion;
-  campoPublicado.value = productoBuscado.publicado;
-  campoDestacado.value = productoBuscado.destacado;
-
-  //modifico la variable bandera productoExistente
   juegoExistente = true;
 };
 
 function modificarJuego() {
   Swal.fire({
-    title: "Seguro que desea modificar este producto?",
-    text: "Podrá volver a editar este producto si lo desea",
+    title: "Seguro que desea modificar este Juego?",
+    text: "Podrá volver a editar este Juego si lo desea",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -286,88 +218,106 @@ function modificarJuego() {
     cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.isConfirmed) {
-      //encontrar la posición del elemento que quiero modificar dentro de mi array de productos
-      let indiceProducto = listaProductos.findIndex(
-        (itemProducto) => itemProducto.codigo === campoCodigo.value
+      let indiceJuego = catalogoJuegos.findIndex(
+        (itemJuego) => itemJuego.codigo === campoCodigo.value
       );
 
-      //modificar los valores del elemento couyo indice encontramos
-      listaProductos[indiceProducto].url = campoURL.value;
-      listaProductos[indiceProducto].nombre = campoNombre.value;
-      listaProductos[indiceProducto].categoria = campoCategoria.value;
-      listaProductos[indiceProducto].precio = campoPrecio.value;
-      listaProductos[indiceProducto].descripcion = campoDescripcion.value;
-      listaProductos[indiceProducto].publicado = campoPublicado.value;
-      listaProductos[indiceProducto].destacado = campoDestacado.value;
+      catalogoJuegos[indiceJuego].Url = campoURL.value;
+      catalogoJuegos[indiceJuego].nombre = campoNombre.value;
+      catalogoJuegos[indiceJuego].categoria = campoCategoria.value;
+      catalogoJuegos[indiceJuego].precio = campoPrecio.value;
+      catalogoJuegos[indiceJuego].descripcion = campoDescripcion.value;
+      catalogoJuegos[indiceJuego].publicado = campoPublicado.value;
+      catalogoJuegos[indiceJuego].destacado = campoDestacado.value;
 
-      //actualizar el localStorage
-      guadarLocalStorage();
-
-      //actualizar la tabla
       borrarJuego();
+      guadarLocalStorage();
+      borrarCatalogo();
+      limpiarFormulario();
       cargaInicial();
 
-      //mostrar cartel al usuario
       Swal.fire(
         "Producto modificado!",
         "El producto fue modificado correctamente!",
         "success"
       );
-
-      //limpiar formulario y reseta la variable bandera
-      limpiarFormulario();
     }
   });
 }
 
-function borrarJuego() {
+// function publicarJuego(juego){
+//   let color = document.querySelector(`#${juego}noPublicado`);
+//   color.className = "card-banner img-holder efectofoto";
+
+// }
+
+function borrarCatalogo() {
   let catalogoJuegos = document.querySelector("#catalogo");
   catalogoJuegos.innerHTML = "";
 }
 
 window.borrarJuego = function (codigo) {
   Swal.fire({
-    title: 'Seguro que desea eliminar este producto?',
-    text: 'La acción no prodrá revertirse!',
-    icon: 'warning',
+    title: "Seguro que desea eliminar este producto?",
+    text: "La acción no prodrá revertirse!",
+    icon: "warning",
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Confirmar',
-    cancelButtonText: 'Cancelar',
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Confirmar",
+    cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.isConfirmed) {
-      //opción 1: encontar la posición o el indice del elemento del array y borrarlo
-      //1ero: encontrar el indice con findIndex y usar splice(indiceEncontrado, 1)
-
-      //opción 2: usando filter
-
-      let nuevaListaProductos = listaProductos.filter(
+      let nuevacatalogoJuegos = catalogoJuegos.filter(
         (itemProducto) => itemProducto.codigo !== codigo
-        );
-      console.log(nuevaListaProductos);
-      //actualizar el array original y guardar en localStorage
-      listaProductos = nuevaListaProductos;
-      guadarLocalStorage();
-
-      //actualizar la tabla
-      borrarJuego();
-      cargaInicial();
-
-      //mostrar cartel al usuario
-      Swal.fire(
-        'Producto eliminado!',
-        'El producto fue eliminado correctamente!',
-        'success'
       );
+      catalogoJuegos = nuevacatalogoJuegos;
+
+      guadarLocalStorage();
+      Swal.fire(
+        "Producto eliminado!",
+        "El producto fue eliminado correctamente!",
+        "success"
+      );
+      borrarCatalogo();
+      cargaInicial();
     }
   });
 };
 
+window.destacable = function (codigo) {
+  let starOn = document.querySelector(`#${codigo}`);
+  catalogoJuegos.map((juego) => {
+    if (juego.codigo === codigo) {
+      if (!juego.destacado) {
+        starOn.innerHTML =
+          '<img src="./assets/images/Star_Admin.png" alt="highlight">';
+        juego.destacado = true;
+      } else {
+        starOn.innerHTML =
+          '<img src="./assets/images/Black_Star_Admin.png" alt="highlight">';
+        juego.destacado = false;
+      };
+    };
+    guadarLocalStorage();
+    borrarCatalogo();
+    cargaInicial();
+  });
+
+  catalogoJuegos.map((juegoDestacado) => {
+    if (juegoDestacado.destacado) {
+      let starOff = document.querySelector(`#${juegoDestacado.codigo}`);
+      starOff.innerHTML =
+        '<img src="./assets/images/Black_Star_Admin.png" alt="highlight">';
+      juegoDestacado.destacado = false;
+    }
+  });
+}
+
 function cargarDatosPrueba() {
   const datos = [
     {
-      url: "https://cdn.akamai.steamstatic.com/steam/apps/271590/hero_capsule.jpg?t=1695060909",
+      Url: "https://cdn.akamai.steamstatic.com/steam/apps/271590/hero_capsule.jpg?t=1695060909",
       codigo: "Fhgyvn",
       nombre: "Grand theft auto 5",
       categoria: "Mundo-abierto",
@@ -378,7 +328,7 @@ function cargarDatosPrueba() {
       destacado: "true",
     },
     {
-      url: "https://cdn.akamai.steamstatic.com/steam/apps/1091500/hero_capsule.jpg?t=1695308476",
+      Url: "https://cdn.akamai.steamstatic.com/steam/apps/1091500/hero_capsule.jpg?t=1695308476",
       codigo: "i8f0Yj",
       nombre: "Cyberpunk 2077",
       categoria: "Rol",
@@ -389,7 +339,7 @@ function cargarDatosPrueba() {
       destacado: "false",
     },
     {
-      url: "https://cdn.akamai.steamstatic.com/steam/apps/1938090/hero_capsule.jpg?t=1696521698",
+      Url: "https://cdn.akamai.steamstatic.com/steam/apps/1938090/hero_capsule.jpg?t=1696521698",
       codigo: " LhyFyM",
       nombre: "Call of duty",
       categoria: "FPS",
@@ -400,7 +350,7 @@ function cargarDatosPrueba() {
       destacado: "false",
     },
     {
-      url: "https://cdn.akamai.steamstatic.com/steam/apps/2195250/hero_capsule.jpg?t=1696300539",
+      Url: "https://cdn.akamai.steamstatic.com/steam/apps/2195250/hero_capsule.jpg?t=1696300539",
       codigo: "LhyFyM",
       nombre: "FC24",
       categoria: "Deportes",
@@ -411,7 +361,7 @@ function cargarDatosPrueba() {
       destacado: "false",
     },
     {
-      url: "https://cdn.akamai.steamstatic.com/steam/apps/1245620/hero_capsule.jpg?t=1683618443",
+      Url: "https://cdn.akamai.steamstatic.com/steam/apps/1245620/hero_capsule.jpg?t=1683618443",
       codigo: "jc2qG8",
       nombre: "Elden ring",
       categoria: "Dark-Soul",
@@ -422,7 +372,7 @@ function cargarDatosPrueba() {
       destacado: "false",
     },
     {
-      url: "https://cdn.akamai.steamstatic.com/steam/apps/2440510/hero_capsule_alt_assets_1_latam.jpg?t=1696480140",
+      Url: "https://cdn.akamai.steamstatic.com/steam/apps/2440510/hero_capsule_alt_assets_1_latam.jpg?t=1696480140",
       codigo: "O5a0iG",
       nombre: "Forza motorsport",
       categoria: "Carreras",
@@ -433,7 +383,7 @@ function cargarDatosPrueba() {
       destacado: "false",
     },
     {
-      url: "https://cdn.akamai.steamstatic.com/steam/apps/570/hero_capsule.jpg?t=1682639497",
+      Url: "https://cdn.akamai.steamstatic.com/steam/apps/570/hero_capsule.jpg?t=1682639497",
       codigo: "5U0r5N",
       nombre: "Dota 2",
       categoria: "Estrategia",
@@ -444,7 +394,7 @@ function cargarDatosPrueba() {
       destacado: "false",
     },
     {
-      url: "https://cdn.akamai.steamstatic.com/steam/apps/252490/hero_capsule.jpg?t=1693652810",
+      Url: "https://cdn.akamai.steamstatic.com/steam/apps/252490/hero_capsule.jpg?t=1693652810",
       codigo: "OZlwWF",
       nombre: "Rust",
       categoria: "Supervivencia",
@@ -458,8 +408,8 @@ function cargarDatosPrueba() {
 
   if (!localStorage.getItem("arrayProductosKey")) {
     localStorage.setItem("arrayProductosKey", JSON.stringify(datos));
-    listaProductos = datos;
-    listaProductos.forEach((itemProducto) => {
+    catalogoJuegos = datos;
+    catalogoJuegos.forEach((itemProducto) => {
       crearFila(itemProducto);
     });
   }

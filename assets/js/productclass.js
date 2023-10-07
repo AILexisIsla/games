@@ -1,6 +1,6 @@
-export class Producto {
+export class Juego {
     constructor(
-      parametroUrl,
+      parametroURL,
       parametroCodigo,
       parametroNombre,
       parametroCategoria,
@@ -9,7 +9,7 @@ export class Producto {
       parametroPublicado,
       parametroDestacado,
     ) {
-      this.url = parametroUrl;
+      this.Url = parametroURL;
       this.codigo = parametroCodigo;
       this.nombre = parametroNombre;
       this.categoria = parametroCategoria;
@@ -21,8 +21,8 @@ export class Producto {
   
     //getters y setters
   
-    get mostrarUrl() {
-      return this.url;
+    get mostrarURL() {
+      return this.Url;
     }
     get mostrarCodigo() {
       return this.codigo;
@@ -46,8 +46,8 @@ export class Producto {
       return this.destacado;
     }
   
-    set modificarUrl(nuevaUrl) {
-      this.url = nuevaUrl;
+    set modificarURL(nuevaURL) {
+      this.Url = nuevaURL;
     }
     set modificarCodigo(nuevoCodigo) {
       this.codigo = nuevoCodigo;

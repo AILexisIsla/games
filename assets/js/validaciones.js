@@ -1,7 +1,5 @@
-//validaciones
-
 export const campoRequerido = (input) => {
-    if (input.value.trim()?.length > 0) {
+    if (input.value.trim()?.length > 0&&input.value!==''&&input.value!==undefined&&input.value!==null) {
       input.className = 'form-control is-valid';
       return true;
     } else {
@@ -12,8 +10,7 @@ export const campoRequerido = (input) => {
   
   export const validarNumeros = (input) => {
     let patron = /^[0-9]{1,999999}$/;
-    if (patron.test(input.value)) {
-      //cumpla con la expresión regular
+    if (patron.test(input.value)&&input.value!==''&&input.value!==undefined&&input.value!==null) {
       input.className = 'form-control is-valid';
       return true;
     } else {
@@ -24,8 +21,7 @@ export const campoRequerido = (input) => {
   
   export const validarURL = (input) => {
     let patron = /^https?:\/\/[/#?]?.*$/;
-    if (patron.test(input.value)) {
-      //cumpla con la expresión regular
+    if (patron.test(input.value)&&input.value!==''&&input.value!==undefined&&input.value!==null) {
       input.className = 'form-control is-valid';
       return true;
     } else {

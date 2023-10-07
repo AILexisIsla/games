@@ -127,40 +127,41 @@
       </div>
     </header>
     <main>
-      <section
-          class="section hero"
-          id="portaAdmin"
-          aria-label="home"
-          style="background-image: url('./assets/images/shop-img-4port.jpg')"
-        >
-          <div class="container">
-            <div class="hero-content">
-              <p class="hero-subtitle"> CAPCOM Co.</p>
-
-              <h1 class="h1 hero-title">
-                RESIDENT EVIL IV
-              </h1>
-
-              <p class="hero-text">
-                Sobrevivir es solo el principio. Con una mecánica de juego modernizada, una historia reimaginada y unos gráficos espectacularmente detallados, Resident Evil 4 supone el renacimiento de un gigante del mundo de los videojuegos.
-              </p>
-              <p class="hero-text">AVENTURA</p>
-              <p class="hero-text">ARS$  12.958,00</p>
+      <section id="portadaAdmin">
+        <article
+            class="section hero"
+            aria-label="home"
+            style="background-image: url('./assets/images/shop-img-4port.jpg')"
+          >
+            <div class="container">
+              <div class="hero-content">
+                <p class="hero-subtitle"> CAPCOM Co.</p>
+  
+                <h1 class="h1 hero-title">
+                  RESIDENT EVIL IV
+                </h1>
+  
+                <p class="hero-text">
+                  Sobrevivir es solo el principio. Con una mecánica de juego modernizada, una historia reimaginada y unos gráficos espectacularmente detallados, Resident Evil 4 supone el renacimiento de un gigante del mundo de los videojuegos.
+                </p>
+                <p class="hero-text">AVENTURA</p>
+                <p class="hero-text">ARS$  12.958,00</p>
+              </div>
+              <figure
+                class="hero-banner img-holder"
+                style="--width: 900; --height: 700"
+              >
+                <img
+                  src="./assets/images/shop-img-4.jpg"
+                  width="700"
+                  height="700"
+                  alt="hero banner"
+                  class="w-100"
+                />
+              </figure>
             </div>
-            <figure
-              class="hero-banner img-holder"
-              style="--width: 900; --height: 700"
-            >
-              <img
-                src="./assets/images/shop-img-4.jpg"
-                width="700"
-                height="700"
-                alt="hero banner"
-                class="w-100"
-              />
-            </figure>
-          </div>
-        </section>
+        </article>
+      </section>
 
 
         <!-- #CATALOGO -->
@@ -216,7 +217,18 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="formProducto">
+            <form id="formJuego">
+              <div class="mb-3">
+                <label for="codigo" class="form-label">Codigo</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="codigo"
+                  maxlength="6"
+                  value=""
+                  disabled
+                />
+              </div>
               <div class="mb-3">
                 <label for="URL" class="form-label">URL - Imagen</label>
                 <input
