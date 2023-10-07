@@ -292,10 +292,10 @@ function modificarJuego() {
       );
 
       //modificar los valores del elemento couyo indice encontramos
-      listaProductos[indiceProducto].url = campoProducto.value;
-      listaProductos[indiceProducto].nombre = campoDescripcion.value;
-      listaProductos[indiceProducto].categoria = campoCantidad.value;
-      listaProductos[indiceProducto].precio = campoURL.value;
+      listaProductos[indiceProducto].url = campoURL.value;
+      listaProductos[indiceProducto].nombre = campoNombre.value;
+      listaProductos[indiceProducto].categoria = campoCategoria.value;
+      listaProductos[indiceProducto].precio = campoPrecio.value;
       listaProductos[indiceProducto].descripcion = campoDescripcion.value;
       listaProductos[indiceProducto].publicado = campoPublicado.value;
       listaProductos[indiceProducto].destacado = campoDestacado.value;
@@ -320,7 +320,7 @@ function modificarJuego() {
   });
 }
 
-function borrarCatalogo() {
+function borrarJuego() {
   let catalogoJuegos = document.querySelector("#catalogo");
   catalogoJuegos.innerHTML = "";
 }
