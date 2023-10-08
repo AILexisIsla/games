@@ -526,8 +526,23 @@
     color: var(--light-gray-2);
     margin-block-end: 45px;
   }
+
+  .section.hero {
+    background-image: url(../images/hero-bg.jpg);
+    
+    body {
+      font-family: 'Asset', display;
+    };
+
+}
   
-  
+.section.hero1 {
+  background-image: url(../images/hero-bg-vm.jpg);
+
+  body {
+    font-family: 'Asset', display;
+  };
+}
   
   
   
