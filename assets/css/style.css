@@ -1,3 +1,5 @@
+@import "aboutUs.css";
+
 /*-----------------------------------*\
   #style.css
 \*-----------------------------------*/
@@ -1793,7 +1795,7 @@ color: var(--light);
   font-size: 50vh;
   text-align: center;
   background: #ffff;
-  color: #000000;
+  color: #000;
   font-weight: 900;
   mix-blend-mode: screen;
 }
