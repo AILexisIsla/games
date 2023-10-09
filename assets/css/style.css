@@ -1793,7 +1793,23 @@ color: var(--light);
   font-size: 50vh;
   text-align: center;
   background: #ffff;
-  color #000 ;
+  color: #000000;
   font-weight: 900;
   mix-blend-mode: screen;
+}
+
+.social-link1 {
+  background-color: #294c97;
+}
+
+.social-link2 {
+  background-color: #0a8bed;
+}
+
+.social-link3 {
+  background-color: #ff1d15;
+}
+
+.social-link4 {
+  background-color: #0778fa;
 }
