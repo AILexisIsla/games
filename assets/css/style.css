@@ -1825,3 +1825,147 @@ EFECTO PARA JUEGO NO PUBLICADO
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   filter: grayscale(100);
 }
+
+ /**
+     * LOGIN
+     */
+
+     .fondo-login{
+      background-color: var(--white);
+      margin-top: 50px;
+    }
+    .iconos-login{
+      background-color: var(--marigold)!important;
+  
+    }
+    
+    
+    .footer-top{
+      background-color: var(--raisin-black-2)!important;
+      
+    }
+    
+    .footer-link{
+      color:var(--marigold);
+      
+    }
+    
+    .item-text{
+      color: white;
+    }
+    .newsletter{
+      background-color:var(--raisin-black-2)!important;
+    }
+    
+    .top-login{
+      background-color: var(--raisin-black-2)!important;
+    }
+    .boton-registrate{
+      background-color:var(--raisin-black-2);
+      color:var(--marigold);
+      border-radius: 5px;
+      width: 100px;
+      
+    }
+    .boton-registrate1{
+     
+      color:var(--raisin-black-2);
+      border-radius: 5px;
+      width: 240px;
+      height: 20px;
+      font-weight: bold;
+      font-size: 12px;
+      margin-top: 10px;
+      }
+    .primera-vez{
+      color:var(--raisin-black-3);
+      font-style: var(--cubic-out);
+    
+    }
+      
+
+    
+    .btn1{
+      background-color: var(--raisin-black-1);
+      border-radius: 5px;
+      color: var(--white);
+      width: 100px;
+    }
+    
+    
+    .modal-body{
+      
+      background-color: var(--marigold);
+    
+      }
+    
+    
+    .contact {
+    
+      background-color:var(--marigold);
+    
+    }
+    .contact label {
+      margin: 0px;
+      font-size: 17px;
+      font-weight: bold;
+    }
+    
+    .contact-content,
+    textarea {
+      border: 1px solid black;
+      outline: none;
+    
+    }
+    
+    .contact-content {
+      border: solid 1px black;
+      padding: 5px;
+       margin-bottom: 20px;
+       background-color: white;
+    }
+    
+    .contact-content:focus {
+      border-color: rgb(6, 6, 6);
+    }
+    
+    .center-content {
+      text-align: center;
+      border: 3px solid rgb(5, 6, 6);
+      width: 590px;
+      margin: 5px;
+      height: 40px;
+    }
+    .title-contact {
+      text-align: center;
+      font-size: 22px;
+      border-bottom: 1px solid black;
+      font-weight: bold;
+    }
+    
+    .modal-header{
+      background-color: var(--raisin-black-2);
+    
+    }
+    
+    .titulo-registro{
+      color: hsl(236, 17%, 17%);
+    }
+
+    .btn2{
+      margin-top: 10px;
+      font-weight: bold;
+      margin-left: 40px;
+    }
+.btn3{
+  background-color: var(--white);
+
+}
+
+.modal-footer2{
+ justify-items: center;
+}
+
+.modal-header2{
+  background-color: var(--white);
+}
