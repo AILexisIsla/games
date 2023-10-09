@@ -428,7 +428,9 @@
   
   
   
-  
+  .portadaAdmin{
+    margin-top: 175px;
+  }
   
   /*-----------------------------------*\
     #SEARCH BOX
@@ -543,9 +545,7 @@
     font-family: 'Asset', display;
   };
 }
-  
-  
-  
+
   /*-----------------------------------*\
     #BRAND
   \*-----------------------------------*/
@@ -1812,4 +1812,14 @@ color: var(--light);
 
 .social-link4 {
   background-color: #0778fa;
+}
+
+/*
+EFECTO PARA JUEGO NO PUBLICADO
+*/
+
+.efectofoto {
+  filter: blur(2px);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  filter: grayscale(100);
 }

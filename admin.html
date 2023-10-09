@@ -1,24 +1,530 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="author" content="Julieta Nahir Ferreyra, Carlos Eduardo Arias, Alexis Ulises Isla, Lain Robles, Juan Pablo Rearte, Gustavo Exequiel Aybar">
-    <meta name="description" content="">
+    <meta name="description" content="pagina web con un catalogo de juegos">
     <meta name="keywords" content="vanilla JS, bootstrap, css">
 
-    <link rel="icon" href="images/icon.png" type="image/png">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>TheRollingGames</title>
-</head>
-<body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/admin.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <title>theRollingGames</title>
+    
+  </head>
+
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+
+    <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 
+    - preload images
+  --></head>
+
+  <body>
+    <header class="header">
+      <div class="header-top">
+        <div class="container">
+          <div class="countdown-text">
+            Exclusivo Rolling days ! Ofertas
+            <span class="span skewBg">10</span> Dias
+          </div>
+
+          <div class="social-wrapper">
+            <p class="social-title">síguenos en :</p>
+
+            <ul class="social-list">
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-bottom skewBg" data-header>
+        <div class="container">
+          <a href="#" class="logo">Rolling Games</a>
+          <a href="#" class="logo" id="logoAdmin"> ⭐ </a>
+
+          <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+              <li class="navbar-item">
+                <a href="admin.html" class="navbar-link skewBg" data-nav-link
+                  >Administracion</a
+                >
+              </li>
+              <li class="navbar-item">
+                <a href="index.html" class="navbar-link skewBg" data-nav-link
+                  >Inicio</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="index.html" class="navbar-link skewBg" data-nav-link
+                  >Destacado</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="index.html" class="navbar-link skewBg" data-nav-link
+                  >Features</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="index.html" class="navbar-link skewBg" data-nav-link
+                  >Shop</a
+                >
+              </li>
+
+              <li class="navbar-item">
+                <a href="index.html" class="navbar-link skewBg" data-nav-link
+                  >Login</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="portadaAdmin">
+        <article
+            class="section hero"
+            aria-label="home"
+            style="background-image: url('./assets/images/shop-img-4port.jpg')"
+          >
+            <div class="container">
+              <div class="hero-content">
+                <p class="hero-subtitle"> CAPCOM Co.</p>
+  
+                <h1 class="h1 hero-title">
+                  RESIDENT EVIL IV
+                </h1>
+  
+                <p class="hero-text">
+                  Sobrevivir es solo el principio. Con una mecánica de juego modernizada, una historia reimaginada y unos gráficos espectacularmente detallados, Resident Evil 4 supone el renacimiento de un gigante del mundo de los videojuegos.
+                </p>
+                <p class="hero-text">AVENTURA</p>
+                <p class="hero-text">ARS$  12.958,00</p>
+              </div>
+              <figure
+                class="hero-banner img-holder"
+                style="--width: 900; --height: 700"
+              >
+                <img
+                  src="./assets/images/shop-img-4.jpg"
+                  width="700"
+                  height="700"
+                  alt="hero banner"
+                  class="w-100"
+                />
+              </figure>
+            </div>
+        </article>
+      </section>
+
+
+        <!-- #CATALOGO -->
+      <article>
+        <section
+          class="section shop"
+          id="shop"
+          aria-label="shop"
+          style="background-image: url('./assets/images/shop-bg.jpg')"
+        >
+        <div class="mb-5">
+          <h2 class="h2 section-title d-flex justify-content-center">
+            <span class="span">Catalogo</span>
+          </h2>
+        </div>
+          <div class="container">
+            <section class="section brand" aria-label="brand">
+              <section class="container">
+                <ul class="row" id="catalogo">                 
+                </ul>
+              </section>
+              <section>
+                <hr />
+                <div class="container-fluid mb-5">
+                  <div class="row">
+                    <button
+                      type="button"
+                      class="col-6 btn btn skewBg"
+                      id="nuevoJuego"
+                      data-bs-toggle="modal"
+                      data-bs-target="#NuevoJuego"
+                    >
+                      Cargar nuevo juego
+                    </button>
+                    <button class="col-6 btn btn skewBg" id="btnDatosPrueba">
+                      Cargar datos de prueba
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </section>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <!-- #MODAL-NUEVO-->
+    <div class="modal fade" id="NuevoJuego" tabindex="-1" aria-labelledby="NuevoJuegoLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="NuevoJuegoLabel">Agregar nuevo juego</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formJuego">
+              <div class="mb-3">
+                <label for="codigo" class="form-label">Codigo</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="codigo"
+                  maxlength="6"
+                  value=""
+                  disabled
+                />
+              </div>
+              <div class="mb-3">
+                <label for="URL" class="form-label">URL - Imagen</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="URL"
+                  placeholder="https://127.0.0.1:8000/image.jpg"
+                  maxlength="200"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nombre"
+                  placeholder="Ej: Iron Man"
+                  maxlength="30"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="categoria" class="form-label">Categoria</label>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id="categoria"
+                  placeholder="Accion"
+                  maxlength="50"
+                  required
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="precio" class="form-label">Precio</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="precio"
+                  placeholder="200000"
+                  maxlength="6"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <textarea
+                  class="form-control"
+                  id="descripcion"
+                  rows="3"
+                  maxlength="500"
+                  required
+                ></textarea>
+              </div>
+              <div class="d-flex justify-content-around m-3">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value= ""
+                    id="publicar"
+                  />
+                  <label for="publicar" class="form-check-label">Publicar</label>
+                </div>
+                <div class="form-check"> 
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    valur="true"
+                    id="destacar"
+                  />
+                  <label for="destacar" class="form-check-label">Destacar</label>
+              </div>
+              </div>
+            </div>
+            <button type="submit" class="btn skewBg">Guardar cambios</button>
+          </form>
+          </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+    <!-- 
+    - #FOOTER
+  -->
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-brand">
+            <a href="#" class="logo">Rolling Games</a>
+
+            <p class="footer-text">
+              Rolling Games marketplace fue fundada en 2023.
+            </p>
+
+            <ul class="contact-list">
+              <li class="contact-item">
+                <div class="contact-icon">
+                  <ion-icon name="location"></ion-icon>
+                </div>
+
+                <address class="item-text">Dirección : Rio Negro</address>
+              </li>
+
+              <li class="contact-item">
+                <div class="contact-icon">
+                  <ion-icon name="headset"></ion-icon>
+                </div>
+
+                <a href="tel:+241245654235" class="item-text"
+                  >Phone : +54 2984 654 235</a
+                >
+              </li>
+
+              <li class="contact-item">
+                <div class="contact-icon">
+                  <ion-icon name="mail-open"></ion-icon>
+                </div>
+
+                <a href="mailto:info@exemple.com" class="item-text"
+                  >Email : alexis.u.isla@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Productos</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Graphics (26)</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Backgrounds (11)</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Fonts (9)</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Music (3)</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Photography (3)</a>
+            </li>
+          </ul>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Necesitas Ayuda?</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms & Conditions</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Privacy Policy</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Refund Policy</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Affiliate</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Use Cases</a>
+            </li>
+          </ul>
+
+          <div class="footer-wrapper">
+            <div class="social-wrapper">
+              <p class="footer-list-title">síguenos en</p>
+
+              <ul class="social-list">
+                <li>
+                  <a
+                    href="#"
+                    class="social-link"
+                    style="background-color: #3b5998"
+                  >
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="#"
+                    class="social-link"
+                    style="background-color: #55acee"
+                  >
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="#"
+                    class="social-link"
+                    style="background-color: #d71e18"
+                  >
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="#"
+                    class="social-link"
+                    style="background-color: #1565c0"
+                  >
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-newsletter">
+              <p class="footer-list-title">Newsletter Sign Up</p>
+
+              <form action="" class="footer-newsletter">
+                <input
+                  type="email"
+                  name="email_address"
+                  aria-label="email"
+                  placeholder="Enter your email"
+                  required
+                  class="email-field"
+                />
+
+                <button type="submit" class="footer-btn" aria-label="submit">
+                  <ion-icon name="rocket"></ion-icon>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p class="copyright">
+            &copy; 2023 Alexis Isla. All Right Reserved by
+            <a href="#" class="copyright-link">Alexis Isla</a>
+          </p>
+
+          <img
+            src="./assets/images/footer-bottom-img.png"
+            width="340"
+            height="21"
+            loading="lazy"
+            alt=""
+            class="footer-bottom-img"
+          />
+        </div>
+      </div>
+    </footer>
+
+    <!-- 
+    - #BACK TO TOP
+  -->
+
+    <a
+      href="#top"
+      class="back-top-btn"
+      aria-label="back to top"
+      data-back-top-btn
+    >
+      <ion-icon name="caret-up"></ion-icon>
+    </a>
+
+    <!-- 
+    - custom js link
+  -->
+    <script src="./assets/js/bootstrap.min.js" ></script>
+    <script type="module" src="./assets/js/admin.js"></script>
+
+    <!-- 
+    - ionicon link
+  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>
