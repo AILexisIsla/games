@@ -7,7 +7,8 @@
     <meta name="author" content="Julieta Nahir Ferreyra, Carlos Eduardo Arias, Alexis Ulises Isla, Lain Robles, Juan Pablo Rearte, Gustavo Exequiel Aybar">
     <meta name="description" content="">
     <meta name="keywords" content="vanilla JS, bootstrap, css">
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>theRollingGames - Create Manage Alexis isla</title>
     
   </head>
@@ -207,7 +208,7 @@
                     <i class="bi bi-person-fill text-light"></i>
                   </div>
                   <label for="email" class="form-label text-light"></label>
-                  <input type="email" id="email" class="form-control bg-light" name="email" maxlength="100" placeholder="Correo electronico"
+                  <input type="email"  id="email" class="form-control bg-light" name="email" maxlength="50" placeholder="Correo electronico"
                   required>
                 </div>
                 <div class="input-group mt-1">
@@ -223,7 +224,7 @@
                     <div class="pt-1 ms-2">Mantener iniciada la sesión</div>
                   </div>
                 </div>
-                <input type="submit" class="btn text-black w-100 mt-3 iconos-login"></input>
+                <input type="submit"  class="btn text-black w-100 mt-3 iconos-login" ></input>
               </form>
               <br></br>
                 <div class="d-flex gap-1 justify-content-center mt-1 primera-vez">
@@ -256,16 +257,16 @@
                   required>
         <label for="user">Nombre de usuario:</label>
         <input type="text" class="contact-content" placeholder="Ej: Rodrigox10" required />
-        
+        <div class="modal-footer">
+          <button type="button" class="btn3" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn3">Recuperar contraseña</button>
+        </div>
       </div>
         </div>
 
       </div>
 
-      <div class="modal-footer2">
-        <button type="button" class="btn3" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn3">Recuperar contraseña</button>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -332,7 +333,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn1" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn1">Guardar</button>
+              <button type="button" class="btn1" >Guardar</button>
             </div>
           </div>
         </div>
@@ -580,7 +581,8 @@
     <!-- 
     - custom js link
   -->
-    <script src="./assets/js/script.js" defer></script>
+    <script src="../js/bootstrap.min.js" defer></script>
+    <script src="../js/login.js" defer></script>
 
     <!-- 
     - ionicon link
