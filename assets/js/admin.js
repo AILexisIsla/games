@@ -3,6 +3,7 @@ import {
   validarNumeros,
   validarURL,
   validarGeneral,
+  //validarCheckbox,
 } from "./validaciones.js";
 
 import { Juego } from "./productclass.js";
@@ -20,8 +21,7 @@ let nuevoJuego = document.getElementById("nuevoJuego");
 let btnDatosPrueba = document.getElementById("btnDatosPrueba");
 
 let juegoExistente = false;
-let catalogoJuegos =
-  JSON.parse(localStorage.getItem("arrayProductosKey")) || [];
+let catalogoJuegos = JSON.parse(localStorage.getItem("arrayCatalogoKey")) || [];
 
 function generarCodigo(length) {
   let caracteres =
@@ -54,6 +54,17 @@ campoDescripcion.addEventListener("blur", () => {
   campoRequerido(campoDescripcion);
 });
 
+// campoPublicado.addEventListener("onChange", () => {
+//   validarCheckbox(campoPublicado);
+// });
+
+// campoDestacado.addEventListener("onChange", () => {
+//   validarCheckbox(campoDestacado);
+// });
+
+// console.log("El valor de destacado es: ", campoDestacado.value);
+// console.log("El valor de publicado es: ", campoPublicado.value);
+
 formJuego.addEventListener("submit", guardarProducto);
 nuevoJuego.addEventListener("click", limpiarFormulario);
 btnDatosPrueba.addEventListener("click", cargarDatosPrueba);
@@ -64,25 +75,29 @@ function guardarProducto(e) {
   e.preventDefault();
   catalogoJuegos.map((juego) => {
     if (campoCodigo !== "") {
-      juego.codigo == campoCodigo.value
-        ? (juegoExistente = true)
-        : (juegoExistente = false);
+      juego.codigo !== campoCodigo.value &&
+      juego.nombre.trim().toLowerCase() !== campoNombre.value.trim().toLowerCase()
+        ? juegoExistente = true
+        : juegoExistente = false;
     }
   });
 
-  validarGeneral(
-    campoURL,
-    campoNombre,
-    campoCategoria,
-    campoPrecio,
-    campoDescripcion
-  );
-  if (!juegoExistente) {
-    crearProducto();
-  } else {
-    modificarJuego();
-  }
-}
+    validarGeneral(
+      campoURL,
+      campoNombre,
+      campoCategoria,
+      campoPrecio,
+      campoDescripcion,
+      // campoDestacado,
+      // campoPublicado
+    )
+  
+    if (!juegoExistente) {
+      crearProducto();
+    } else {
+      modificarJuego();
+    }
+};
 
 function crearProducto() {
   campoCodigo = generarCodigo(6);
@@ -98,9 +113,9 @@ function crearProducto() {
   );
   catalogoJuegos.push(productoNuevo);
 
-  limpiarFormulario();
-
   guadarLocalStorage();
+  
+  limpiarFormulario();
 
   Swal.fire(
     "Producto creado!",
@@ -126,7 +141,7 @@ function limpiarFormulario() {
 }
 
 function guadarLocalStorage() {
-  localStorage.setItem("arrayProductosKey", JSON.stringify(catalogoJuegos));
+  localStorage.setItem("arrayCatalogoKey", JSON.stringify(catalogoJuegos));
 }
 
 function crearFila(juego) {
@@ -172,7 +187,7 @@ function crearFila(juego) {
               <img src="./assets/images/Delet_Admin.png" alt="delet">
             </button>
             
-            <button class="card-btn" onclick="destacable('${juego.codigo}')">
+            <button class="card-btn" onClick="destacable('${juego.codigo}')">
             <figure class="w-100 h-auto" id="${juego.codigo}">
               <img src="./assets/images/Black_Star_Admin.png" alt="highlight w-100 h-auto">
             </figure>
@@ -285,34 +300,34 @@ window.borrarJuego = function (codigo) {
   });
 };
 
-window.destacable = function (codigo) {
-  let starOn = document.querySelector(`#${codigo}`);
-  catalogoJuegos.map((juego) => {
-    if (juego.codigo === codigo) {
-      if (!juego.destacado) {
-        starOn.innerHTML =
-          '<img src="./assets/images/Star_Admin.png" alt="highlight">';
-        juego.destacado = true;
-      } else {
-        starOn.innerHTML =
-          '<img src="./assets/images/Black_Star_Admin.png" alt="highlight">';
-        juego.destacado = false;
-      };
-    };
-    guadarLocalStorage();
-    borrarCatalogo();
-    cargaInicial();
-  });
+// function destacable(codigo) {
+//   let starOn = document.querySelector(`#${codigo}`);
+//   catalogoJuegos.map((juego) => {
+//     if (juego.codigo === codigo) {
+//       if (!juego.destacado) {
+//         starOn.innerHTML =
+//           '<img src="./assets/images/Star_Admin.png" alt="highlight">';
+//         juego.destacado = true;
+//       } else {
+//         starOn.innerHTML =
+//           '<img src="./assets/images/Black_Star_Admin.png" alt="highlight">';
+//         juego.destacado = false;
+//       }
+//     }
+//     guadarLocalStorage();
+//     borrarCatalogo();
+//     cargaInicial();
+//   });
 
-  catalogoJuegos.map((juegoDestacado) => {
-    if (juegoDestacado.destacado) {
-      let starOff = document.querySelector(`#${juegoDestacado.codigo}`);
-      starOff.innerHTML =
-        '<img src="./assets/images/Black_Star_Admin.png" alt="highlight">';
-      juegoDestacado.destacado = false;
-    }
-  });
-}
+//   catalogoJuegos.map((juegoDestacado) => {
+//     if (juegoDestacado.destacado) {
+//       let starOff = document.querySelector(`#${juegoDestacado.codigo}`);
+//       starOff.innerHTML =
+//         '<img src="./assets/images/Black_Star_Admin.png" alt="highlight">';
+//       juegoDestacado.destacado = false;
+//     }
+//   });
+// }
 
 function cargarDatosPrueba() {
   const datos = [
@@ -406,8 +421,8 @@ function cargarDatosPrueba() {
     },
   ];
 
-  if (!localStorage.getItem("arrayProductosKey")) {
-    localStorage.setItem("arrayProductosKey", JSON.stringify(datos));
+  if (!localStorage.getItem("arrayCatalogoKey")) {
+    localStorage.setItem("arrayCatalogoKey", JSON.stringify(datos));
     catalogoJuegos = datos;
     catalogoJuegos.forEach((itemProducto) => {
       crearFila(itemProducto);

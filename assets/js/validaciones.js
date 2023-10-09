@@ -1,5 +1,5 @@
 export const campoRequerido = (input) => {
-    if (input.value.trim()?.length > 0&&input.value!==''&&input.value!==undefined&&input.value!==null) {
+    if (input.value.trim()?.length > 0 &&input.value!==''&&input.value!==undefined&&input.value!==null) {
       input.className = 'form-control is-valid';
       return true;
     } else {
@@ -29,6 +29,16 @@ export const campoRequerido = (input) => {
       return false;
     }
   };
+
+  // export const validarCheckbox = (input) => {
+  //   console.log(`${input.value}`);
+  //   if (input.value === true && input.value !== null && input.value !== undefined){
+  //     return true;
+  //   }else{
+  //     return false;
+  //   }
+
+  // };
   
   export  const validarGeneral = (
     campoURL,
@@ -36,11 +46,14 @@ export const campoRequerido = (input) => {
     campoCategoria,
     campoPrecio,
     campoDescripcion,
+    // campoDestacado,
+    // campoPublicado
   ) => {
-    
       validarURL(campoURL);
       campoRequerido(campoNombre);
       campoRequerido(campoCategoria);
       validarNumeros(campoPrecio);
       campoRequerido(campoDescripcion);
+      // validarCheckbox(campoDestacado);
+      // validarCheckbox(campoPublicado)
   };
