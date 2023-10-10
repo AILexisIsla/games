@@ -3,7 +3,6 @@ import {
   validarNumeros,
   validarURL,
   validarGeneral,
-  //validarCheckbox,
 } from "./validations.js";
 
 import { Juego } from "./productclass.js";
@@ -54,16 +53,13 @@ campoDescripcion.addEventListener("blur", () => {
   campoRequerido(campoDescripcion);
 });
 
-// campoPublicado.addEventListener("onChange", () => {
-//   validarCheckbox(campoPublicado);
-// });
+campoPublicado.addEventListener("click", () => {
+});
 
-// campoDestacado.addEventListener("onChange", () => {
-//   validarCheckbox(campoDestacado);
-// });
+campoDestacado.addEventListener("click", () => {
+ });
 
-// console.log("El valor de destacado es: ", campoDestacado.value);
-// console.log("El valor de publicado es: ", campoPublicado.value);
+
 
 formJuego.addEventListener("submit", guardarProducto);
 nuevoJuego.addEventListener("click", limpiarFormulario);
@@ -81,42 +77,33 @@ function guardarProducto(e) {
   e.preventDefault();
   console.log("el valor de la bandera es: ", juegoExistente);
   catalogoJuegos.map((juego) => {
-    console.log(
-      "el valor del codigo del juego buscado es: ",
-      campoCodigo.value
-    );
-    console.log("el valor del codigo del juego en el array es: ", juego.codigo);
-    console.log(
-      "el valor del nombre del juego buscado es: ",
-      campoNombre.value
-    );
-    console.log("el valor del nombre del juego en el array es: ", juego.nombre);
-    if (
-      campoCodigo !== "" &&
-      juego.codigo === campoCodigo.value
-    ) {
+    if (campoCodigo !== ""){
+      if(juego.codigo === campoCodigo.value){
+        juegoExistente = true;
+      }
+    }else {
       juegoExistente = false;
-    } else {
-      juegoExistente = true;
-    }
+    }     
   });
 
-  validarGeneral(
+  if(validarGeneral(
     campoURL,
     campoNombre,
     campoCategoria,
     campoPrecio,
     campoDescripcion
-    // campoDestacado,
-    // campoPublicado
-  );
-  console.log("el valor de la bandera es: ", juegoExistente);
-  if (!juegoExistente) {
-    crearProducto();
-  } else {
-    modificarJuego();
+  )){
+    if (!juegoExistente) {
+      console.log('aqui creamos un juego nuevo');
+      crearProducto();
+    } else {
+      console.log('aqui modificamos un juego');
+      modificarJuego();
+    };
   }
 }
+console.log(campoPublicado.checked);
+console.log(campoDestacado.checked);
 
 function crearProducto() {
   campoCodigo = generarCodigo(6);
@@ -127,8 +114,8 @@ function crearProducto() {
     campoCategoria.value,
     campoPrecio.value,
     campoDescripcion.value,
-    campoPublicado.value,
-    campoDestacado.value
+    campoPublicado.checked,
+    campoDestacado.checked
   );
   catalogoJuegos.push(productoNuevo);
 
@@ -228,8 +215,8 @@ window.prepararEdicionJuego = function (codigo) {
   campoCategoria.value = juegoBuscado.categoria;
   campoPrecio.value = juegoBuscado.precio;
   campoDescripcion.value = juegoBuscado.descripcion;
-  campoPublicado.value = juegoBuscado.publicado;
-  campoDestacado.value = juegoBuscado.destacado;
+  campoPublicado.checked = juegoBuscado.publicado;
+  campoDestacado.checked = juegoBuscado.destacado;
 
   juegoExistente = false;
 };
