@@ -90,7 +90,7 @@
           <nav class="navbar" data-navbar>
             <ul class="navbar-list">
               <li class="navbar-item">
-                <a href="#home" class="navbar-link skewBg" data-nav-link
+                <a href="../index.html" class="navbar-link skewBg" data-nav-link
                   >Inicio</a
                 >
               </li>
@@ -121,15 +121,6 @@
 
               <li class="navbar-item">
                 <a href="#" class="navbar-link skewBg" data-nav-link>Login</a>
-              </li>
-
-              <li class="navbar-item">
-                <a
-                  href="../pages/contact.html"
-                  class="navbar-link skewBg"
-                  data-nav-link
-                  >Contacto</a
-                >
               </li>
             </ul>
           </nav>
@@ -193,150 +184,144 @@
     </div>
 
     <main>
-      <section class="row contact">
-        <div class="col-ms-12 col-md-6">
-          <section>
-            <h1 class="section-header">Contáctenos</h1>
-
-            <div class="contact-wrapper">
-              <!-- Left contact page -->
-
-              <form id="contact-form" class="form-horizontal" role="form">
-                <div class="form-group">
-                  <div class="col-sm-12">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="name"
-                      placeholder="Nombre y Apellido"
-                      name="name"
-                      value=""
-                      required
-                    />
-                  </div>
+      <section class="container">
+        <h1 class="section-header">Contáctenos</h1>
+        <article class="row">
+          <div class="col-sm-12 col-md-6 m-5">
+            <form id="contact-form" class="text-align-center" role="form">
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Nombre y Apellido"
+                    value=""
+                    minlength="8"
+                    maxlength="50"
+                    required
+                  />
                 </div>
+              </div>
 
-                <div class="form-group">
-                  <div class="col-sm-12">
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="email"
-                      placeholder="Correo"
-                      name="email"
-                      value=""
-                      required
-                    />
-                  </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Correo"
+                    value=""
+                    minlength="15"
+                    maxlength="50"
+                    required
+                  />
                 </div>
+              </div>
 
-                <textarea
-                  class="form-control"
-                  rows="10"
-                  placeholder="Mensaje"
-                  name="message"
-                  required
-                ></textarea>
-
-                <button
-                  class="btn1 send-button1"
-                  id="submit"
-                  type="submit"
-                  value="SEND"
-                >
-                  <div>
-                    <i class="fa fa-paper-plane"></i
-                    ><span class="send-text">Enviar</span>
-                  </div>
+              <textarea
+              class="form-control"
+              rows="10"
+              placeholder="Mensaje"
+              id="mensaje"
+              minlength="1"
+              maxlength="200"
+              required
+              ></textarea>
+              
+              <button class="btn skewBg m-5" type="submit">
+                <i class="fa fa-paper-plane"></i
+                  ><span class="send-text">Enviar</span>
                 </button>
               </form>
-
-              <!-- Left contact page -->
-
-              <div class="direct-contact-container">
-                <ul class="contact-list">
-                  <li class="list-item">
-                    <i class="fa fa-map-marker fa-2x"
-                      >
-                      <span class="contact-text place"
-                        ><a href="https://maps.app.goo.gl/SYBSNLb8UhRXLpst5" target="_blank" rel="look at my address">Dirección: Rio Negro</a>
-                        
-                        </span></i
-                    >
-                  </li>
-
-                  <li class="list-item">
-                    <i class="fa fa-phone fa-2x"
-                      ><span class="contact-text phone"
-                        ><a href="tel:1-212-555-5555" title="Give me a call"
-                          >+54 2984 654 235</a
-                        ></span
-                      ></i
-                    >
-                  </li>
-
-                  <li class="list-item">
-                    <i class="fa fa-envelope fa-2x"
-                      ><span class="contact-text gmail"
-                        ><a href="mailto:#" title="Send me an email"
-                          >RollingGames@rg.com</a
-                        ></span
-                      ></i
-                    >
-                  </li>
-                </ul>
-
-                <hr />
-                <ul class="social-media-list">
-                  <li>
-                    <a
-                      href="https://github.com/"
-                      target="_blank"
-                      class="contact-icon"
-                    >
-                      <i class="fa fa-github" aria-hidden="true"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://codepen.io/"
-                      target="_blank"
-                      class="contact-icon"
-                    >
-                      <i class="fa fa-codepen" aria-hidden="true"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://twitter.com/"
-                      target="_blank"
-                      class="contact-icon"
-                    >
-                      <i class="fa fa-twitter" aria-hidden="true"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.instagram.com/"
-                      target="_blank"
-                      class="contact-icon"
-                    >
-                      <i class="fa fa-instagram" aria-hidden="true"></i
-                    ></a>
-                  </li>
-                </ul>
-                <hr />
-              </div>
             </div>
-          </section>
-        </div>
-        <div class="col-ms-12 col-md-6">
-          
-          <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3005.137336545786!2d-71.3388056!3d-41.1315278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDA3JzUzLjUiUyA3McKwMjAnMTkuNyJX!5e0!3m2!1ses-419!2sar!4v1696607158341!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+            <div class="col-sm-12 m-5">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3005.137336545786!2d-71.3388056!3d-41.1315278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDA3JzUzLjUiUyA3McKwMjAnMTkuNyJX!5e0!3m2!1ses-419!2sar!4v1696607158341!5m2!1ses-419!2sar"
+                
+                class="w-100 h-100"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          <div class="col-sm-12 col-md-6 m-5">
+            <ul class="contact-list">
+              <li class="list-item">
+                <i class="fa fa-map-marker fa-2x">
+                  <span class="contact-text place"
+                    ><a
+                      href="https://maps.app.goo.gl/SYBSNLb8UhRXLpst5"
+                      target="_blank"
+                      rel="look at my address"
+                      >Dirección: Rio Negro</a
+                    >
+                  </span></i
+                >
+              </li>
+              
+              <li class="list-item">
+                <i class="fa fa-phone fa-2x"
+                ><span class="contact-text phone"
+                ><a href="tel:1-212-555-5555" title="Give me a call"
+                >+54 2984 654 235</a
+                ></span
+                ></i
+                >
+              </li>
+              
+              <li class="list-item">
+                <i class="fa fa-envelope fa-2x"
+                ><span class="contact-text gmail"
+                    ><a href="mailto:#" title="Send me an email"
+                      >RollingGames@arg.com</a
+                    ></span
+                  ></i
+                >
+              </li>
+            </ul>
 
-        </div>
+            <ul class="social-media-list">
+              <li>
+                <a
+                  href="https://github.com/"
+                  target="_blank"
+                  class="contact-icon"
+                >
+                  <i class="fa fa-github" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://codepen.io/"
+                  target="_blank"
+                  class="contact-icon"
+                >
+                  <i class="fa fa-codepen" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  class="contact-icon"
+                >
+                  <i class="fa fa-twitter" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  class="contact-icon"
+                >
+                  <i class="fa fa-instagram" aria-hidden="true"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </article>
       </section>
 
       <!-- 
@@ -447,6 +432,10 @@
           <ul class="footer-list">
             <li>
               <p class="footer-list-title">Necesitas Ayuda?</p>
+            </li>
+
+            <li>
+              <a href="../pages/contact.html" class="footer-link">Contacto</a>
             </li>
 
             <li>
