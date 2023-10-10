@@ -1820,6 +1820,8 @@ color: var(--light);
   margin-left: 50px;
 }
 
+/* Slider de imagenes */
+
 .altoslider {
   display: flex;
   width: auto;
