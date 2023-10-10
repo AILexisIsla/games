@@ -1816,6 +1816,7 @@ color: var(--light);
   background-color: #0778fa;
 }
 
+<<<<<<< HEAD
 /*
 EFECTO PARA JUEGO NO PUBLICADO
 */
@@ -1969,3 +1970,34 @@ EFECTO PARA JUEGO NO PUBLICADO
 .modal-header2{
   background-color: var(--white);
 }
+=======
+/* Ajusta la cantidad que desees para mover el botón hacia la derecha en error 404 */
+
+.btn-error {
+  margin-left: 50px;
+}
+
+/* Slider de imagenes */
+
+.altoslider {
+  display: flex;
+  width: auto;
+  height: 430px;
+}
+
+.altoslider img {
+  width: 0%;
+  flex-grow: 1;
+  object-fit: cover;
+  opacity: .8;
+  transition: .5s ease;
+  margin-right: 0px;  
+}
+
+.altoslider img:hover {
+  cursor: crosshair;
+  width: 300px;
+  opacity: 1;
+  filter: opacity(120%);
+}
+>>>>>>> nueva-ramaDepruebaMain
