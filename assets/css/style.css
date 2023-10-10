@@ -1813,3 +1813,10 @@ color: var(--light);
 .social-link4 {
   background-color: #0778fa;
 }
+
+/* Ajusta la cantidad que desees para mover el botón hacia la derecha en error 404 */
+
+.btn-error {
+  margin-left: 50px;
+}
+
