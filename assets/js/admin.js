@@ -4,7 +4,7 @@ import {
   validarURL,
   validarGeneral,
   //validarCheckbox,
-} from "./validaciones.js";
+} from "./validations.js";
 
 import { Juego } from "./productclass.js";
 let campoCodigo = document.getElementById("codigo");
@@ -71,33 +71,52 @@ btnDatosPrueba.addEventListener("click", cargarDatosPrueba);
 
 cargaInicial();
 
+function cargaInicial() {
+  if (catalogoJuegos.length > 0) {
+    catalogoJuegos.map((itemProducto) => crearFila(itemProducto));
+  }
+}
+
 function guardarProducto(e) {
   e.preventDefault();
+  console.log("el valor de la bandera es: ", juegoExistente);
   catalogoJuegos.map((juego) => {
-    if (campoCodigo !== "") {
-      juego.codigo !== campoCodigo.value &&
-      juego.nombre.trim().toLowerCase() !== campoNombre.value.trim().toLowerCase()
-        ? juegoExistente = true
-        : juegoExistente = false;
+    console.log(
+      "el valor del codigo del juego buscado es: ",
+      campoCodigo.value
+    );
+    console.log("el valor del codigo del juego en el array es: ", juego.codigo);
+    console.log(
+      "el valor del nombre del juego buscado es: ",
+      campoNombre.value
+    );
+    console.log("el valor del nombre del juego en el array es: ", juego.nombre);
+    if (
+      campoCodigo !== "" &&
+      juego.codigo === campoCodigo.value
+    ) {
+      juegoExistente = false;
+    } else {
+      juegoExistente = true;
     }
   });
 
-    validarGeneral(
-      campoURL,
-      campoNombre,
-      campoCategoria,
-      campoPrecio,
-      campoDescripcion,
-      // campoDestacado,
-      // campoPublicado
-    )
-  
-    if (!juegoExistente) {
-      crearProducto();
-    } else {
-      modificarJuego();
-    }
-};
+  validarGeneral(
+    campoURL,
+    campoNombre,
+    campoCategoria,
+    campoPrecio,
+    campoDescripcion
+    // campoDestacado,
+    // campoPublicado
+  );
+  console.log("el valor de la bandera es: ", juegoExistente);
+  if (!juegoExistente) {
+    crearProducto();
+  } else {
+    modificarJuego();
+  }
+}
 
 function crearProducto() {
   campoCodigo = generarCodigo(6);
@@ -114,16 +133,16 @@ function crearProducto() {
   catalogoJuegos.push(productoNuevo);
 
   guadarLocalStorage();
-  
+  crearFila(productoNuevo);
   limpiarFormulario();
-
+  borrarCatalogo();
+  cargaInicial();
+  juegoExistente = false;
   Swal.fire(
     "Producto creado!",
     "El producto fue creado correctamente!",
     "success"
   );
-  crearFila(productoNuevo);
-  cargaInicial();
 }
 
 function limpiarFormulario() {
@@ -200,12 +219,6 @@ function crearFila(juego) {
   </li>`;
 }
 
-function cargaInicial() {
-  if (catalogoJuegos.length > 0) {
-    catalogoJuegos.map((itemProducto) => crearFila(itemProducto));
-  }
-}
-
 window.prepararEdicionJuego = function (codigo) {
   let juegoBuscado = catalogoJuegos.find((juego) => juego.codigo === codigo);
 
@@ -218,7 +231,7 @@ window.prepararEdicionJuego = function (codigo) {
   campoPublicado.value = juegoBuscado.publicado;
   campoDestacado.value = juegoBuscado.destacado;
 
-  juegoExistente = true;
+  juegoExistente = false;
 };
 
 function modificarJuego() {
@@ -246,16 +259,16 @@ function modificarJuego() {
       catalogoJuegos[indiceJuego].destacado = campoDestacado.value;
 
       borrarJuego();
-      guadarLocalStorage();
       borrarCatalogo();
-      limpiarFormulario();
-      cargaInicial();
-
+      guadarLocalStorage();
       Swal.fire(
         "Producto modificado!",
         "El producto fue modificado correctamente!",
         "success"
       );
+      cargaInicial();
+      limpiarFormulario();
+      juegoExistente = false;
     }
   });
 }
