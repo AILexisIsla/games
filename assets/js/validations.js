@@ -1,3 +1,24 @@
+export const validarUsuario = (input) => {
+
+};
+
+export const validarEmail = (input) => {
+  
+};
+export const validarNombre = (input) => {
+
+};
+
+export const validarPassword = (input) => {
+
+};
+
+export const validarTotal = (
+
+) => {
+
+};
+
 export const campoRequerido = (input) => {
     if (input.value.trim()?.length > 0 &&input.value!==''&&input.value!==undefined&&input.value!==null) {
       input.className = 'form-control is-valid';
@@ -23,11 +44,9 @@ export const campoRequerido = (input) => {
     let patron = /^https?:\/\/[/#?]?.*$/;
     if (patron.test(input.value)&&input.value!==''&&input.value!==undefined&&input.value!==null) {
       input.className = 'form-control is-valid';
-      console.log('URL VALIDADO');
       return true;
     } else {
       input.className = 'form-control is-invalid';
-      console.log('URL FALSO');
       return false;
     }
   };

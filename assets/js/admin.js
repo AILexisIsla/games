@@ -22,17 +22,6 @@ let btnDatosPrueba = document.getElementById("btnDatosPrueba");
 let juegoExistente = false;
 let catalogoJuegos = JSON.parse(localStorage.getItem("arrayCatalogoKey")) || [];
 
-function generarCodigo(length) {
-  let caracteres =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  let codigo = "";
-  for (let i = 0; i < length; i++) {
-    let index = Math.floor(Math.random() * caracteres.length);
-    codigo += caracteres.charAt(index);
-  }
-  return codigo;
-}
-
 campoURL.addEventListener("blur", () => {
   validarURL(campoURL);
 });
@@ -54,6 +43,7 @@ campoDescripcion.addEventListener("blur", () => {
 });
 
 campoPublicado.addEventListener("click", () => {
+  console.log(campoPublicado.checked);
 });
 
 campoDestacado.addEventListener("click", () => {
@@ -73,9 +63,20 @@ function cargaInicial() {
   }
 }
 
+function generarCodigo(length) {
+  let caracteres =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let codigo = "";
+  for (let i = 0; i < length; i++) {
+    let index = Math.floor(Math.random() * caracteres.length);
+    codigo += caracteres.charAt(index);
+  }
+  return codigo;
+}
+
 function guardarProducto(e) {
   e.preventDefault();
-  console.log("el valor de la bandera es: ", juegoExistente);
+
   catalogoJuegos.map((juego) => {
     if (campoCodigo !== ""){
       if(juego.codigo === campoCodigo.value){
@@ -85,7 +86,7 @@ function guardarProducto(e) {
       juegoExistente = false;
     }     
   });
-
+  
   if(validarGeneral(
     campoURL,
     campoNombre,
@@ -94,16 +95,12 @@ function guardarProducto(e) {
     campoDescripcion
   )){
     if (!juegoExistente) {
-      console.log('aqui creamos un juego nuevo');
       crearProducto();
     } else {
-      console.log('aqui modificamos un juego');
       modificarJuego();
     };
   }
 }
-console.log(campoPublicado.checked);
-console.log(campoDestacado.checked);
 
 function crearProducto() {
   campoCodigo = generarCodigo(6);
@@ -339,8 +336,8 @@ function cargarDatosPrueba() {
       precio: "59000",
       descripcion:
         "Grand Theft Auto V para PC ofrece a los jugadores la opción de explorar el galardonado mundo de Los Santos y el condado de Blaine con una resolución de 4K y disfrutar del juego a 60 fotogramas por segundo.",
-      publicado: "true",
-      destacado: "true",
+      publicado: true,
+      destacado: true,
     },
     {
       Url: "https://cdn.akamai.steamstatic.com/steam/apps/1091500/hero_capsule.jpg?t=1695308476",
@@ -350,8 +347,8 @@ function cargarDatosPrueba() {
       precio: "75500",
       descripcion:
         "Cyberpunk 2077 es un RPG de aventura y acción de mundo abierto ambientado en el futuro sombrío de Night City, una peligrosa megalópolis obsesionada con el poder, el glamur y las incesantes modificaciones corporales.",
-      publicado: "true",
-      destacado: "false",
+      publicado: true,
+      destacado: false,
     },
     {
       Url: "https://cdn.akamai.steamstatic.com/steam/apps/1938090/hero_capsule.jpg?t=1696521698",
@@ -361,8 +358,8 @@ function cargarDatosPrueba() {
       precio: "200000",
       descripcion:
         "Te damos la bienvenida a Call of Duty® HQ, el hogar de Call of Duty®: Modern Warfare® III, Call of Duty®: Modern Warfare® II y Warzone™.",
-      publicado: "true",
-      destacado: "false",
+      publicado: true,
+      destacado: false,
     },
     {
       Url: "https://cdn.akamai.steamstatic.com/steam/apps/2195250/hero_capsule.jpg?t=1696300539",
@@ -372,8 +369,8 @@ function cargarDatosPrueba() {
       precio: "150500",
       descripcion:
         "EA SPORTS FC™ 24 te da la bienvenida a The World's Game: la experiencia futbolística más fiel hasta la fecha con HyperMotionV, PlayStyles optimizado por Opta y el motor mejorado de Frostbite™.",
-      publicado: "true",
-      destacado: "false",
+      publicado: true,
+      destacado: false,
     },
     {
       Url: "https://cdn.akamai.steamstatic.com/steam/apps/1245620/hero_capsule.jpg?t=1683618443",
@@ -383,8 +380,8 @@ function cargarDatosPrueba() {
       precio: "35500",
       descripcion:
         "EL NUEVO JUEGO DE ROL Y ACCIÓN DE AMBIENTACIÓN FANTÁSTICA. Álzate, Sinluz, y que la gracia te guíe para abrazar el poder del Círculo de Elden y encumbrarte como señor del Círculo en las Tierras Intermedias.",
-      publicado: "true",
-      destacado: "false",
+      publicado: true,
+      destacado: false,
     },
     {
       Url: "https://cdn.akamai.steamstatic.com/steam/apps/2440510/hero_capsule_alt_assets_1_latam.jpg?t=1696480140",
@@ -394,8 +391,8 @@ function cargarDatosPrueba() {
       precio: "25500",
       descripcion:
         "Supera a tus rivales en la nueva carrera. Haz carreras con tus amigos en eventos multijugador arbitrados y compite con más de 500 coches en pistas de fama mundial con una IA de última generación, una física avanzada y estrategias que dependen de los neumáticos y el combustible.",
-      publicado: "false",
-      destacado: "false",
+      publicado: false,
+      destacado: false,
     },
     {
       Url: "https://cdn.akamai.steamstatic.com/steam/apps/570/hero_capsule.jpg?t=1682639497",
@@ -405,8 +402,8 @@ function cargarDatosPrueba() {
       precio: "13500",
       descripcion:
         "Cada día, millones de jugadores de todo el mundo entran en batalla como uno de los más de cien héroes de Dota. Y no importa si es su décima hora de juego o la milésima, siempre hay algo nuevo que descubrir.",
-      publicado: "false",
-      destacado: "false",
+      publicado: false,
+      destacado: false,
     },
     {
       Url: "https://cdn.akamai.steamstatic.com/steam/apps/252490/hero_capsule.jpg?t=1693652810",
@@ -416,8 +413,8 @@ function cargarDatosPrueba() {
       precio: "50500",
       descripcion:
         "El único objetivo en Rust es sobrevivir. Todo quiere que mueras: la vida salvaje de la isla y otros habitantes, el medio ambiente y otros supervivientes. Haz lo que sea necesario para durar una noche más.",
-      publicado: "false",
-      destacado: "false",
+      publicado: false,
+      destacado: false,
     },
   ];
 

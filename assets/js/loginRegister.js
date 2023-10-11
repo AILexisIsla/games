@@ -1,18 +1,87 @@
 import {
-  usuario,
-  password
+  validarNombre,
+  validarEmail,
+  validarPassword,
+  validarTotal,
+  campoRequerido,
 } from "./validations.js";
 
-let campoMail = document.getElementById("mail");
-let campoContrasena = document.getElementById("contrasena");
+import { Usuario } from "./usuariosclass.js";
+
+//formulario del login
+let emailLogin = document.getElementById("emailLogin");
+let passwordLogin = document.getElementById("passwordLogin");
+let sesionLogin = document.getElementById("sesionLogin");
+let formLogin = document.getElementById("formLogin");
+let alert = document.querySelector("#alert");
+
+//formulario del registro de usuario
+let nombreCompletoRegistro = document.getElementById("nombreCompletoRegistro");
+let emailRegistro = document.getElementById("emailRegistro");
+let passwordRegistro = document.getElementById("passwordRegistro");
+let rePasswordRegistro = document.getElementById("rePasswordRegistro");
+let formRegistro = document.getElementById("formRegistro");
+
 let botonAdmin = document.getElementById("adminBoton");
+let logoUsuario = document.getElementById("logoUsuario");
+let usuarioExistente = false;
 
-console.log(campoMail.value);
-console.log(campoContrasena.value);
-console.log(botonAdmin.value);
+let arrayUsuarios = JSON.parse(localStorage.getItem("arrayUsuariosKey")) || [];
 
-//registro
+formLogin.addEventListener("submit", (e) => {
+  e.preventDefault();
 
+  arrayUsuarios.map((usuario) => {
+    if (usuario.email === emailLogin.value && usuario.password === passwordLogin.value) {
+      if (usuario.admin){
+      botonAdmin.className = 'navbar-link skewBg';
+      logoUsuario.innerHTML = '<img src="../assets/images/usuario_admin.png" alt="logo de usuario">'
+      window.location.href = "/admin.html";
+      }else{
+        logoUsuario.innerHTML = '<img src="./assets/images/usuario_admin.png" alt="logo de usuario">'
+        window.location.href = "/index.html";
+      }
+    } else {
+      emailLogin.className = 'form-control is-invalid';
+      passwordLogin.className = 'form-control is-invalid';
+      alert.className = "alert alert-danger my-3";
+    }
+  })
+});
+
+nombreCompletoRegistro.addEventListener("blur", () => {
+  
+});
+emailRegistro.addEventListener("blur", () => {
+  // validarEmail(emailRegistro);
+});
+passwordRegistro.addEventListener("blur", () => {
+  // validarPassword(passwordRegistro);
+});
+rePasswordRegistro.addEventListener("blur", () => {
+  // validarPassword(rePasswordRegistro);
+});
+
+cargarUsuariosRandom();
+
+function limpiarFormulario(){
+  formLogin.reset();
+  emailLogin.className = "form-control";
+  passwordLogin.className = "form-control";
+  sesionLogin.className = "form-check-input";
+  nombreCompletoRegistro.className = "form-control";
+  emailRegistro.className = "form-control";
+  passwordRegistro.className = "form-control";
+  rePasswordRegistro.className = "form-control";
+  usuarioExistente = false;
+}
+
+function guadarLocalStorage (){
+  localStorage.setItem("arrayUsuarioKey", JSON.stringify(arrayUsuarios))
+}
+
+
+//////////////////////////////////////
 // const campoRegistro = (input) => {
 //     if (input.value.trim()?.length > 0&&input.value!==''&&input.value!==undefined&&input.value!==null) {
 //       input.className = 'form-control is-valid';
@@ -58,25 +127,15 @@ console.log(botonAdmin.value);
 //     registroContrasena(campoContrasena);
 // }
 
-// //cuenta administrador
-// function administrador() {
-// const cuenta = [
-//     {
-//         mail: "rollinggame@gr.com",
-//         pass: "Rolling-123",
-//         admin: true,
-//     },
-// ]
-// }
 
 // //Bandera
 // let usuarioExiste = false;
 // let usuarios =
 //   JSON.parse(localStorage.getItem("arrayUsuarios")) || [];
 
-// campoMail.addEventListener("blur", () => {registroEmail(campoMail);});
-// campoContrasena.addEventListener("blur", () => {registroEmail(campoContrasena);});
-// campoAdmin.addEventListener("blur", () => {registroEmail(campoAdmin);})
+// // campoMail.addEventListener("blur", () => {registroEmail(campoMail);});
+// // campoContrasena.addEventListener("blur", () => {registroEmail(campoContrasena);});
+// // campoAdmin.addEventListener("blur", () => {registroEmail(campoAdmin);})
 
 // function crearUsuario(e){
 //     const nuevoMail = campoMail.value;
@@ -114,20 +173,53 @@ console.log(botonAdmin.value);
 // function guadarLocalStorageR() {
 //     localStorage.setItem("arrayUsuarios", JSON.stringify(usuarios));
 //   }
+/////////////////////////////////////////////////////
+  //almacenar datos de usuarios
+  //datos random
+function cargarUsuariosRandom(){
+  const datosUsuarios = [
+    {
+      nombreCompleto: "theRollingGame",
+      email: "theRollingGameAdmin@gmail.com",
+      password: "Admin2023",
+      admin: true,
+    },
+    {
+      nombreCompleto: "theRollingGame",
+      email: "theRollingGameUsuario@gmail.com",
+      password: "Usuario2023",
+      admin: false,
+    },
 
-//   //login
+  ];
+  if(!localStorage.getItem("arrayUsuariosKey")){
+    localStorage.setItem("arrayUsuariosKey", JSON.stringify(datosUsuarios));
+    arrayUsuarios = datosUsuarios;
+  };
+ };
 
-//   function login () {
-//     const emailInput = document.getElementById("email").value;
-//     const contraInput = document.getElementById("contra").value;
+cargaDeUsuarios();
+function cargaDeUsuarios(){
+  if(arrayUsuarios > 0){
+    arrayUsuarios.map((usuario) => crearUsuario(usuario));
+  }
+};
 
-//     const usuario = usuarios.find(user => user.mail === emailInput && user.pass === contraInput);
+function crearUsuario (){
+  let nuevoUsuario = new Usuario (
+    nombreCompleto.value,
+    email.value,
+    password.value,
+    admin.value,
+  );
+  arrayUsuarios.push(nuevoUsuario)
 
-//     if (usuario) {
-//         if (usuario.admin) {
-//             window.location.href = "./admin.html";
-//         } else {
-//             window.location.href = "./index.html";
-//         }
-//     }
-//   }
+  guardarLocalStorage();
+  crearFila(nuevoUsuario);
+  usuarioExiste = false;
+  Swal.fire(
+    "Usuario creado!",
+    "El usuario fue creado correctamente!",
+    "success"
+  );
+};
