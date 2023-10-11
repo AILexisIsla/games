@@ -4,37 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta name="author" content="Julieta Nahir Ferreyra, Carlos Eduardo Arias, Alexis Ulises Isla, Lain Robles, Juan Pablo Rearte, Gustavo Exequiel Aybar">
-    <meta name="description" content="">
-    <meta name="keywords" content="vanilla JS, bootstrap, css">
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-    <title>theRollingGames - Create Manage Alexis isla</title>
+    <meta name="description" content="pagina web con un catalogo de juegos">
+    <meta name="keywords" content="vanilla JS, bootstrap, css, html, javascript, DOM, BOM, CRUD">
     
-  </head>
-
-    <!-- 
-    - favicon
-  -->
-    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
-
-    <!-- 
-    - custom css link
-  -->
-    <link rel="stylesheet" href="../assets/css/style.css" />
-
-    <!-- 
-    - google font link
-  -->
+    <!--google font link-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-
-    <!-- 
-    - preload images
-  --></head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <link rel="icon" href="../assets/images/1icon.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <title>theRollingGames</title>
+  </head>
 
   <body id="top">
     <!-- 
@@ -210,7 +198,7 @@
               <br></br>
                 <div class="d-flex gap-1 justify-content-center mt-1 primera-vez">
                 <div>¿Primera vez en Rolling Games?</div>
-                 <button type="button" class="boton-registrate" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                 <button type="button" class="boton-registrate" data-bs-toggle="modal" data-bs-target="#registrate">
                   Registrate
                 </button>
               </div>
@@ -256,11 +244,11 @@
         <!-- 
         - #MODAL
       -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
+      <div class="modal fade" id="registrate" tabindex="-1" aria-labelledby="registrate" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5 titulo-modal" id="exampleModalLabel"></h1>
+              <h1 class="modal-title fs-5 titulo-modal" id="registrateLabel"></h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -268,32 +256,14 @@
               -->
               <div class="main-content">
 
-                <form class="contact" action="">
+                <form class="contact" id="formRegistro">
                   <h2 class="title-contact">Registrate</h2>
                   <label for="name">Nombre y Apellido:</label>
                   <input type="name" class="contact-content" placeholder="Ej: Rodrigo Juarez" required />
-            
-            
-                  <label for="user">Nombre de usuario:</label>
-                  <input type="text" class="contact-content" placeholder="Ej: Rodrigox10" required />
-            
-            
+                  
                   <label for="email">Direccion de email:</label>
                   <input type="email" class="contact-content" required placeholder="Ej:rodrigo241@hotmail.com" />
-            
-            
-                  <label for="number">Numero de telefono:</label>
-                  <input type="tel" class="contact-content" required placeholder="Ej: +542984542121" />
-            
-            
-                  <label for="">Domicilio:</label>
-                  <input type="text" class="contact-content" placeholder="Ej: Calle jacobacci altura 235" required />
-            
-            
-                  <label for="number">Codigo Postal:</label>
-                  <input type="numbers" class="contact-content" placeholder="Ej: 8328" required />
-            
-            
+                  
                   <label for="password">Contraseña:</label>
                   <input type="text" class="contact-content" placeholder="Contraseña" required />
             
@@ -309,53 +279,13 @@
                       </label>
                     </div>
                   </div>
-            
-        
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn1" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn1">Guardar</button>
+                <button type="button" class="btn1" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn1" >Guardar</button>
+                </form>
             </div>
           </div>
         </div>
       </div>
-      
-
-
-
-
-        <!-- 
-        - #NEWSLETTER
-      -->
-
-        <section class="newsletter" aria-label="newsletter">
-          <div class="container">
-            <div class="newsletter-card">
-              <h2 class="h2">Our <span class="span">Newsletter</span></h2>
-
-              <form action="" class="newsletter-form">
-                <div class="input-wrapper skewBg">
-                  <input
-                    type="email"
-                    name="email_address"
-                    aria-label="email"
-                    placeholder="Enter your email..."
-                    required
-                    class="email-field"
-                  />
-
-                  <ion-icon name="mail-outline"></ion-icon>
-                </div>
-
-                <button type="submit" class="btn newsletter-btn skewBg">
-                  <span class="span">Suscríbete</span>
-
-                  <ion-icon name="paper-plane" aria-hidden="true"></ion-icon>
-                </button>
-              </form>
-            </div>
-          </div>
-        </section>
       </article>
     </main>
 
@@ -367,7 +297,7 @@
     <div class="footer-top">
       <div class="container">
         <div class="footer-brand">
-          <a href="./index.html" class="logo">The Rolling Games</a>
+          <a href="../index.html" class="logo">The Rolling Games</a>
 
           <p class="footer-text">
             Rolling Games marketplace fue fundada en 2023. 
@@ -412,23 +342,23 @@
           </li>
 
           <li>
-            <a href="pages/error404.html" class="footer-link">Graphics (26)</a>
+            <a href="../pages/error404.html" class="footer-link">Graphics (26)</a>
           </li>
 
           <li>
-            <a href="pages/error404.html" class="footer-link">Backgrounds (11)</a>
+            <a href="../pages/error404.html" class="footer-link">Backgrounds (11)</a>
           </li>
 
           <li>
-            <a href="pages/error404.html" class="footer-link">Fonts (9)</a>
+            <a href="../pages/error404.html" class="footer-link">Fonts (9)</a>
           </li>
 
           <li>
-            <a href="pages/error404.html" class="footer-link">Music (3)</a>
+            <a href="../pages/error404.html" class="footer-link">Music (3)</a>
           </li>
 
           <li>
-            <a href="pages/error404.html" class="footer-link">Photography (3)</a>
+            <a href="../pages/error404.html" class="footer-link">Photography (3)</a>
           </li>
         </ul>
 
@@ -438,23 +368,23 @@
           </li>
 
           <li>
-            <a href="pages/error404.html" class="footer-link">Terms & Conditions</a>
+            <a href="../pages/error404.html" class="footer-link">Terms & Conditions</a>
           </li>
 
           <li>
-            <a href="pages/error404.html" class="footer-link">Privacy Policy</a>
+            <a href="../pages/error404.html" class="footer-link">Privacy Policy</a>
           </li>
 
           <li>
-            <a href="pages/error404.html" class="footer-link">Refund Policy</a>
+            <a href="../pages/error404.html" class="footer-link">Refund Policy</a>
           </li>
 
           <li>
-            <a href="pages/error404.html" class="footer-link">Affiliate</a>
+            <a href="../pages/error404.html" class="footer-link">Affiliate</a>
           </li>
 
           <li>
-            <a href="pages/error404.html" class="footer-link">Use Cases</a>
+            <a href="../pages/error404.html" class="footer-link">Use Cases</a>
           </li>
         </ul>
 
@@ -534,7 +464,7 @@
         </p>
 
         <img
-          src="./assets/images/footer-bottom-img.png"
+          src="../assets/images/footer-bottom-img.png"
           width="340"
           height="21"
           loading="lazy"
@@ -545,38 +475,27 @@
     </div>
   </footer>
 
-    <!-- 
-    - #BACK TO TOP
-  -->
+<!--#BACK TO TOP-->
+<a
+href="#top"
+class="back-top-btn"
+aria-label="back to top"
+data-back-top-btn
+>
+<ion-icon name="caret-up"></ion-icon>
+</a>
 
-    <a
-      href="#top"
-      class="back-top-btn"
-      aria-label="back to top"
-      data-back-top-btn
-    >
-      <ion-icon name="caret-up"></ion-icon>
-    </a>
+<!--custom js link-->
+<script src="../assets/js/script.js" defer></script>
 
-    <!-- 
-    - custom js link
-  -->
-    <script src="../assets/js/" defer></script>
-
-    <!-- 
-    - ionicon link
-  -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>  
-  </body>
+<!--ionicon link-->
+<script
+type="module"
+src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+nomodule
+src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+></script>
+</body>
 </html>
