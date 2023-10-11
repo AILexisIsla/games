@@ -1913,7 +1913,6 @@ body {
   background-color: #0778fa;
 }
 
-<<<<<<< HEAD
 /*
 EFECTO PARA JUEGO NO PUBLICADO
 */
@@ -2067,7 +2066,6 @@ EFECTO PARA JUEGO NO PUBLICADO
 .modal-header2{
   background-color: var(--white);
 }
-=======
 /* Ajusta la cantidad que desees para mover el botón hacia la derecha en error 404 */
 
 .btn-error {
@@ -2097,4 +2095,3 @@ EFECTO PARA JUEGO NO PUBLICADO
   opacity: 1;
   filter: opacity(120%);
 }
->>>>>>> nueva-ramaDepruebaMain
