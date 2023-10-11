@@ -23,37 +23,27 @@ export const campoRequerido = (input) => {
     let patron = /^https?:\/\/[/#?]?.*$/;
     if (patron.test(input.value)&&input.value!==''&&input.value!==undefined&&input.value!==null) {
       input.className = 'form-control is-valid';
+      console.log('URL VALIDADO');
       return true;
     } else {
       input.className = 'form-control is-invalid';
+      console.log('URL FALSO');
       return false;
     }
   };
 
-  // export const validarCheckbox = (input) => {
-  //   console.log(`${input.value}`);
-  //   if (input.value === true && input.value !== null && input.value !== undefined){
-  //     return true;
-  //   }else{
-  //     return false;
-  //   }
-
-  // };
-  
   export  const validarGeneral = (
     campoURL,
     campoNombre,
     campoCategoria,
     campoPrecio,
     campoDescripcion,
-    // campoDestacado,
-    // campoPublicado
   ) => {
-      validarURL(campoURL);
-      campoRequerido(campoNombre);
-      campoRequerido(campoCategoria);
-      validarNumeros(campoPrecio);
-      campoRequerido(campoDescripcion);
-      // validarCheckbox(campoDestacado);
-      // validarCheckbox(campoPublicado)
+      const URL = validarURL(campoURL);
+      const nombre = campoRequerido(campoNombre);
+      const categoria = campoRequerido(campoCategoria);
+      const precio = validarNumeros(campoPrecio);
+      const descripcion = campoRequerido(campoDescripcion);
+
+      return (URL && nombre && categoria && precio && descripcion);
   };
