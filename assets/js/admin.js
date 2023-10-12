@@ -1,7 +1,7 @@
 import {
+  validarURL,
   campoRequerido,
   validarNumeros,
-  validarURL,
   validarGeneral,
 } from "./validations.js";
 
