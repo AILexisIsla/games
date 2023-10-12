@@ -3,7 +3,7 @@ import {
   validarEmail,
   validarPassword,
   validarRePassword,
-  validarTotal
+  validarTotal,
 } from "./validations.js";
 
 import { Usuario } from "./usuariosclass.js";
@@ -29,26 +29,7 @@ let usuarioExistente = false;
 
 let arrayUsuarios = JSON.parse(localStorage.getItem("arrayUsuariosKey")) || [];
 
-formLogin.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  arrayUsuarios.map((usuario) => {
-    if (usuario.email === emailLogin.value && usuario.password === passwordLogin.value) {
-      if (usuario.admin){
-      botonAdmin.className = 'navbar-link skewBg';
-      logoUsuario.innerHTML = '<img src="../assets/images/usuario_admin.png" alt="logo de usuario">'
-      window.location.href = "/admin.html";
-      }else{
-        logoUsuario.innerHTML = '<img src="./assets/images/usuario_admin.png" alt="logo de usuario">'
-        window.location.href = "/index.html";
-      }
-    } else {
-      emailLogin.className = 'form-control is-invalid';
-      passwordLogin.className = 'form-control is-invalid';
-      alert.className = "alert alert-danger my-3";
-    }
-  })
-});
+formLogin.addEventListener("submit", logueo);
 
 nombreCompletoRegistro.addEventListener("blur", () => {
   validarNombre(nombreCompletoRegistro);
@@ -68,40 +49,77 @@ terminos.addEventListener("click", () => {
 
 formRegistro.addEventListener("submit", guardarUsuario);
 
-
 cargarUsuariosRandom();
 
-function guardarUsuario (e){
+function logueo(e) {
+  e.preventDefault();
+
+  arrayUsuarios.map((usuario) => {
+    if (
+      usuario.email !== emailLogin.value &&
+      usuario.password !== passwordLogin.value
+    ) {
+      emailLogin.className = "form-control is-invalid";
+      passwordLogin.className = "form-control is-invalid";
+      //alert.className = "alert alert-danger my-3";
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Usuario o contraseña invalido',
+      })
+    } else {
+      usuarioExistente = true;
+    }
+
+    if (usuarioExistente) {
+      if (usuario.admin) {
+        botonAdmin.className = "navbar-link skewBg";
+        logoUsuario.innerHTML =
+        '<img src="../assets/images/usuario_admin.png" alt="logo de usuario" id="logoUsuario" class="img-fluid">';
+        //window.location.href = "/admin.html";
+      } else {
+        logoUsuario.innerHTML =
+        '<img src="./assets/images/usuario_admin.png" alt="logo de usuario">';
+        window.location.href = "/index.html";
+      }
+      // alert.className = "alert alert-danger my-3 d-none";
+    }
+
+    limpiarFormulario();
+  });
+}
+
+function guardarUsuario(e) {
   e.preventDefoult();
 
   arrayUsuarios.map((usuario) => {
-    if(emailRegistro.value !== usuario.email){
-      console.log('desde guardar usuario');
+    if (emailRegistro.value !== usuario.email) {
+      console.log("desde guardar usuario");
       usuarioExistente = false;
-    }else{
+    } else {
       usuarioExistente = true;
-      console.log('el usuario ya existe');
-      console.log('desea recuperar clave?');
+      console.log("el usuario ya existe");
+      console.log("desea recuperar clave?");
     }
 
-    if(validarTotal(
-      nombreCompletoRegistro,
-      emailRegistro,
-      passwordRegistro,
-      rePasswordRegistro
-    )){
-      if(!usuarioExistente){
+    if (
+      validarTotal(
+        nombreCompletoRegistro,
+        emailRegistro,
+        passwordRegistro,
+        rePasswordRegistro
+      )
+    ) {
+      if (!usuarioExistente) {
         crearUsuario();
-      }else{
+      } else {
         recuperoUsuario();
       }
     }
-
-  })
-
+  });
 }
 
-function limpiarFormulario(){
+function limpiarFormulario() {
   formLogin.reset();
   emailLogin.className = "form-control";
   passwordLogin.className = "form-control";
@@ -113,13 +131,13 @@ function limpiarFormulario(){
   usuarioExistente = false;
 }
 
-function guardarLocalStorage (){
-  localStorage.setItem("arrayUsuarioKey", JSON.stringify(arrayUsuarios))
+function guardarLocalStorage() {
+  localStorage.setItem("arrayUsuarioKey", JSON.stringify(arrayUsuarios));
 }
 
 //almacenar datos de usuarios
 //datos random
-function cargarUsuariosRandom(){
+function cargarUsuariosRandom() {
   const datosUsuarios = [
     {
       nombreCompleto: "theRollingGame",
@@ -133,37 +151,36 @@ function cargarUsuariosRandom(){
       password: "Usuario2023",
       admin: false,
     },
-
   ];
-  if(!localStorage.getItem("arrayUsuariosKey")){
+  if (!localStorage.getItem("arrayUsuariosKey")) {
     localStorage.setItem("arrayUsuariosKey", JSON.stringify(datosUsuarios));
     arrayUsuarios = datosUsuarios;
-  };
- };
+  }
+}
 
 cargaDeUsuarios();
-function cargaDeUsuarios(){
-  if(arrayUsuarios > 0){
+function cargaDeUsuarios() {
+  if (arrayUsuarios > 0) {
     arrayUsuarios.map((usuario) => crearUsuario(usuario));
   }
-};
+}
 
-function crearUsuario (){
-  let nuevoUsuario = new Usuario (
+function crearUsuario() {
+  let nuevoUsuario = new Usuario(
     nombreCompleto.value,
     email.value,
     password.value,
-    admin = false,
+    (admin = false)
   );
-  arrayUsuarios.push(nuevoUsuario)
+  arrayUsuarios.push(nuevoUsuario);
 
   guardarLocalStorage();
   limpiarFormulario();
-  carga
+  carga;
   usuarioExistente = false;
   Swal.fire(
     "Usuario creado!",
     "El usuario fue creado correctamente!",
     "success"
   );
-};
+}

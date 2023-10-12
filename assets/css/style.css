@@ -1923,6 +1923,14 @@ EFECTO PARA JUEGO NO PUBLICADO
   filter: grayscale(100);
 }
 
+#logoUsuario{
+  position: relative;
+  bottom: 5px;
+  width: 90px;
+  height: 45px;
+  margin: 0;
+}
+
  /**
      * LOGIN
      */
@@ -2095,3 +2103,4 @@ EFECTO PARA JUEGO NO PUBLICADO
   opacity: 1;
   filter: opacity(120%);
 }
+
