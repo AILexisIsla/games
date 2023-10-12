@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="author" content="Julieta Nahir Ferreyra, Carlos Eduardo Arias, Alexis Ulises Isla, Lain Robles, Juan Pablo Rearte, Gustavo Exequiel Aybar">
-    <meta name="description" content="pagina web con un catalogo de juegos">
-    <meta name="keywords" content="vanilla JS, bootstrap, css, html, javascript, DOM, BOM, CRUD">
-    
+    <meta
+      name="author"
+      content="Julieta Nahir Ferreyra, Carlos Eduardo Arias, Alexis Ulises Isla, Lain Robles, Juan Pablo Rearte, Gustavo Exequiel Aybar"
+    />
+    <meta name="description" content="pagina web con un catalogo de juegos" />
+    <meta
+      name="keywords"
+      content="vanilla JS, bootstrap, css, html, javascript, DOM, BOM, CRUD"
+    />
+
     <!--google font link-->
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet"
-      />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="icon" href="./assets/images/1icon.png" type="image/png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="./assets/css/bootstrap.min.css" /> -->
+    <link rel="icon" href="./assets/images/1icon.png" type="image/png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>theRollingGames</title>
   </head>
 
   <body id="top">
-    <!-- 
-    - #HEADER
-  -->
-
     <header class="header">
       <div class="header-top">
         <div class="container">
@@ -39,28 +46,43 @@
 
           <div class="social-wrapper">
             <p class="social-title">síguenos en :</p>
-
             <ul class="social-list">
               <li>
-                <a href="https://www.facebook.com/?locale=es_LA" class="social-link" target="_blank">
+                <a
+                  href="https://www.facebook.com/?locale=es_LA"
+                  class="social-link"
+                  target="_blank"
+                >
                   <ion-icon name="logo-facebook"></ion-icon>
                 </a>
               </li>
 
               <li>
-                <a  href="https://twitter.com/?lang=es" class="social-link" target="_blank">
+                <a
+                  href="https://twitter.com/?lang=es"
+                  class="social-link"
+                  target="_blank"
+                >
                   <ion-icon name="logo-twitter"></ion-icon>
                 </a>
               </li>
 
               <li>
-                <a href="https://ar.pinterest.com/" class="social-link" target="_blank">
+                <a
+                  href="https://ar.pinterest.com/"
+                  class="social-link"
+                  target="_blank"
+                >
                   <ion-icon name="logo-pinterest"></ion-icon>
                 </a>
               </li>
 
               <li>
-                <a href="https://www.linkedin.com/home" class="social-link" target="_blank">
+                <a
+                  href="https://www.linkedin.com/home"
+                  class="social-link"
+                  target="_blank"
+                >
                   <ion-icon name="logo-linkedin"></ion-icon>
                 </a>
               </li>
@@ -76,7 +98,12 @@
           <nav class="navbar" data-navbar>
             <ul class="navbar-list">
               <li class="navbar-item">
-                <a href="./admin.html" class="navbar-link skewBg d-none" data-nav-link id="adminBoton" data-nav-
+                <a
+                  href="./admin.html"
+                  class="navbar-link skewBg d-none"
+                  data-nav-link
+                  id="adminBoton"
+                  data-nav-
                   >Administracion</a
                 >
               </li>
@@ -98,21 +125,32 @@
                 >
               </li>
               <li class="navbar-item">
-                <a href="./pages/aboutUs.html" class="navbar-link skewBg" data-nav-link
+                <a
+                  href="./pages/aboutUs.html"
+                  class="navbar-link skewBg"
+                  data-nav-link
                   >Nosotros</a
                 >
               </li>
               <li class="navbar-item">
-                <a href="./pages/contact.html" class="navbar-link skewBg" data-nav-link
+                <a
+                  href="./pages/contact.html"
+                  class="navbar-link skewBg"
+                  data-nav-link
                   >Contacto</a
                 >
               </li>
               <li class="navbar-item">
-                <a href="./pages/login.html" class="navbar-link skewBg" data-nav-link id="logoUsuario">Login</a>
+                <a
+                  href="./pages/login.html"
+                  class="navbar-link skewBg"
+                  data-nav-link
+                  id="logoUsuario"
+                  >Login</a
+                >
               </li>
             </ul>
           </nav>
-
 
           <div class="header-actions">
             <button class="cart-btn" aria-label="cart">
@@ -142,10 +180,6 @@
       </div>
     </header>
 
-    <!-- 
-    - #SEARCH BOX
-  -->
-
     <div class="search-container" data-search-box>
       <div class="input-wrapper">
         <input
@@ -174,35 +208,27 @@
 
     <main>
       <article>
-        <!-- 
-        - #HERO
-      -->
-
-        <section
-          class="section hero"
-          id="home"
-          aria-label="home"
-          
-        >
+        <section class="section hero" id="home" aria-label="home">
           <div class="container">
             <div class="hero-content">
-              <p class="hero-subtitle"> FIRES of RUBICON</p>
+              <p class="hero-subtitle">FIRES of RUBICON</p>
 
               <h1 class="h1 hero-title">
                 ARMORED <span class="span">CORE</span> VI
               </h1>
 
               <p class="hero-text">
-                Un nuevo juego de acción inspirado en el concepto de la serie ARMORED CORE que aprovecha el conocimiento adquirido durante el desarrollo de los últimos juegos de acción de FromSoftware.
+                Un nuevo juego de acción inspirado en el concepto de la serie
+                ARMORED CORE que aprovecha el conocimiento adquirido durante el
+                desarrollo de los últimos juegos de acción de FromSoftware.
               </p>
 
-              <a href="pages/vermasVariacion.html"><button class="btn skewBg">ver más</button>
-            </div></a>
+              <a href="pages/vermasVariacion.html"
+                ><button class="btn skewBg">ver más</button></a
+              >
+            </div>
 
-            <figure
-              class="hero-banner img-holder"
-              
-            >
+            <figure class="hero-banner img-holder">
               <img
                 src="./assets/images/hero-banner.png"
                 width="700"
@@ -213,11 +239,6 @@
             </figure>
           </div>
         </section>
-
-        <!-- 
-        - #BRAND
-      -->
-
         <section class="section brand" aria-label="brand">
           <div class="container">
             <ul class="has-scrollbar">
@@ -285,212 +306,189 @@
         </section>
 
         <div class="section-wrapper">
-
-          <!-- 
-          - #Carrusel
-        -->
-
-        <section class="altoslider">
-          <img src="./assets/images/shop-img-1.jpg" alt="">
-          <img src="./assets/images/shop-img-2.jpg" alt="">
-          <img src="./assets/images/shop-img-3.png" alt="">
-          <img src="./assets/images/shop-img-4.jpg" alt="">
-          <img src="./assets/images/shop-img-1.jpg" alt="">
-          <img src="./assets/images/shop-img-2.jpg" alt="">
-          <img src="./assets/images/shop-img-3.png" alt="">
-          <img src="./assets/images/shop-img-4.jpg" alt="">
-          <img src="./assets/images/shop-img-1.jpg" alt="">
-          <img src="./assets/images/shop-img-2.jpg" alt="">
-          <img src="./assets/images/shop-img-3.png" alt="">
-          <img src="./assets/images/shop-img-4.jpg" alt="">
-          <img src="./assets/images/shop-img-1.jpg" alt="">
-          <img src="./assets/images/shop-img-2.jpg" alt="">
-          <img src="./assets/images/shop-img-3.png" alt="">
-          <img src="./assets/images/shop-img-4.jpg" alt="">
-        </section>
-        
-          <!-- 
-          - #LATEST GAME
-        -->
+          <section class="altoslider">
+            <img src="./assets/images/shop-img-1.jpg" alt="" />
+            <img src="./assets/images/shop-img-2.jpg" alt="" />
+            <img src="./assets/images/shop-img-3.png" alt="" />
+            <img src="./assets/images/shop-img-4.jpg" alt="" />
+            <img src="./assets/images/shop-img-1.jpg" alt="" />
+            <img src="./assets/images/shop-img-2.jpg" alt="" />
+            <img src="./assets/images/shop-img-3.png" alt="" />
+            <img src="./assets/images/shop-img-4.jpg" alt="" />
+            <img src="./assets/images/shop-img-1.jpg" alt="" />
+            <img src="./assets/images/shop-img-2.jpg" alt="" />
+            <img src="./assets/images/shop-img-3.png" alt="" />
+            <img src="./assets/images/shop-img-4.jpg" alt="" />
+            <img src="./assets/images/shop-img-1.jpg" alt="" />
+            <img src="./assets/images/shop-img-2.jpg" alt="" />
+            <img src="./assets/images/shop-img-3.png" alt="" />
+            <img src="./assets/images/shop-img-4.jpg" alt="" />
+          </section>
 
           <section class="section latest-game" aria-label="latest game">
             <div class="container">
               <p class="section-subtitle">ÚLTIMOS LANZAMIENTOS</p>
 
               <h2 class="h2 section-title">
-               Compra los mejores titulos & <span class="span"> Diviértete</span>
+                Compra los mejores titulos &
+                <span class="span"> Diviértete</span>
               </h2>
 
+              <div class="container">
+                <ul class="has-scrollbar">
+                  <li class="scrollbar-item">
+                    <div class="latest-game-card">
+                      <figure class="card-banner img-holder">
+                        <img
+                          src="./assets/images/latest-game-1.jpg"
+                          width="400"
+                          height="470"
+                          loading="lazy"
+                          alt="White Walker Daily"
+                          class="img-cover"
+                        />
+                      </figure>
 
-              
-            <div class="container">
-              <ul class="has-scrollbar">
-                <li class="scrollbar-item">
-                  <div class="latest-game-card">
-                    <figure
-                      class="card-banner img-holder"
-                      
-                    >
-                      <img
-                        src="./assets/images/latest-game-1.jpg"
-                        width="400"
-                        height="470"
-                        loading="lazy"
-                        alt="White Walker Daily"
-                        class="img-cover"
-                      />
-                    </figure>
+                      <div class="card-content">
+                        <a href="#" class="card-badge skewBg">Juego de Rol</a>
 
-                    <div class="card-content">
-                      <a href="#" class="card-badge skewBg">Juego de Rol</a>
+                        <h3 class="h3">
+                          <a href="#" class="card-title"
+                            >comprar White Walker GOT
+                            <span class="span">¡Oferta del Día!</span></a
+                          >
+                        </h3>
 
-                      <h3 class="h3">
-                        <a href="#" class="card-title"
-                          >comprar White Walker GOT <span class="span">¡Oferta del Día!</span></a
-                        >
-                      </h3>
-
-                      <p class="card-price">
-                        A partir de : <span class="span">ARS$ 120,00</span>
-                      </p>
+                        <p class="card-price">
+                          A partir de : <span class="span">ARS$ 120,00</span>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
 
-                <li class="scrollbar-item">
-                  <div class="latest-game-card">
-                    <figure
-                      class="card-banner img-holder"
-                      
-                    >
-                      <img
-                        src="./assets/images/latest-game-2.jpg"
-                        width="400"
-                        height="470"
-                        loading="lazy"
-                        alt="Hunter Killer II"
-                        class="img-cover"
-                      />
-                    </figure>
+                  <li class="scrollbar-item">
+                    <div class="latest-game-card">
+                      <figure class="card-banner img-holder">
+                        <img
+                          src="./assets/images/latest-game-2.jpg"
+                          width="400"
+                          height="470"
+                          loading="lazy"
+                          alt="Hunter Killer II"
+                          class="img-cover"
+                        />
+                      </figure>
 
-                    <div class="card-content">
-                      <a href="#" class="card-badge skewBg">Aventura</a>
+                      <div class="card-content">
+                        <a href="#" class="card-badge skewBg">Aventura</a>
 
-                      <h3 class="h3">
-                        <a href="#" class="card-title"
-                          >Ori and the Will of the Wisps <span class="span">¡oferta semanal!</span></a
-                        >
-                      </h3>
+                        <h3 class="h3">
+                          <a href="#" class="card-title"
+                            >Ori and the Will of the Wisps
+                            <span class="span">¡oferta semanal!</span></a
+                          >
+                        </h3>
 
-                      <p class="card-price">
-                        A partir de : <span class="span">ARS$ 1.200,00</span>
-                      </p>
+                        <p class="card-price">
+                          A partir de : <span class="span">ARS$ 1.200,00</span>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
 
-                <li class="scrollbar-item">
-                  <div class="latest-game-card">
-                    <figure
-                      class="card-banner img-holder"
-                      
-                    >
-                      <img
-                        src="./assets/images/latest-game-3.jpg"
-                        width="400"
-                        height="470"
-                        loading="lazy"
-                        alt="Cyberpunk Daily"
-                        class="img-cover"
-                      />
-                    </figure>
+                  <li class="scrollbar-item">
+                    <div class="latest-game-card">
+                      <figure class="card-banner img-holder">
+                        <img
+                          src="./assets/images/latest-game-3.jpg"
+                          width="400"
+                          height="470"
+                          loading="lazy"
+                          alt="Cyberpunk Daily"
+                          class="img-cover"
+                        />
+                      </figure>
 
-                    <div class="card-content">
-                      <a href="#" class="card-badge skewBg">Acción</a>
+                      <div class="card-content">
+                        <a href="#" class="card-badge skewBg">Acción</a>
 
-                      <h3 class="h3">
-                        <a href="#" class="card-title"
-                          >Comprar Cyberpunk 2077 <span class="span">¡Oferta del Día!</span></a
-                        >
-                      </h3>
+                        <h3 class="h3">
+                          <a href="#" class="card-title"
+                            >Comprar Cyberpunk 2077
+                            <span class="span">¡Oferta del Día!</span></a
+                          >
+                        </h3>
 
-                      <p class="card-price">
-                        A partir de : <span class="span">ARS$ 5.800,00</span>
-                      </p>
+                        <p class="card-price">
+                          A partir de : <span class="span">ARS$ 5.800,00</span>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
 
-                <li class="scrollbar-item">
-                  <div class="latest-game-card">
-                <figure
-                      class="card-banner img-holder"
-                      
-                    >
-                      <img
-                        src="./assets/images/latest-game-1.jpg"
-                        width="400"
-                        height="470"
-                        loading="lazy"
-                        alt="White Walker Daily"
-                        class="img-cover"
-                      />
-                    </figure>
+                  <li class="scrollbar-item">
+                    <div class="latest-game-card">
+                      <figure class="card-banner img-holder">
+                        <img
+                          src="./assets/images/latest-game-1.jpg"
+                          width="400"
+                          height="470"
+                          loading="lazy"
+                          alt="White Walker Daily"
+                          class="img-cover"
+                        />
+                      </figure>
 
-                    <div class="card-content">
-                      <a href="#" class="card-badge skewBg">Juego de Rol</a>
+                      <div class="card-content">
+                        <a href="#" class="card-badge skewBg">Juego de Rol</a>
 
-                      <h3 class="h3">
-                        <a href="#" class="card-title"
-                          >Comprar White Walker GOT <span class="span">¡Oferta del Día!</span></a
-                        >
-                      </h3>
+                        <h3 class="h3">
+                          <a href="#" class="card-title"
+                            >Comprar White Walker GOT
+                            <span class="span">¡Oferta del Día!</span></a
+                          >
+                        </h3>
 
-                      <p class="card-price">
-                        A partir de : <span class="span">ARS$ 120,00</span>
-                      </p>
+                        <p class="card-price">
+                          A partir de : <span class="span">ARS$ 120,00</span>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
 
-                <li class="scrollbar-item">
-                  <div class="latest-game-card">
-                    <figure
-                      class="card-banner img-holder"
-                      
-                    >
-                      <img
-                        src="./assets/images/latest-game-3.jpg"
-                        width="400"
-                        height="470"
-                        loading="lazy"
-                        alt="Cyberpunk Daily"
-                        class="img-cover"
-                      />
-                    </figure>
+                  <li class="scrollbar-item">
+                    <div class="latest-game-card">
+                      <figure class="card-banner img-holder">
+                        <img
+                          src="./assets/images/latest-game-3.jpg"
+                          width="400"
+                          height="470"
+                          loading="lazy"
+                          alt="Cyberpunk Daily"
+                          class="img-cover"
+                        />
+                      </figure>
 
-                    <div class="card-content">
-                      <a href="#" class="card-badge skewBg">Acción</a>
+                      <div class="card-content">
+                        <a href="#" class="card-badge skewBg">Acción</a>
 
-                      <h3 class="h3">
-                        <a href="#" class="card-title"
-                          >Comprar Cyberpunk 2077 <span class="span">¡Oferta del Día!</span></a
-                        >
-                      </h3>
+                        <h3 class="h3">
+                          <a href="#" class="card-title"
+                            >Comprar Cyberpunk 2077
+                            <span class="span">¡Oferta del Día!</span></a
+                          >
+                        </h3>
 
-                      <p class="card-price">
-                        A partir de : <span class="span">ARS$ 5.800,00</span>
-                      </p>
+                        <p class="card-price">
+                          A partir de : <span class="span">ARS$ 5.800,00</span>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </section>
-
-          <!-- 
-          - #LIVE MATCH
-        -->
 
           <section class="section live-match" id="live" aria-label="live match">
             <div class="container">
@@ -498,20 +496,20 @@
                 Mira un trailer del <span class="span">Juego Destacado</span>
               </h2>
 
-              <figure
-                class="live-match-banner img-holder"
-                
-              >
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/2LnV8K6kZag?si=sBIn_onhAuhQR-9x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-                
+              <figure class="live-match-banner img-holder">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/2LnV8K6kZag?si=sBIn_onhAuhQR-9x"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
               </figure>
 
               <div class="live-match-player">
-                <figure
-                  class="player player-1 img-holder"
-                  
-                >
+                <figure class="player player-1 img-holder">
                   <img
                     src="./assets/images/live-match-player-1.png"
                     width="406"
@@ -528,10 +526,7 @@
                   <time class="live-match-time" datetime="08:30">08:30</time>
                 </div>
 
-                <figure
-                  class="player player-2 img-holder"
-                  
-                >
+                <figure class="player player-2 img-holder">
                   <img
                     src="./assets/images/live-match-player-2.png"
                     width="400"
@@ -546,10 +541,6 @@
           </section>
         </div>
 
-        <!-- 
-        - #FEATURED GAME
-      -->
-
         <section
           class="section featured-game"
           id="features"
@@ -557,16 +548,13 @@
         >
           <div class="container">
             <h2 class="h2 section-title">
-              TODOS LOS JUEGOS  <span class="span">LANZADOS</span>
+              TODOS LOS JUEGOS <span class="span">LANZADOS</span>
             </h2>
 
             <ul class="has-scrollbar">
               <li class="scrollbar-item">
                 <div class="featured-game-card">
-                  <figure
-                    class="card-banner img-holder"
-                    
-                  >
+                  <figure class="card-banner img-holder">
                     <img
                       src="./assets/images/featured-game-1.jpg"
                       width="450"
@@ -580,7 +568,7 @@
                   <div class="card-content">
                     <h3 class="h3">
                       <a href="#" class="card-title" tabindex="-1">
-                        Mass Effect™:  <span class="span">Andromeda</span>
+                        Mass Effect™: <span class="span">Andromeda</span>
                       </a>
                     </h3>
 
@@ -618,10 +606,7 @@
 
               <li class="scrollbar-item">
                 <div class="featured-game-card">
-                  <figure
-                    class="card-banner img-holder"
-                    
-                  >
+                  <figure class="card-banner img-holder">
                     <img
                       src="./assets/images/featured-game-2.jpg"
                       width="450"
@@ -635,7 +620,7 @@
                   <div class="card-content">
                     <h3 class="h3">
                       <a href="#" class="card-title" tabindex="-1">
-                        Need for Speed™  <span class="span">Payback</span>
+                        Need for Speed™ <span class="span">Payback</span>
                       </a>
                     </h3>
 
@@ -673,10 +658,7 @@
 
               <li class="scrollbar-item">
                 <div class="featured-game-card">
-                  <figure
-                    class="card-banner img-holder"
-                    
-                  >
+                  <figure class="card-banner img-holder">
                     <img
                       src="./assets/images/featured-game-3.jpg"
                       width="450"
@@ -690,7 +672,7 @@
                   <div class="card-content">
                     <h3 class="h3">
                       <a href="#" class="card-title" tabindex="-1">
-                        Assassin's Creed  <span class="span">Origins</span>
+                        Assassin's Creed <span class="span">Origins</span>
                       </a>
                     </h3>
 
@@ -728,10 +710,7 @@
 
               <li class="scrollbar-item">
                 <div class="featured-game-card">
-                  <figure
-                    class="card-banner img-holder"
-                    
-                  >
+                  <figure class="card-banner img-holder">
                     <img
                       src="./assets/images/featured-game-4.jpg"
                       width="450"
@@ -745,7 +724,8 @@
                   <div class="card-content">
                     <h3 class="h3">
                       <a href="#" class="card-title" tabindex="-1">
-                        Tom Clancy's Ghost Recon  <span class="span">Wildlands</span>
+                        Tom Clancy's Ghost Recon
+                        <span class="span">Wildlands</span>
                       </a>
                     </h3>
 
@@ -784,16 +764,7 @@
           </div>
         </section>
 
-        <!-- 
-        - #SHOP1
-      -->
-
-        <section
-          class="section shop"
-          id="shop"
-          aria-label="shop"
-          
-        >
+        <section class="section shop" id="shop" aria-label="shop">
           <div class="container">
             <h2 class="h2 section-title">
               Categoría Gaming <span class="span">Aventura</span>
@@ -805,10 +776,7 @@
             <ul class="has-scrollbar">
               <li class="scrollbar-item">
                 <div class="shop-card">
-                  <figure
-                    class="card-banner img-holder"
-                    
-                  >
+                  <figure class="card-banner img-holder">
                     <img
                       src="./assets/images/shop-img-1.jpg"
                       width="300"
@@ -824,7 +792,9 @@
                     <a href="#" class="card-badge skewBg">AVENTURA</a>
 
                     <h3 class="h3">
-                      <a href="#" class="card-title" onclick="productDetail()">Grounded</a>
+                      <a href="#" class="card-title" onclick="productDetail()"
+                        >Grounded</a
+                      >
                     </h3>
 
                     <div class="card-wrapper">
@@ -840,10 +810,7 @@
 
               <li class="scrollbar-item">
                 <div class="shop-card">
-                  <figure
-                    class="card-banner img-holder"
-                    
-                  >
+                  <figure class="card-banner img-holder">
                     <img
                       src="./assets/images/shop-img-2.jpg"
                       width="300"
@@ -874,10 +841,7 @@
 
               <li class="scrollbar-item">
                 <div class="shop-card">
-                  <figure
-                    class="card-banner img-holder"
-                    
-                  >
+                  <figure class="card-banner img-holder">
                     <img
                       src="./assets/images/shop-img-3.png"
                       width="300"
@@ -908,10 +872,7 @@
 
               <li class="scrollbar-item">
                 <div class="shop-card">
-                  <figure
-                    class="card-banner img-holder"
-                    
-                  >
+                  <figure class="card-banner img-holder">
                     <img
                       src="./assets/images/shop-img-4.jpg"
                       width="300"
@@ -930,7 +891,7 @@
                     </h3>
 
                     <div class="card-wrapper">
-                      <p class="card-price">ARS$ 12.958,00 </p>
+                      <p class="card-price">ARS$ 12.958,00</p>
 
                       <button class="card-btn">
                         <ion-icon name="basket"></ion-icon>
@@ -943,487 +904,426 @@
           </div>
         </section>
 
-        
-        <!-- 
-        - #SHOP2
-      -->
+        <section class="section shop" id="shop" aria-label="shop">
+          <div class="container">
+            <h2 class="h2 section-title">
+              Categoría Gaming <span class="span">RPG</span>
+            </h2>
 
-      <section
-      class="section shop"
-      id="shop"
-      aria-label="shop"
-      
-    >
-      <div class="container">
-        <h2 class="h2 section-title">
-          Categoría Gaming <span class="span">RPG</span>
-        </h2>
+            <p class="section-text">
+              ¿Estás listo para embarcarte en un viaje emocionante?
+            </p>
+            <ul class="has-scrollbar">
+              <li class="scrollbar-item">
+                <div class="shop-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="./assets/images/shop-img-1.jpg"
+                      width="300"
+                      height="260"
+                      loading="lazy"
+                      alt="Women Black T-Shirt"
+                      class="img-cover"
+                    />
+                  </figure>
 
-        <p class="section-text">
-          ¿Estás listo para embarcarte en un viaje emocionante?
-        </p>
-        <ul class="has-scrollbar">
-          <li class="scrollbar-item">
-            <div class="shop-card">
-              <figure
-                class="card-banner img-holder"
-                
-              >
-                <img
-                  src="./assets/images/shop-img-1.jpg"
-                  width="300"
-                  height="260"
-                  loading="lazy"
-                  alt="Women Black T-Shirt"
-                  class="img-cover"
-                />
-              </figure>
+                  <div class="card-content">
+                    <a href="#" class="card-badge skewBg">AVENTURA</a>
 
-              <div class="card-content">
-                <a href="#" class="card-badge skewBg">AVENTURA</a>
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Grounded</a>
+                    </h3>
 
-                <h3 class="h3">
-                  <a href="#" class="card-title">Grounded</a>
-                </h3>
+                    <div class="card-wrapper">
+                      <p class="card-price">ARS$ 5.359,33</p>
 
-                <div class="card-wrapper">
-                  <p class="card-price">ARS$ 5.359,33</p>
-
-                  <button class="card-btn">
-                    <ion-icon name="basket"></ion-icon>
-                  </button>
+                      <button class="card-btn">
+                        <ion-icon name="basket"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
+              </li>
 
-          <li class="scrollbar-item">
-            <div class="shop-card">
-              <figure
-                class="card-banner img-holder"
-                
-              >
-                <img
-                  src="./assets/images/shop-img-2.jpg"
-                  width="300"
-                  height="260"
-                  loading="lazy"
-                  alt="Gears 5 Xbox Controller"
-                  class="img-cover"
-                />
-              </figure>
+              <li class="scrollbar-item">
+                <div class="shop-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="./assets/images/shop-img-2.jpg"
+                      width="300"
+                      height="260"
+                      loading="lazy"
+                      alt="Gears 5 Xbox Controller"
+                      class="img-cover"
+                    />
+                  </figure>
 
-              <div class="card-content">
-                <a href="#" class="card-badge skewBg">SOULS LIKE</a>
+                  <div class="card-content">
+                    <a href="#" class="card-badge skewBg">SOULS LIKE</a>
 
-                <h3 class="h3">
-                  <a href="#" class="card-title">Lies of P</a>
-                </h3>
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Lies of P</a>
+                    </h3>
 
-                <div class="card-wrapper">
-                  <p class="card-price">ARS$ 11.999,00</p>
+                    <div class="card-wrapper">
+                      <p class="card-price">ARS$ 11.999,00</p>
 
-                  <button class="card-btn">
-                    <ion-icon name="basket"></ion-icon>
-                  </button>
+                      <button class="card-btn">
+                        <ion-icon name="basket"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
+              </li>
 
-          <li class="scrollbar-item">
-            <div class="shop-card">
-              <figure
-                class="card-banner img-holder"
-                
-              >
-                <img
-                  src="./assets/images/shop-img-3.png"
-                  width="300"
-                  height="260"
-                  loading="lazy"
-                  alt="Baldurs Gates 3"
-                  class="img-cover"
-                />
-              </figure>
+              <li class="scrollbar-item">
+                <div class="shop-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="./assets/images/shop-img-3.png"
+                      width="300"
+                      height="260"
+                      loading="lazy"
+                      alt="Baldurs Gates 3"
+                      class="img-cover"
+                    />
+                  </figure>
 
-              <div class="card-content">
-                <a href="#" class="card-badge skewBg">RPG</a>
+                  <div class="card-content">
+                    <a href="#" class="card-badge skewBg">RPG</a>
 
-                <h3 class="h3">
-                  <a href="#" class="card-title">Baldur's Gate 3</a>
-                </h3>
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Baldur's Gate 3</a>
+                    </h3>
 
-                <div class="card-wrapper">
-                  <p class="card-price">ARS$ 9.999,00</p>
+                    <div class="card-wrapper">
+                      <p class="card-price">ARS$ 9.999,00</p>
 
-                  <button class="card-btn">
-                    <ion-icon name="basket"></ion-icon>
-                  </button>
+                      <button class="card-btn">
+                        <ion-icon name="basket"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
+              </li>
 
-          <li class="scrollbar-item">
-            <div class="shop-card">
-              <figure
-                class="card-banner img-holder"
-                
-              >
-                <img
-                  src="./assets/images/shop-img-4.jpg"
-                  width="300"
-                  height="260"
-                  loading="lazy"
-                  alt="Virtual Reality Smiled"
-                  class="img-cover"
-                />
-              </figure>
+              <li class="scrollbar-item">
+                <div class="shop-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="./assets/images/shop-img-4.jpg"
+                      width="300"
+                      height="260"
+                      loading="lazy"
+                      alt="Virtual Reality Smiled"
+                      class="img-cover"
+                    />
+                  </figure>
 
-              <div class="card-content">
-                <a href="#" class="card-badge skewBg">accion</a>
+                  <div class="card-content">
+                    <a href="#" class="card-badge skewBg">accion</a>
 
-                <h3 class="h3">
-                  <a href="#" class="card-title">Resident Evil 4</a>
-                </h3>
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Resident Evil 4</a>
+                    </h3>
 
-                <div class="card-wrapper">
-                  <p class="card-price">ARS$ 12.958,00 </p>
+                    <div class="card-wrapper">
+                      <p class="card-price">ARS$ 12.958,00</p>
 
-                  <button class="card-btn">
-                    <ion-icon name="basket"></ion-icon>
-                  </button>
+                      <button class="card-btn">
+                        <ion-icon name="basket"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+              </li>
+            </ul>
+          </div>
+        </section>
 
-    
-        <!-- 
-        - #SHOP3
-      -->
+        <section class="section shop" id="shop" aria-label="shop">
+          <div class="container">
+            <h2 class="h2 section-title">
+              Categoría Gaming <span class="span">SOULS LIKE</span>
+            </h2>
 
-      <section
-      class="section shop"
-      id="shop"
-      aria-label="shop"
-      
-    >
-      <div class="container">
-        <h2 class="h2 section-title">
-          Categoría Gaming <span class="span">SOULS LIKE</span>
-        </h2>
+            <p class="section-text">
+              ¿Estás listo para embarcarte en un viaje emocionante?
+            </p>
+            <ul class="has-scrollbar">
+              <li class="scrollbar-item">
+                <div class="shop-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="./assets/images/shop-img-1.jpg"
+                      width="300"
+                      height="260"
+                      loading="lazy"
+                      alt="Grounded"
+                      class="img-cover"
+                      id="grounded-img"
+                    />
+                  </figure>
 
-        <p class="section-text">
-          ¿Estás listo para embarcarte en un viaje emocionante?
-        </p>
-        <ul class="has-scrollbar">
-          <li class="scrollbar-item">
-            <div class="shop-card">
-              <figure
-                class="card-banner img-holder"
-                
-              >
-                <img
-                  src="./assets/images/shop-img-1.jpg"
-                  width="300"
-                  height="260"
-                  loading="lazy"
-                  alt="Grounded"
-                  class="img-cover"
-                  id="grounded-img"
-                />
-              </figure>
+                  <div class="card-content">
+                    <a href="#" class="card-badge skewBg" id="graunded-aventura"
+                      >AVENTURA</a
+                    >
 
-              <div class="card-content">
-                <a href="#" class="card-badge skewBg" id="graunded-aventura">AVENTURA</a>
+                    <h3 class="h3">
+                      <a
+                        href="/pages/vermasVariacion.html"
+                        class="card-title"
+                        id="graunded-title"
+                        >Grounded</a
+                      >
+                    </h3>
 
-                <h3 class="h3">
-                  <a href="/pages/vermasVariacion.html" class="card-title" id="graunded-title">Grounded</a>
-                </h3>
+                    <div class="card-wrapper">
+                      <p class="card-price" id="grounded prices">
+                        ARS$ 5.359,33
+                      </p>
 
-                <div class="card-wrapper">
-                  <p class="card-price" id="grounded prices">ARS$ 5.359,33</p>
-
-                  <button class="card-btn">
-                    <ion-icon name="basket"></ion-icon>
-                  </button>
+                      <button class="card-btn">
+                        <ion-icon name="basket"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
+              </li>
 
-          <li class="scrollbar-item">
-            <div class="shop-card">
-              <figure
-                class="card-banner img-holder"
-                
-              >
-                <img
-                  src="./assets/images/shop-img-2.jpg"
-                  width="300"
-                  height="260"
-                  loading="lazy"
-                  alt="Gears 5 Xbox Controller"
-                  class="img-cover"
-                />
-              </figure>
+              <li class="scrollbar-item">
+                <div class="shop-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="./assets/images/shop-img-2.jpg"
+                      width="300"
+                      height="260"
+                      loading="lazy"
+                      alt="Gears 5 Xbox Controller"
+                      class="img-cover"
+                    />
+                  </figure>
 
-              <div class="card-content">
-                <a href="#" class="card-badge skewBg">SOULS LIKE</a>
+                  <div class="card-content">
+                    <a href="#" class="card-badge skewBg">SOULS LIKE</a>
 
-                <h3 class="h3">
-                  <a href="#" class="card-title">Lies of P</a>
-                </h3>
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Lies of P</a>
+                    </h3>
 
-                <div class="card-wrapper">
-                  <p class="card-price">ARS$ 11.999,00</p>
+                    <div class="card-wrapper">
+                      <p class="card-price">ARS$ 11.999,00</p>
 
-                  <button class="card-btn">
-                    <ion-icon name="basket"></ion-icon>
-                  </button>
+                      <button class="card-btn">
+                        <ion-icon name="basket"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
+              </li>
 
-          <li class="scrollbar-item">
-            <div class="shop-card">
-              <figure
-                class="card-banner img-holder"
-                
-              >
-                <img
-                  src="./assets/images/shop-img-3.png"
-                  width="300"
-                  height="260"
-                  loading="lazy"
-                  alt="Baldurs Gates 3"
-                  class="img-cover"
-                />
-              </figure>
+              <li class="scrollbar-item">
+                <div class="shop-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="./assets/images/shop-img-3.png"
+                      width="300"
+                      height="260"
+                      loading="lazy"
+                      alt="Baldurs Gates 3"
+                      class="img-cover"
+                    />
+                  </figure>
 
-              <div class="card-content">
-                <a href="#" class="card-badge skewBg">RPG</a>
+                  <div class="card-content">
+                    <a href="#" class="card-badge skewBg">RPG</a>
 
-                <h3 class="h3">
-                  <a href="#" class="card-title">Baldur's Gate 3</a>
-                </h3>
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Baldur's Gate 3</a>
+                    </h3>
 
-                <div class="card-wrapper">
-                  <p class="card-price">ARS$ 9.999,00</p>
+                    <div class="card-wrapper">
+                      <p class="card-price">ARS$ 9.999,00</p>
 
-                  <button class="card-btn">
-                    <ion-icon name="basket"></ion-icon>
-                  </button>
+                      <button class="card-btn">
+                        <ion-icon name="basket"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
+              </li>
 
-          <li class="scrollbar-item">
-            <div class="shop-card">
-              <figure
-                class="card-banner img-holder"
-                
-              >
-                <img
-                  src="./assets/images/shop-img-4.jpg"
-                  width="300"
-                  height="260"
-                  loading="lazy"
-                  alt="Virtual Reality Smiled"
-                  class="img-cover"
-                />
-              </figure>
+              <li class="scrollbar-item">
+                <div class="shop-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="./assets/images/shop-img-4.jpg"
+                      width="300"
+                      height="260"
+                      loading="lazy"
+                      alt="Virtual Reality Smiled"
+                      class="img-cover"
+                    />
+                  </figure>
 
-              <div class="card-content">
-                <a href="#" class="card-badge skewBg">accion</a>
+                  <div class="card-content">
+                    <a href="#" class="card-badge skewBg">accion</a>
 
-                <h3 class="h3">
-                  <a href="#" class="card-title">Resident Evil 4</a>
-                </h3>
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Resident Evil 4</a>
+                    </h3>
 
-                <div class="card-wrapper">
-                  <p class="card-price">ARS$ 12.958,00 </p>
+                    <div class="card-wrapper">
+                      <p class="card-price">ARS$ 12.958,00</p>
 
-                  <button class="card-btn">
-                    <ion-icon name="basket"></ion-icon>
-                  </button>
+                      <button class="card-btn">
+                        <ion-icon name="basket"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+              </li>
+            </ul>
+          </div>
+        </section>
 
-    
-        <!-- 
-        - #SHOP4
-      -->
+        <section class="section shop" id="shop" aria-label="shop">
+          <div class="container">
+            <h2 class="h2 section-title">
+              Categoría Gaming <span class="span">accion</span>
+            </h2>
 
-      <section
-      class="section shop"
-      id="shop"
-      aria-label="shop"
-      
-    >
-      <div class="container">
-        <h2 class="h2 section-title">
-          Categoría Gaming <span class="span">accion</span>
-        </h2>
+            <p class="section-text">
+              ¿Estás listo para embarcarte en un viaje emocionante?
+            </p>
+            <ul class="has-scrollbar">
+              <li class="scrollbar-item">
+                <div class="shop-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="./assets/images/shop-img-1.jpg"
+                      width="300"
+                      height="260"
+                      loading="lazy"
+                      alt="Women Black T-Shirt"
+                      class="img-cover"
+                    />
+                  </figure>
 
-        <p class="section-text">
-          ¿Estás listo para embarcarte en un viaje emocionante?
-        </p>
-        <ul class="has-scrollbar">
-          <li class="scrollbar-item">
-            <div class="shop-card">
-              <figure
-                class="card-banner img-holder"
-                
-              >
-                <img
-                  src="./assets/images/shop-img-1.jpg"
-                  width="300"
-                  height="260"
-                  loading="lazy"
-                  alt="Women Black T-Shirt"
-                  class="img-cover"
-                />
-              </figure>
+                  <div class="card-content">
+                    <a href="#" class="card-badge skewBg">AVENTURA</a>
 
-              <div class="card-content">
-                <a href="#" class="card-badge skewBg">AVENTURA</a>
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Grounded</a>
+                    </h3>
 
-                <h3 class="h3">
-                  <a href="#" class="card-title">Grounded</a>
-                </h3>
+                    <div class="card-wrapper">
+                      <p class="card-price">ARS$ 5.359,33</p>
 
-                <div class="card-wrapper">
-                  <p class="card-price">ARS$ 5.359,33</p>
-
-                  <button class="card-btn">
-                    <ion-icon name="basket"></ion-icon>
-                  </button>
+                      <button class="card-btn">
+                        <ion-icon name="basket"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
+              </li>
 
-          <li class="scrollbar-item">
-            <div class="shop-card">
-              <figure
-                class="card-banner img-holder"
-                
-              >
-                <img
-                  src="./assets/images/shop-img-2.jpg"
-                  width="300"
-                  height="260"
-                  loading="lazy"
-                  alt="Gears 5 Xbox Controller"
-                  class="img-cover"
-                />
-              </figure>
+              <li class="scrollbar-item">
+                <div class="shop-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="./assets/images/shop-img-2.jpg"
+                      width="300"
+                      height="260"
+                      loading="lazy"
+                      alt="Gears 5 Xbox Controller"
+                      class="img-cover"
+                    />
+                  </figure>
 
-              <div class="card-content">
-                <a href="#" class="card-badge skewBg">SOULS LIKE</a>
+                  <div class="card-content">
+                    <a href="#" class="card-badge skewBg">SOULS LIKE</a>
 
-                <h3 class="h3">
-                  <a href="#" class="card-title">Lies of P</a>
-                </h3>
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Lies of P</a>
+                    </h3>
 
-                <div class="card-wrapper">
-                  <p class="card-price">ARS$ 11.999,00</p>
+                    <div class="card-wrapper">
+                      <p class="card-price">ARS$ 11.999,00</p>
 
-                  <button class="card-btn">
-                    <ion-icon name="basket"></ion-icon>
-                  </button>
+                      <button class="card-btn">
+                        <ion-icon name="basket"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
+              </li>
 
-          <li class="scrollbar-item">
-            <div class="shop-card">
-              <figure
-                class="card-banner img-holder"
-                
-              >
-                <img
-                  src="./assets/images/shop-img-3.png"
-                  width="300"
-                  height="260"
-                  loading="lazy"
-                  alt="Baldurs Gates 3"
-                  class="img-cover"
-                />
-              </figure>
+              <li class="scrollbar-item">
+                <div class="shop-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="./assets/images/shop-img-3.png"
+                      width="300"
+                      height="260"
+                      loading="lazy"
+                      alt="Baldurs Gates 3"
+                      class="img-cover"
+                    />
+                  </figure>
 
-              <div class="card-content">
-                <a href="#" class="card-badge skewBg">RPG</a>
+                  <div class="card-content">
+                    <a href="#" class="card-badge skewBg">RPG</a>
 
-                <h3 class="h3">
-                  <a href="#" class="card-title">Baldur's Gate 3</a>
-                </h3>
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Baldur's Gate 3</a>
+                    </h3>
 
-                <div class="card-wrapper">
-                  <p class="card-price">ARS$ 9.999,00</p>
+                    <div class="card-wrapper">
+                      <p class="card-price">ARS$ 9.999,00</p>
 
-                  <button class="card-btn">
-                    <ion-icon name="basket"></ion-icon>
-                  </button>
+                      <button class="card-btn">
+                        <ion-icon name="basket"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
+              </li>
 
-          <li class="scrollbar-item">
-            <div class="shop-card">
-              <figure
-                class="card-banner img-holder"
-                
-              >
-                <img
-                  src="./assets/images/shop-img-4.jpg"
-                  width="300"
-                  height="260"
-                  loading="lazy"
-                  alt="Virtual Reality Smiled"
-                  class="img-cover"
-                />
-              </figure>
+              <li class="scrollbar-item">
+                <div class="shop-card">
+                  <figure class="card-banner img-holder">
+                    <img
+                      src="./assets/images/shop-img-4.jpg"
+                      width="300"
+                      height="260"
+                      loading="lazy"
+                      alt="Virtual Reality Smiled"
+                      class="img-cover"
+                    />
+                  </figure>
 
-              <div class="card-content">
-                <a href="#" class="card-badge skewBg">accion</a>
+                  <div class="card-content">
+                    <a href="#" class="card-badge skewBg">accion</a>
 
-                <h3 class="h3">
-                  <a href="#" class="card-title">Resident Evil 4</a>
-                </h3>
+                    <h3 class="h3">
+                      <a href="#" class="card-title">Resident Evil 4</a>
+                    </h3>
 
-                <div class="card-wrapper">
-                  <p class="card-price">ARS$ 12.958,00 </p>
+                    <div class="card-wrapper">
+                      <p class="card-price">ARS$ 12.958,00</p>
 
-                  <button class="card-btn">
-                    <ion-icon name="basket"></ion-icon>
-                  </button>
+                      <button class="card-btn">
+                        <ion-icon name="basket"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-        <!-- 
-        - #BLOG
-      -->
+              </li>
+            </ul>
+          </div>
+        </section>
 
         <section class="section blog" id="blog" aria-label="blog">
           <div class="container">
@@ -1432,17 +1332,15 @@
             </h2>
 
             <p class="section-text">
-              Gracias por formar parte de la increíble comunidad de RollingGames, descubre aqui nuestra seccion de noticias
-              ¡y asegúrate de no perdérte nada!
+              Gracias por formar parte de la increíble comunidad de
+              RollingGames, descubre aqui nuestra seccion de noticias ¡y
+              asegúrate de no perdérte nada!
             </p>
 
             <ul class="blog-list">
               <li>
                 <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    
-                  >
+                  <figure class="card-banner img-holder">
                     <img
                       src="./assets/images/blog-1.jpg"
                       width="400"
@@ -1475,7 +1373,8 @@
                     </h3>
 
                     <p class="card-text">
-                      EA Sports FC 24: EA confirma la velocidad de fotogramas y la resolución de FC 24 Nintendo Switch.
+                      EA Sports FC 24: EA confirma la velocidad de fotogramas y
+                      la resolución de FC 24 Nintendo Switch.
                     </p>
 
                     <a href="#" class="card-link">
@@ -1489,10 +1388,7 @@
 
               <li>
                 <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    
-                  >
+                  <figure class="card-banner img-holder">
                     <img
                       src="./assets/images/blog-2.jpg"
                       width="400"
@@ -1525,7 +1421,8 @@
                     </h3>
 
                     <p class="card-text">
-                      The Walking Dead se prepara para lanzar un nuevo juego con el próximo capítulo de Saints & Sinners.
+                      The Walking Dead se prepara para lanzar un nuevo juego con
+                      el próximo capítulo de Saints & Sinners.
                     </p>
 
                     <a href="#" class="card-link">
@@ -1539,10 +1436,7 @@
 
               <li>
                 <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    
-                  >
+                  <figure class="card-banner img-holder">
                     <img
                       src="./assets/images/blog-3.jpg"
                       width="400"
@@ -1575,7 +1469,8 @@
                     </h3>
 
                     <p class="card-text">
-                      The Rollin Game se prepara para lanzar su primer gran juego tras el éxito de su gamestore argentina.
+                      The Rollin Game se prepara para lanzar su primer gran
+                      juego tras el éxito de su gamestore argentina.
                     </p>
 
                     <a href="#" class="card-link">
@@ -1589,16 +1484,12 @@
             </ul>
           </div>
         </section>
-        
-        <!-- 
-          - #NEWSLETTER
-        -->
-        
+
         <section class="newsletter container" aria-label="newsletter">
           <div class="row">
             <div class="newsletter-card">
               <h2 class="h2">Our <span class="span">Newsletter</span></h2>
-  
+
               <form action="" class="newsletter-form">
                 <div class="input-wrapper skewBg">
                   <input
@@ -1609,13 +1500,13 @@
                     required
                     class="email-field"
                   />
-  
+
                   <ion-icon name="mail-outline"></ion-icon>
                 </div>
-  
+
                 <button type="submit" class="btn newsletter-btn skewBg">
                   <span class="span">Suscríbete</span>
-  
+
                   <ion-icon name="paper-plane" aria-hidden="true"></ion-icon>
                 </button>
               </form>
@@ -1625,10 +1516,6 @@
       </article>
     </main>
 
-    <!-- 
-    - #FOOTER
-  -->
-
     <footer class="footer mt-5">
       <div class="footer-top">
         <div class="container">
@@ -1636,7 +1523,7 @@
             <a href="./index.html" class="logo">The Rolling Games</a>
 
             <p class="footer-text">
-              The Rolling Games marketplace fue fundada en 2023. 
+              The Rolling Games marketplace fue fundada en 2023.
             </p>
 
             <ul class="contact-list">
@@ -1678,11 +1565,15 @@
             </li>
 
             <li>
-              <a href="pages/error404.html" class="footer-link">Graphics (26)</a>
+              <a href="pages/error404.html" class="footer-link"
+                >Graphics (26)</a
+              >
             </li>
 
             <li>
-              <a href="pages/error404.html" class="footer-link">Backgrounds (11)</a>
+              <a href="pages/error404.html" class="footer-link"
+                >Backgrounds (11)</a
+              >
             </li>
 
             <li>
@@ -1694,7 +1585,9 @@
             </li>
 
             <li>
-              <a href="pages/error404.html" class="footer-link">Photography (3)</a>
+              <a href="pages/error404.html" class="footer-link"
+                >Photography (3)</a
+              >
             </li>
           </ul>
 
@@ -1704,15 +1597,21 @@
             </li>
 
             <li>
-              <a href="pages/error404.html" class="footer-link">Terms & Conditions</a>
+              <a href="pages/error404.html" class="footer-link"
+                >Terms & Conditions</a
+              >
             </li>
 
             <li>
-              <a href="pages/error404.html" class="footer-link">Privacy Policy</a>
+              <a href="pages/error404.html" class="footer-link"
+                >Privacy Policy</a
+              >
             </li>
 
             <li>
-              <a href="pages/error404.html" class="footer-link">Refund Policy</a>
+              <a href="pages/error404.html" class="footer-link"
+                >Refund Policy</a
+              >
             </li>
 
             <li>
@@ -1761,7 +1660,7 @@
                 <li>
                   <a
                     href="https://www.linkedin.com/home"
-                    class="social-link4"                    
+                    class="social-link4"
                     target="_blank"
                   >
                     <ion-icon name="logo-linkedin"></ion-icon>
@@ -1795,7 +1694,10 @@
         <div class="container">
           <p class="copyright">
             &copy; 2023 THE ROLLING GAMES. All Right Reserved by
-            <a href="#" class="copyright-link">Julieta Nahir Ferreyra, Carlos Eduardo Arias, Alexis Ulises Isla, Lain Robles, Gustavo Exequiel Aybar</a>
+            <a href="#" class="copyright-link"
+              >Julieta Nahir Ferreyra, Carlos Eduardo Arias, Alexis Ulises Isla,
+              Lain Robles, Gustavo Exequiel Aybar</a
+            >
           </p>
 
           <img
@@ -1810,7 +1712,7 @@
       </div>
     </footer>
 
-<!--#BACK TO TOP-->
+    <!--#BACK TO TOP-->
     <a
       href="#top"
       class="back-top-btn"
@@ -1820,14 +1722,18 @@
       <ion-icon name="caret-up"></ion-icon>
     </a>
 
-<!--custom js link-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!--custom js link-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
     <!-- <script src="./assets/js/bootstrap.min.js" defer></script> -->
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/itemDetail.js"></script>
     <script src="./assets/js/loginRegister.js"></script>
 
-<!--ionicon link-->
+    <!--ionicon link-->
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
