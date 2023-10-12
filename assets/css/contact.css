@@ -3,10 +3,9 @@
 padding-bottom: 20px;
 }
   
-  .contact {
-    width: 90%;
-    height: 90%;
-    padding: 100px;
+  .pageContact {
+    padding-top: 150px;
+     
   }
   
   .section-header {
@@ -58,20 +57,6 @@ padding-bottom: 20px;
     box-shadow: 2px 2px 10px rgb(10, 210, 245);
   }
 
-  
-  /* Begin Right Contact Page */
-  .direct-contact-container {
-    max-width: 400px;
-    margin-left: 50px;
-  }
-  
-  /* Location, Phone, Email Section */
-  .contact-list {
-    list-style-type: none;
-    margin-left: -30px;
-    padding-right: 20px;
-  }
-  
   .list-item {
     line-height: 4;
     color: #aaa;
@@ -248,6 +233,3 @@ padding-bottom: 20px;
     }
   }
 
-  .map{
-    padding-left: 100px;
-}
