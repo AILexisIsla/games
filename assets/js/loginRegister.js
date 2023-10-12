@@ -44,7 +44,7 @@ rePasswordRegistro.addEventListener("blur", () => {
   validarRePassword(rePasswordRegistro, passwordRegistro);
 });
 terminos.addEventListener("click", () => {
-  console.log(terminos.checked);
+  
 });
 
 formRegistro.addEventListener("submit", guardarUsuario);
@@ -94,12 +94,9 @@ function guardarUsuario(e) {
 
   arrayUsuarios.map((usuario) => {
     if (emailRegistro.value !== usuario.email) {
-      console.log("desde guardar usuario");
       usuarioExistente = false;
     } else {
       usuarioExistente = true;
-      console.log("el usuario ya existe");
-      console.log("desea recuperar clave?");
     }
 
     if (

@@ -43,7 +43,6 @@ campoDescripcion.addEventListener("blur", () => {
 });
 
 campoPublicado.addEventListener("click", () => {
-  console.log(campoPublicado.checked);
 });
 
 campoDestacado.addEventListener("click", () => {
@@ -122,6 +121,7 @@ function crearProducto() {
   borrarCatalogo();
   cargaInicial();
   juegoExistente = false;
+  loca.reload();
   Swal.fire(
     "Producto creado!",
     "El producto fue creado correctamente!",
@@ -257,12 +257,6 @@ function modificarJuego() {
   });
 }
 
-// function publicarJuego(juego){
-//   let color = document.querySelector(`#${juego}noPublicado`);
-//   color.className = "card-banner img-holder efectofoto";
-
-// }
-
 function borrarCatalogo() {
   let catalogoJuegos = document.querySelector("#catalogo");
   catalogoJuegos.innerHTML = "";
@@ -297,34 +291,6 @@ window.borrarJuego = function (codigo) {
   });
 };
 
-// function destacable(codigo) {
-//   let starOn = document.querySelector(`#${codigo}`);
-//   catalogoJuegos.map((juego) => {
-//     if (juego.codigo === codigo) {
-//       if (!juego.destacado) {
-//         starOn.innerHTML =
-//           '<img src="./assets/images/Star_Admin.png" alt="highlight">';
-//         juego.destacado = true;
-//       } else {
-//         starOn.innerHTML =
-//           '<img src="./assets/images/Black_Star_Admin.png" alt="highlight">';
-//         juego.destacado = false;
-//       }
-//     }
-//     guadarLocalStorage();
-//     borrarCatalogo();
-//     cargaInicial();
-//   });
-
-//   catalogoJuegos.map((juegoDestacado) => {
-//     if (juegoDestacado.destacado) {
-//       let starOff = document.querySelector(`#${juegoDestacado.codigo}`);
-//       starOff.innerHTML =
-//         '<img src="./assets/images/Black_Star_Admin.png" alt="highlight">';
-//       juegoDestacado.destacado = false;
-//     }
-//   });
-// }
 
 function cargarDatosPrueba() {
   const datos = [
